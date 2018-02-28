@@ -120,7 +120,6 @@ class GameScene: Scene {
             obstable.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
             
             // power down
-            
             let powerX = Float(self.gameArea.width / 2)
             let powerY = Float(self.gameArea.height * 0.2 + 3.75 + 1)
             let powerZ : Float = -30.0
@@ -133,6 +132,15 @@ class GameScene: Scene {
             powerdown.scaleZ = 1 * obstacleScale * 0.7 * 0.5
             powerdown.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
             
+            // power up
+            let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
+            //powerdown.position = GLKVector3Make(0.25, 0.25, -2)
+            
+            powerup.scaleY = 1 * 0.7 * 0.5
+            powerup.scaleX = 1 / 3 * 0.7 * 0.5
+            powerup.scaleZ = 1 * obstacleScale * 0.7 * 0.5
+            powerup.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
+            
             let positionHorizontal: Int = Int(arc4random_uniform(UInt32(3)))
             switch (positionHorizontal)
             {
@@ -144,12 +152,14 @@ class GameScene: Scene {
                 // middle
                 // powerdown right
                 powerdown.position.x += 1/3
+                powerup.position.x += 1/3
                 break;
             case 2:
                 // right
                 obstable.position.x += 1/3
                 // powerdown left
                 powerdown.position.x -= 1/3
+                powerup.position.x -= 1/3
                 break;
             default:
                 break;
@@ -173,7 +183,7 @@ class GameScene: Scene {
                 break;
             }
             
-            let appendExtras: Int = Int(arc4random_uniform(UInt32(5)))
+            let appendExtras: Int = Int(arc4random_uniform(UInt32(6)))
             switch (appendExtras)
             {
             case 0:
@@ -188,6 +198,9 @@ class GameScene: Scene {
             case 3:
                 break;
             case 4:
+                break;
+            case 5:
+                platform.children.append(powerup)
                 break;
             default:
                 break;

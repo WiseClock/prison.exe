@@ -30,11 +30,7 @@ class PowerUp : Cube {
         super.init(shader: shader)
         
         // set color and size of power-up
-        self.matColor = GLKVector4Make(0, 1, 0, 1)
-        self.scaleY = 2.0
-        self.scaleX = 2.0
-        self.scaleZ = 2.0
-        
+        self.matColor = GLKVector4Make(0, 1, 0, 1)        
     }
     
     // Still need to add the function to do the power up
