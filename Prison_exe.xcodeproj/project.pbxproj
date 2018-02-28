@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2581354720464219008ECC4F /* bcit.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2581354520464219008ECC4F /* bcit.obj */; };
+		2581354820464219008ECC4F /* bcit.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 2581354620464219008ECC4F /* bcit.mtl */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
 		940232BB203C070B007C9325 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 940232B9203C070B007C9325 /* pop.wav */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2581354520464219008ECC4F /* bcit.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bcit.obj; sourceTree = "<group>"; };
+		2581354620464219008ECC4F /* bcit.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bcit.mtl; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		940232B9203C070B007C9325 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25813544204641D5008ECC4F /* Obstacle */ = {
+			isa = PBXGroup;
+			children = (
+				2581354620464219008ECC4F /* bcit.mtl */,
+				2581354520464219008ECC4F /* bcit.obj */,
+			);
+			path = Obstacle;
+			sourceTree = "<group>";
+		};
 		940232B7203C070B007C9325 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +138,7 @@
 		9447457F202CF3F900BAB97B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25813544204641D5008ECC4F /* Obstacle */,
 				94474582202CF3F900BAB97B /* Cube */,
 			);
 			path = Model;
@@ -260,11 +274,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
+				2581354820464219008ECC4F /* bcit.mtl in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				940232BB203C070B007C9325 /* pop.wav in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
+				2581354720464219008ECC4F /* bcit.obj in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);

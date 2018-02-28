@@ -9,15 +9,36 @@ import GLKit
 
 // scene that holds our main gameplay logic
 class GameScene: Scene {
+    let maxPlatformSize: Int = 10;
+    let obstacleScale: Float = 7.0 // one meter
+    
     var gameArea: CGSize
     let sceneOffset: Float
     
     var previousTouchLocation = CGPoint.zero
     
     var player: Player
-    var platform: Cube
+    var platforms: Cube
+    
+    let obstacleNames = ["bcit"]
+    var obstacles = [MDLAsset]()
+    
+    // per second
+    let velocity: Double = 1
     
     init(shaderProgram: ShaderProgram) {
+        
+        // import obstacles
+        for name in obstacleNames
+        {
+            guard let url = Bundle.main.url(forResource: name, withExtension: "obj")
+                else
+                {
+                    fatalError("Failed to find model file.")
+                }
+            let asset = MDLAsset(url: url)
+            obstacles.append(asset)
+        }
         
         // setup a virtual game size so we have a manageable work area
         self.gameArea = CGSize(width: 27, height: 48)
@@ -38,16 +59,19 @@ class GameScene: Scene {
         
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
-
-        // initialize platform with properties
-        self.platform = Cube(shader: shaderProgram)
-        self.platform.scaleY = 200.0
-        self.platform.scaleX = 20.0
-        self.platform.rotationX = GLKMathDegreesToRadians(90)
-        self.platform.position = GLKVector3Make(Float(self.gameArea.width / 2),
-                                                Float(self.gameArea.height * 0.2), -75.0)
         
+        platforms = Cube(shader: shaderProgram)
+        platforms.scaleY = 1
+        platforms.scaleX = 1
+        platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
         super.init(name: "GameScene", shaderProgram: shaderProgram)
+        
+        // initialize platform with properties
+        for index in 1 ... maxPlatformSize
+        {
+            let platform = buildPlatform(atZ: -1 * obstacleScale * Float(index - 1))
+            self.platforms.children.append(platform)
+        }
         
         // create the initial scene position so (x,y): (0, 0) is the center of the screen
         self.position = GLKVector3Make(Float(-self.gameArea.width / 2),
@@ -59,13 +83,99 @@ class GameScene: Scene {
         
         // add objects as children of the scene
         self.children.append(self.player)
-        self.children.append(self.platform)
-        
+        self.children.append(self.platforms)
     }
     
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
         
+        // in frame velocity
+        let v = velocity * dt
+        movePlatforms(velocity: v)
+    }
+    
+    func buildPlatform(atZ: Float) -> Cube
+    {
+        let platform: Cube = Cube(shader: shaderProgram)
+        platform.scaleY = 1 * obstacleScale
+        platform.scaleX = 3 * obstacleScale
+        platform.rotationX = GLKMathDegreesToRadians(90)
+        platform.position = GLKVector3Make(0, 0, atZ)
+        
+        if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
+        {
+            let obstable: Cube = Cube(shader: shaderProgram)
+            obstable.scaleY = 1 * 0.7
+            obstable.scaleX = 1 / 3 * 0.7
+            obstable.scaleZ = 1 * obstacleScale * 0.7
+            obstable.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
+
+            let positionHorizontal: Int = Int(arc4random_uniform(UInt32(3)))
+            switch (positionHorizontal)
+            {
+            case 0:
+                // left
+                obstable.position.x -= 1/3
+                break;
+            case 1:
+                // middle
+                break;
+            case 2:
+                // right
+                obstable.position.x += 1/3
+                break;
+            default:
+                break;
+            }
+            
+            let positionVertical: Int = Int(arc4random_uniform(UInt32(3)))
+            switch (positionVertical)
+            {
+            case 0:
+                // top
+                obstable.position.z -= obstacleScale
+                break;
+            case 1:
+                // center
+                break;
+            case 2:
+                // bottom
+                obstable.position.z += 1/2 * obstacleScale
+                break;
+            default:
+                break;
+            }
+            
+            platform.children.append(obstable)
+        }
+        
+        return platform
+    }
+    
+    func movePlatforms(velocity: Double)
+    {
+        for platform in self.platforms.children
+        {
+            platform.position.z += Float(velocity) * obstacleScale
+        }
+        
+        // delete platfroms cant be seen
+        var index = self.platforms.children.index(where: { (item) -> Bool in
+            item.position.z >= obstacleScale * 1.5
+        })
+        while (index != nil)
+        {
+            self.platforms.children.remove(at: index!)
+            
+            // add new
+            let lastZPos = self.platforms.children.last?.position.z
+            let newCube: Cube = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
+            self.platforms.children.append(newCube)
+            
+            index = self.platforms.children.index(where: { (item) -> Bool in
+                item.position.z >= obstacleScale * 1.5
+            })
+        }
     }
     
     // convert a touch location to actual game space coordinates
