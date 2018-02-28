@@ -26,6 +26,8 @@ class GameScene: Scene {
     // per second
     let velocity: Double = 1
     
+    //var powerdown: PowerDown
+    
     init(shaderProgram: ShaderProgram) {
         
         // import obstacles
@@ -64,6 +66,9 @@ class GameScene: Scene {
         platforms.scaleY = 1
         platforms.scaleX = 1
         platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
+        
+        
+        
         super.init(name: "GameScene", shaderProgram: shaderProgram)
         
         // initialize platform with properties
@@ -84,6 +89,8 @@ class GameScene: Scene {
         // add objects as children of the scene
         self.children.append(self.player)
         self.children.append(self.platforms)
+        //self.children.append(self.powerdown)
+        
     }
     
     override func updateWithDelta(_ dt: TimeInterval) {
@@ -102,6 +109,8 @@ class GameScene: Scene {
         platform.rotationX = GLKMathDegreesToRadians(90)
         platform.position = GLKVector3Make(0, 0, atZ)
         
+        
+        
         if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
         {
             let obstable: Cube = Cube(shader: shaderProgram)
@@ -109,7 +118,21 @@ class GameScene: Scene {
             obstable.scaleX = 1 / 3 * 0.7
             obstable.scaleZ = 1 * obstacleScale * 0.7
             obstable.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
-
+            
+            // power down
+            
+            let powerX = Float(self.gameArea.width / 2)
+            let powerY = Float(self.gameArea.height * 0.2 + 3.75 + 1)
+            let powerZ : Float = -30.0
+            let powerPosition = GLKVector3Make(powerX, powerY, powerZ)
+            let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
+            //powerdown.position = GLKVector3Make(0.25, 0.25, -2)
+            
+            powerdown.scaleY = 1 * 0.7 * 0.5
+            powerdown.scaleX = 1 / 3 * 0.7 * 0.5
+            powerdown.scaleZ = 1 * obstacleScale * 0.7 * 0.5
+            powerdown.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
+            
             let positionHorizontal: Int = Int(arc4random_uniform(UInt32(3)))
             switch (positionHorizontal)
             {
@@ -119,10 +142,14 @@ class GameScene: Scene {
                 break;
             case 1:
                 // middle
+                // powerdown right
+                powerdown.position.x += 1/3
                 break;
             case 2:
                 // right
                 obstable.position.x += 1/3
+                // powerdown left
+                powerdown.position.x -= 1/3
                 break;
             default:
                 break;
@@ -146,7 +173,26 @@ class GameScene: Scene {
                 break;
             }
             
-            platform.children.append(obstable)
+            let appendExtras: Int = Int(arc4random_uniform(UInt32(5)))
+            switch (appendExtras)
+            {
+            case 0:
+                platform.children.append(obstable)
+                break;
+            case 1:
+                platform.children.append(obstable)
+                break;
+            case 2:
+                platform.children.append(powerdown)
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+            }
+
         }
         
         return platform
