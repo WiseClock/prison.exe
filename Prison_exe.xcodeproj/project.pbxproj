@@ -30,6 +30,8 @@
 		9491D6EC203E1BF0005D65BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491D6EB203E1BF0005D65BD /* Player.swift */; };
 		949AEDEE20362BF200A436A1 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AEDED20362BF200A436A1 /* Scene.swift */; };
 		94E7B9D6203A4A6000A6A1CE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7B9D5203A4A6000A6A1CE /* GameScene.swift */; };
+		C1162A242046744700D55DD3 /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1162A222046744700D55DD3 /* PowerUp.swift */; };
+		C1162A252046744700D55DD3 /* PowerDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1162A232046744700D55DD3 /* PowerDown.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		9491D6EB203E1BF0005D65BD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		949AEDED20362BF200A436A1 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		94E7B9D5203A4A6000A6A1CE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C1162A222046744700D55DD3 /* PowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
+		C1162A232046744700D55DD3 /* PowerDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerDown.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 		9447457A202CF3F900BAB97B /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				C1162A232046744700D55DD3 /* PowerDown.swift */,
+				C1162A222046744700D55DD3 /* PowerUp.swift */,
 				9447457B202CF3F900BAB97B /* Cube.swift */,
 				9447457D202CF3F900BAB97B /* Node.swift */,
 				9491D6EB203E1BF0005D65BD /* Player.swift */,
@@ -296,11 +302,13 @@
 				94735FAF203CC06F00CA24B6 /* TestScene.swift in Sources */,
 				9447458D202CF3F900BAB97B /* AppDelegate.swift in Sources */,
 				9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */,
+				C1162A252046744700D55DD3 /* PowerDown.swift in Sources */,
 				949AEDEE20362BF200A436A1 /* Scene.swift in Sources */,
 				9447458E202CF3F900BAB97B /* Cube.swift in Sources */,
 				9491D6EC203E1BF0005D65BD /* Player.swift in Sources */,
 				94735FAD203CBE8200CA24B6 /* Vertex.swift in Sources */,
 				9447458B202CF3F900BAB97B /* ViewController.swift in Sources */,
+				C1162A242046744700D55DD3 /* PowerUp.swift in Sources */,
 				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
 				94E7B9D6203A4A6000A6A1CE /* GameScene.swift in Sources */,
 				94735FAA203CBE7D00CA24B6 /* GameManager.swift in Sources */,
