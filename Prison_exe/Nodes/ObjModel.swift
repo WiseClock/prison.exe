@@ -33,7 +33,8 @@ class ObjModel : Node, NSCopying {
         self.shader = shader
         self.tex = texture
         
-        var triangles = [String]()
+        var triangleInt = [String : Int]()
+        var triangleCount: Int = 0
         var v = [String]()
         var vt = [String]()
         var vn = [String]()
@@ -72,10 +73,11 @@ class ObjModel : Node, NSCopying {
                     for index in 1 ... faces.count - 1
                     {
                         let hash:String = String(faces[index])
-                        if (!triangles.contains(hash))
+                        if (triangleInt[hash] == nil) // does not contain
                         {
-                            indexList.append(UInt32(triangles.count))
-                            triangles.append(hash)
+                            indexList.append(UInt32(triangleCount))
+                            triangleInt[hash] = triangleCount
+                            triangleCount += 1
                             
                             let faceIndices = hash.split(separator: "/")
                             let vIndex: Int = Int(String(faceIndices[0]))!
@@ -97,9 +99,9 @@ class ObjModel : Node, NSCopying {
                                 Float(String(vnParts[0]))!, Float(String(vnParts[1]))!, Float(String(vnParts[2]))!)
                             vertexList.append(vert)
                         }
-                        else
+                        else // contains
                         {
-                            let index = triangles.index(of: hash)
+                            let index = triangleInt[hash]
                             indexList.append(UInt32(index!))
                         }
                     }
