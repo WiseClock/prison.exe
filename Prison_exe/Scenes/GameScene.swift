@@ -18,22 +18,27 @@ class GameScene: Scene {
     var previousTouchLocation = CGPoint.zero
     
     var player: Player
-    var platforms: Cube
+    var platforms: Node
     
-    var obstacleNames = ["thor"]
-    var obstacles = [ObjModel]()
+    var obstacleAssets = [
+        [
+            "FireHydrant",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Center]
+        ]
+    ]
+    var obstacles = [ObstacleBaby]()
     
     // per second
     let velocity: Double = 1
     
-    //var powerdown: PowerDown
-    
     init(shaderProgram: ShaderProgram) {
         
         // import obstacles
-        for name in obstacleNames
+        for asset in obstacleAssets
         {
-            obstacles.append(ObjModel.init(Bundle.main.path(forResource: name, ofType: "obj")!, shader: shaderProgram))
+            let name: String = asset[0] as! String
+            obstacles.append(ObstacleBaby.init(name, shader: shaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
         }
         
         // setup a virtual game size so we have a manageable work area
@@ -56,12 +61,10 @@ class GameScene: Scene {
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
         
-        platforms = Cube(shader: shaderProgram)
+        platforms = Node(name: "empty", shaderProgram: shaderProgram)
         platforms.scaleY = 1
         platforms.scaleX = 1
         platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
-        
-        
         
         super.init(name: "GameScene", shaderProgram: shaderProgram)
         
@@ -98,110 +101,120 @@ class GameScene: Scene {
     func buildPlatform(atZ: Float) -> Cube
     {
         let platform: Cube = Cube(shader: shaderProgram)
-        platform.scaleY = 1 * obstacleScale
         platform.scaleX = 3 * obstacleScale
-        platform.rotationX = GLKMathDegreesToRadians(90)
+        // platform.scaleY = 1
+        platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
-        
-        
         
         if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
         {
-            let obstacle: ObjModel = obstacles[0].copy() as! ObjModel
-            obstacle.scaleY = 1 * 0.7
-            obstacle.scaleX = 1 / 3 * 0.7
-            obstacle.scaleZ = 1 * obstacleScale * 0.7
-            obstacle.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
+            let rand: Int = Int(arc4random_uniform(100))
             
-            // power down
-            let powerX = Float(self.gameArea.width / 2)
-            let powerY = Float(self.gameArea.height * 0.2 + 3.75 + 1)
-            let powerZ : Float = -30.0
-            let powerPosition = GLKVector3Make(powerX, powerY, powerZ)
-            let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
-            //powerdown.position = GLKVector3Make(0.25, 0.25, -2)
-            
-            powerdown.scaleY = 1 * 0.7 * 0.5
-            powerdown.scaleX = 1 / 3 * 0.7 * 0.5
-            powerdown.scaleZ = 1 * obstacleScale * 0.7 * 0.5
-            powerdown.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
-            
-            // power up
-            let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
-            //powerdown.position = GLKVector3Make(0.25, 0.25, -2)
-            
-            powerup.scaleY = 1 * 0.7 * 0.5
-            powerup.scaleX = 1 / 3 * 0.7 * 0.5
-            powerup.scaleZ = 1 * obstacleScale * 0.7 * 0.5
-            powerup.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
-            
-            let positionHorizontal: Int = Int(arc4random_uniform(UInt32(3)))
-            switch (positionHorizontal)
+            if (rand <= 20) // powerup
             {
-            case 0:
-                // left
+                // power up
+                let powerPosition = GLKVector3Make(0, 0, 0)
+                let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
+                
+                powerup.scaleZ = 1 * 0.5
+                powerup.scaleX = 1 / 3 * 0.5
+                powerup.scaleY = 1 * obstacleScale * 0.5
+                
+                let randPos: Int = Int(arc4random_uniform(3))
+                switch (randPos)
+                {
+                case 0:
+                    powerup.position.x -= 1/3
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    powerup.position.x += 1/3
+                    break;
+                default:
+                    break;
+                }
+                
+                platform.children.append(powerup)
+                return platform
+            }
+            else if (rand <= 40) // powerdown
+            {
+                // power down
+                let powerPosition = GLKVector3Make(0, 0, 0)
+                let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
+                
+                powerdown.scaleZ = 1 * 0.7 * 0.5
+                powerdown.scaleX = 1 / 3 * 0.7 * 0.5
+                powerdown.scaleY = 1 * obstacleScale * 0.7 * 0.5
+                
+                let randPos: Int = Int(arc4random_uniform(3))
+                switch (randPos)
+                {
+                case 0:
+                    powerdown.position.x -= 1/3
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    powerdown.position.x += 1/3
+                    break;
+                default:
+                    break;
+                }
+                
+                platform.children.append(powerdown)
+                return platform
+            }
+            else if (rand > 80)
+            {
+                return platform;
+            }
+            
+            // obstacle
+            
+            let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
+            let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
+            let obstacle: ObjModel = obstacleBaby.instantiate()
+            obstacle.scaleZ = 1 * 0.7
+            obstacle.scaleX = 1 / 3 * 0.7
+            obstacle.scaleY = 1 * obstacleScale * 0.7
+            obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
+            
+            let obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
+            let obstacleVerticle: EObstaclePosition = obstacleBaby.getRandomVerticle()
+
+            switch (obstacleHorizontal)
+            {
+            case EObstaclePosition.Left:
                 obstacle.position.x -= 1/3
                 break;
-            case 1:
-                // middle
-                // powerdown right
-                powerdown.position.x += 1/3
-                powerup.position.x += 1/3
+            case EObstaclePosition.Middle:
                 break;
-            case 2:
-                // right
+            case EObstaclePosition.Right:
                 obstacle.position.x += 1/3
-                // powerdown left
-                powerdown.position.x -= 1/3
-                powerup.position.x -= 1/3
                 break;
             default:
                 break;
             }
             
-            let positionVertical: Int = Int(arc4random_uniform(UInt32(3)))
-            switch (positionVertical)
+            switch (obstacleVerticle)
             {
-            case 0:
-                // top
-                obstacle.position.z -= obstacleScale
+            case EObstaclePosition.Top:
+                obstacle.position.y -= obstacleScale
                 break;
-            case 1:
-                // center
+            case EObstaclePosition.Center:
                 break;
-            case 2:
-                // bottom
-                obstacle.position.z += 1/2 * obstacleScale
+            case EObstaclePosition.Bottom:
+                obstacle.position.y += 1/2 * obstacleScale
                 break;
             default:
                 break;
             }
             
-            let appendExtras: Int = Int(arc4random_uniform(UInt32(6)))
-            switch (appendExtras)
-            {
-            case 0:
-                platform.children.append(obstacle)
-                break;
-            case 1:
-                platform.children.append(obstacle)
-                break;
-            case 2:
-                platform.children.append(powerdown)
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                platform.children.append(powerup)
-                break;
-            default:
-                break;
-            }
-
+            platform.children.append(obstacle)
+            return platform
         }
-        
         return platform
     }
     

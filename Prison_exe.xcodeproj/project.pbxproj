@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25813581204798F9008ECC4F /* thor.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 2581357F204798F8008ECC4F /* thor.mtl */; };
-		25813582204798F9008ECC4F /* thor.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25813580204798F9008ECC4F /* thor.obj */; };
+		252372D12048AEB9004B73CB /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372D02048AEB9004B73CB /* FireHydrant.png */; };
+		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
+		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
+		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
@@ -36,8 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2581357F204798F8008ECC4F /* thor.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = thor.mtl; sourceTree = "<group>"; };
-		25813580204798F9008ECC4F /* thor.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = thor.obj; sourceTree = "<group>"; };
+		252372D02048AEB9004B73CB /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
+		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
+		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
+		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -80,8 +84,8 @@
 		25813544204641D5008ECC4F /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
-				2581357F204798F8008ECC4F /* thor.mtl */,
-				25813580204798F9008ECC4F /* thor.obj */,
+				252372D02048AEB9004B73CB /* FireHydrant.png */,
+				252372D22048B2F2004B73CB /* FireHydrant.obj */,
 			);
 			path = Obstacle;
 			sourceTree = "<group>";
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				94474575202CF3F900BAB97B /* GLKMatrix+Array.swift */,
+				252372D42048B3A0004B73CB /* EObstaclePosition.swift */,
+				252372D62048B478004B73CB /* ObstacleBaby.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -282,13 +288,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25813581204798F9008ECC4F /* thor.mtl in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
+				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
 				940232BB203C070B007C9325 /* pop.wav in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
+				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
-				25813582204798F9008ECC4F /* thor.obj in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
@@ -313,7 +319,9 @@
 				94735FAD203CBE8200CA24B6 /* Vertex.swift in Sources */,
 				9447458B202CF3F900BAB97B /* ViewController.swift in Sources */,
 				C1162A242046744700D55DD3 /* PowerUp.swift in Sources */,
+				252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */,
 				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
+				252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */,
 				94E7B9D6203A4A6000A6A1CE /* GameScene.swift in Sources */,
 				94735FAA203CBE7D00CA24B6 /* GameManager.swift in Sources */,
 				940232B6203C0458007C9325 /* GameOverScene.swift in Sources */,
