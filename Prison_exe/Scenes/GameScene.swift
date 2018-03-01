@@ -20,9 +20,6 @@ class GameScene: Scene {
     var player: Player
     var platforms: Cube
     
-    let obstacleNames = ["bcit"]
-    var obstacles = [MDLAsset]()
-    
     // per second
     let velocity: Double = 1
     
@@ -31,16 +28,6 @@ class GameScene: Scene {
     init(shaderProgram: ShaderProgram) {
         
         // import obstacles
-        for name in obstacleNames
-        {
-            guard let url = Bundle.main.url(forResource: name, withExtension: "obj")
-                else
-                {
-                    fatalError("Failed to find model file.")
-                }
-            let asset = MDLAsset(url: url)
-            obstacles.append(asset)
-        }
         
         // setup a virtual game size so we have a manageable work area
         self.gameArea = CGSize(width: 27, height: 48)
@@ -113,11 +100,11 @@ class GameScene: Scene {
         
         if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
         {
-            let obstable: Cube = Cube(shader: shaderProgram)
-            obstable.scaleY = 1 * 0.7
-            obstable.scaleX = 1 / 3 * 0.7
-            obstable.scaleZ = 1 * obstacleScale * 0.7
-            obstable.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
+            let obstacle: Cube = Cube(shader: shaderProgram)
+            obstacle.scaleY = 1 * 0.7
+            obstacle.scaleX = 1 / 3 * 0.7
+            obstacle.scaleZ = 1 * obstacleScale * 0.7
+            obstacle.position = GLKVector3Make(0, 0.5, -1/2 * obstacleScale) // x,z,y
             
             // power down
             let powerX = Float(self.gameArea.width / 2)
@@ -146,7 +133,7 @@ class GameScene: Scene {
             {
             case 0:
                 // left
-                obstable.position.x -= 1/3
+                obstacle.position.x -= 1/3
                 break;
             case 1:
                 // middle
@@ -156,7 +143,7 @@ class GameScene: Scene {
                 break;
             case 2:
                 // right
-                obstable.position.x += 1/3
+                obstacle.position.x += 1/3
                 // powerdown left
                 powerdown.position.x -= 1/3
                 powerup.position.x -= 1/3
@@ -170,14 +157,14 @@ class GameScene: Scene {
             {
             case 0:
                 // top
-                obstable.position.z -= obstacleScale
+                obstacle.position.z -= obstacleScale
                 break;
             case 1:
                 // center
                 break;
             case 2:
                 // bottom
-                obstable.position.z += 1/2 * obstacleScale
+                obstacle.position.z += 1/2 * obstacleScale
                 break;
             default:
                 break;
@@ -187,10 +174,10 @@ class GameScene: Scene {
             switch (appendExtras)
             {
             case 0:
-                platform.children.append(obstable)
+                platform.children.append(obstacle)
                 break;
             case 1:
-                platform.children.append(obstable)
+                platform.children.append(obstacle)
                 break;
             case 2:
                 platform.children.append(powerdown)
