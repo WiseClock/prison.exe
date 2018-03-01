@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25813581204798F9008ECC4F /* thor.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 2581357F204798F8008ECC4F /* thor.mtl */; };
 		25813582204798F9008ECC4F /* thor.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25813580204798F9008ECC4F /* thor.obj */; };
+		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
 		940232BB203C070B007C9325 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 940232B9203C070B007C9325 /* pop.wav */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		2581357F204798F8008ECC4F /* thor.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = thor.mtl; sourceTree = "<group>"; };
 		25813580204798F9008ECC4F /* thor.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = thor.obj; sourceTree = "<group>"; };
+		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		940232B9203C070B007C9325 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				9447457B202CF3F900BAB97B /* Cube.swift */,
 				9447457D202CF3F900BAB97B /* Node.swift */,
 				9491D6EB203E1BF0005D65BD /* Player.swift */,
+				25813583204799AD008ECC4F /* ObjModel.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */,
 				C1162A252046744700D55DD3 /* PowerDown.swift in Sources */,
 				949AEDEE20362BF200A436A1 /* Scene.swift in Sources */,
+				25813584204799AD008ECC4F /* ObjModel.swift in Sources */,
 				9447458E202CF3F900BAB97B /* Cube.swift in Sources */,
 				9491D6EC203E1BF0005D65BD /* Player.swift in Sources */,
 				94735FAD203CBE8200CA24B6 /* Vertex.swift in Sources */,

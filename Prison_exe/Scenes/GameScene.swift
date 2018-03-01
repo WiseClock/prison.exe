@@ -20,6 +20,9 @@ class GameScene: Scene {
     var player: Player
     var platforms: Cube
     
+    var obstacleNames = ["thor"]
+    var obstacles = [ObjModel]()
+    
     // per second
     let velocity: Double = 1
     
@@ -28,6 +31,10 @@ class GameScene: Scene {
     init(shaderProgram: ShaderProgram) {
         
         // import obstacles
+        for name in obstacleNames
+        {
+            obstacles.append(ObjModel.init(Bundle.main.path(forResource: name, ofType: "obj")!, shader: shaderProgram))
+        }
         
         // setup a virtual game size so we have a manageable work area
         self.gameArea = CGSize(width: 27, height: 48)
@@ -100,7 +107,7 @@ class GameScene: Scene {
         
         if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
         {
-            let obstacle: Cube = Cube(shader: shaderProgram)
+            let obstacle: ObjModel = obstacles[0].copy() as! ObjModel
             obstacle.scaleY = 1 * 0.7
             obstacle.scaleX = 1 / 3 * 0.7
             obstacle.scaleZ = 1 * obstacleScale * 0.7
