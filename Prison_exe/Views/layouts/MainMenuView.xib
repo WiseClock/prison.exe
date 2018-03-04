@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainMenuView" customModule="Prison_exe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="fdT-HW-9Ii"/>
+                <outlet property="titleImage" destination="2dl-ZA-Zdr" id="YgR-Xx-pMe"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title_placeholder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2dl-ZA-Zdr">
+                    <rect key="frame" x="40" y="62.5" width="240" height="278"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="QcB-S9-6f4"/>
+                        <constraint firstAttribute="height" constant="278" id="r9T-eh-DDD"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prison.EXE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAr-eO-9o4">
+                    <rect key="frame" x="103" y="33.5" width="114" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Pds-wp-9bc"/>
+                        <constraint firstAttribute="width" constant="114" id="kcD-zd-dRH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.38431372549019605" green="0.92156862745098034" blue="0.87450980392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJz-92-L6A">
+                    <rect key="frame" x="44.5" y="356.5" width="231" height="44"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="231" id="9Ri-eD-fkp"/>
+                        <constraint firstAttribute="height" constant="44" id="POM-6r-Rdp"/>
+                    </constraints>
+                    <state key="normal" title="Play Game"/>
+                    <connections>
+                        <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="Tx6-r1-1ZE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjA-SV-d3M">
+                    <rect key="frame" x="44.5" y="416.5" width="231" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="GWf-f1-YhK"/>
+                        <constraint firstAttribute="width" constant="231" id="qeT-aY-Mfm"/>
+                    </constraints>
+                    <state key="normal" title="High Scores"/>
+                    <connections>
+                        <action selector="highScoresButtonPressed:" destination="-1" eventType="touchUpInside" id="wlu-SY-MWF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-QK-RE9">
+                    <rect key="frame" x="44.5" y="476.5" width="231" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="231" id="fGe-ni-VAY"/>
+                        <constraint firstAttribute="height" constant="44" id="u3j-HT-fbc"/>
+                    </constraints>
+                    <state key="normal" title="Help"/>
+                    <connections>
+                        <action selector="helpButtonPressed:" destination="-1" eventType="touchUpInside" id="4mA-RT-3aw"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="eJz-92-L6A" firstAttribute="top" secondItem="2dl-ZA-Zdr" secondAttribute="bottom" constant="16" id="FsP-lA-PH2"/>
+                <constraint firstItem="TAr-eO-9o4" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.15" id="J8B-Io-IlP"/>
+                <constraint firstItem="g4P-QK-RE9" firstAttribute="top" secondItem="EjA-SV-d3M" secondAttribute="bottom" constant="16" id="UMc-4Q-Lay"/>
+                <constraint firstItem="TAr-eO-9o4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XJ6-0G-fST"/>
+                <constraint firstItem="g4P-QK-RE9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YJM-LU-ueQ"/>
+                <constraint firstItem="EjA-SV-d3M" firstAttribute="top" secondItem="eJz-92-L6A" secondAttribute="bottom" constant="16" id="bld-aD-yxS"/>
+                <constraint firstItem="eJz-92-L6A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ibJ-pj-N34"/>
+                <constraint firstItem="eJz-92-L6A" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lOd-dh-Boq"/>
+                <constraint firstItem="2dl-ZA-Zdr" firstAttribute="top" secondItem="TAr-eO-9o4" secondAttribute="bottom" constant="8" id="pJ2-Zo-PCM"/>
+                <constraint firstItem="2dl-ZA-Zdr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qk5-fl-OWf"/>
+                <constraint firstItem="EjA-SV-d3M" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="t4c-Lg-QgJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24" y="52"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="title_placeholder.jpg" width="2048" height="2048"/>
+    </resources>
+</document>

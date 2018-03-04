@@ -7,28 +7,25 @@
 
 import GLKit
 
-class GameOverScene: Scene {
-    var contentView: GameOverView!
+class HighScoresScene: Scene {
+    var contentView: HighScoresView!
     
     init(shaderProgram: ShaderProgram, view: GLKView) {
-        super.init(name: "GameOverScene", shaderProgram: shaderProgram)
-        self.contentView = GameOverView.init(frame: view.frame)
+        super.init(name: "HighScoresScene", shaderProgram: shaderProgram)
+        self.contentView = HighScoresView.init(frame: view.frame)
         self.contentView.scene = self
         view.addSubview(self.contentView)
     }
     
-    func playAgainButtonPressed() {
+    func playGameButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
-    }
-    
-    func highScoresButtonPressed() {
-        self.contentView.removeFromSuperview()
-        self.manager?.scene = HighScoresScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
     
     func mainMenuButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = MainMenuScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
+    
+    
 }

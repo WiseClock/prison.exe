@@ -45,8 +45,7 @@ class GameManager {
         let program = ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl",
                                            fragmentShader: "SimpleFragmentShader.glsl")
         
-        let scene = GameScene(shaderProgram: program)
-        //let scene = TestScene(shaderProgram: program)
+        let scene = MainMenuScene(shaderProgram: program, view: view)
         
         program.projectionMatrix = GLKMatrix4MakePerspective(
             GLKMathDegreesToRadians(85.0),
