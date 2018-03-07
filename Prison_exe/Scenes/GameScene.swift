@@ -25,6 +25,11 @@ class GameScene: Scene {
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Center]
+        ],
+        [
+            "drone",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Top]
         ]
     ]
     var obstacles = [ObstacleBaby]()
@@ -201,12 +206,11 @@ class GameScene: Scene {
             switch (obstacleVerticle)
             {
             case EObstaclePosition.Top:
-                obstacle.position.y -= obstacleScale
+                obstacle.position.y += 8 // somewhat floating height
                 break;
             case EObstaclePosition.Center:
                 break;
             case EObstaclePosition.Bottom:
-                obstacle.position.y += 1/2 * obstacleScale
                 break;
             default:
                 break;
