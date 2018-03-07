@@ -132,7 +132,9 @@ class Player : Cube {
     
     // causes the player to begin moving
     func move(direction: UISwipeGestureRecognizerDirection) {
-        if(!isMoving)
+        if(!isMoving &&
+            !(currentLane == Lane.left && direction == UISwipeGestureRecognizerDirection.left) &&
+            !(currentLane == Lane.right && direction == UISwipeGestureRecognizerDirection.right))
         {
             switch(direction) {
             case UISwipeGestureRecognizerDirection.left:
@@ -194,6 +196,11 @@ class Player : Cube {
                         self.position.x = self.initialPosition.x
                     }
                 }
+                else
+                {
+                    // swipe left at left lane
+                    self.isMoving = false
+                }
                 
             case UISwipeGestureRecognizerDirection.right:
                 // move from middle lane to the right lane
@@ -222,6 +229,11 @@ class Player : Cube {
                     if(self.position.x > self.initialPosition.x) {
                         self.position.x = self.initialPosition.x
                     }
+                }
+                else
+                {
+                    // swipe right when at right lane
+                    self.isMoving = false
                 }
                 
             case UISwipeGestureRecognizerDirection.up:
