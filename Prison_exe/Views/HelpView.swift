@@ -11,7 +11,6 @@ import UIKit
 class HelpView: UIView {
 
     @IBOutlet var contentView: UIView!
-
     var scene : HelpScene?
     
     override init(frame: CGRect) {
