@@ -98,10 +98,14 @@ class Node {
     
     // loads texture from file
     func loadTexture(_ filename: String) {
-        let path = Bundle.main.path(forResource: filename, ofType: nil)!
+        let path = Bundle.main.path(forResource: filename, ofType: nil)
+        if (path == nil)
+        {
+            return;
+        }
         let option = [ GLKTextureLoaderOriginBottomLeft: true]
         do {
-            let info = try GLKTextureLoader.texture(withContentsOfFile: path, options: option as [String : NSNumber]?)
+            let info = try GLKTextureLoader.texture(withContentsOfFile: path!, options: option as [String : NSNumber]?)
             self.texture = info.name
         } catch {
             

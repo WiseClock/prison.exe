@@ -11,6 +11,9 @@
 		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
 		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
+		252372E32048CBF6004B73CB /* drone.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372E22048CBF6004B73CB /* drone.png */; };
+		252372EE20506A3D004B73CB /* drone.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372EC20506A3D004B73CB /* drone.obj */; };
+		252372EF20506A3D004B73CB /* drone.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 252372ED20506A3D004B73CB /* drone.mtl */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
@@ -42,6 +45,9 @@
 		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
 		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
+		252372E22048CBF6004B73CB /* drone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drone.png; sourceTree = "<group>"; };
+		252372EC20506A3D004B73CB /* drone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drone.obj; sourceTree = "<group>"; };
+		252372ED20506A3D004B73CB /* drone.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drone.mtl; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -86,6 +92,9 @@
 			children = (
 				252372D02048AEB9004B73CB /* FireHydrant.png */,
 				252372D22048B2F2004B73CB /* FireHydrant.obj */,
+				252372E22048CBF6004B73CB /* drone.png */,
+				252372ED20506A3D004B73CB /* drone.mtl */,
+				252372EC20506A3D004B73CB /* drone.obj */,
 			);
 			path = Obstacle;
 			sourceTree = "<group>";
@@ -288,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252372EF20506A3D004B73CB /* drone.mtl in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
@@ -297,6 +307,8 @@
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
+				252372E32048CBF6004B73CB /* drone.png in Resources */,
+				252372EE20506A3D004B73CB /* drone.obj in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
