@@ -57,6 +57,10 @@
 		C90031812066E4F10096EFDC /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C900317E2066E4F10096EFDC /* arrow.png */; };
 		C90031852066E6350096EFDC /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90031842066E6350096EFDC /* CreditsScene.swift */; };
 		C90031872066E7190096EFDC /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90031862066E7190096EFDC /* CreditsView.swift */; };
+		C90031892066F4C50096EFDC /* StoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C90031882066F4C50096EFDC /* StoryView.xib */; };
+		C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C900318A2066F7EA0096EFDC /* back_arrow.png */; };
+		C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900318C2066FFE10096EFDC /* StoryScene.swift */; };
+		C900318F206700520096EFDC /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900318E206700520096EFDC /* StoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +116,10 @@
 		C900317E2066E4F10096EFDC /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		C90031842066E6350096EFDC /* CreditsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		C90031862066E7190096EFDC /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		C90031882066F4C50096EFDC /* StoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryView.xib; sourceTree = "<group>"; };
+		C900318A2066F7EA0096EFDC /* back_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_arrow.png; sourceTree = "<group>"; };
+		C900318C2066FFE10096EFDC /* StoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
+		C900318E206700520096EFDC /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,7 @@
 				94E7B9D5203A4A6000A6A1CE /* GameScene.swift */,
 				940232B5203C0458007C9325 /* GameOverScene.swift */,
 				C90031842066E6350096EFDC /* CreditsScene.swift */,
+				C900318C2066FFE10096EFDC /* StoryScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -290,6 +299,7 @@
 				C90031862066E7190096EFDC /* CreditsView.swift */,
 				94BB031220507A3700E32951 /* HighScoresView.swift */,
 				94BB030720507A3700E32951 /* MainMenuView.swift */,
+				C900318E206700520096EFDC /* StoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,6 +309,7 @@
 			children = (
 				94BB030920507A3700E32951 /* Images */,
 				94BB030C20507A3700E32951 /* GameOverView.xib */,
+				C90031882066F4C50096EFDC /* StoryView.xib */,
 				94BB030D20507A3700E32951 /* HelpView.xib */,
 				94BB030E20507A3700E32951 /* HighScoresView.xib */,
 				C900317A2066DF4E0096EFDC /* CreditsView.xib */,
@@ -310,6 +321,8 @@
 		94BB030920507A3700E32951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C900319020670AA70096EFDC /* Story Images */,
+				C900318A2066F7EA0096EFDC /* back_arrow.png */,
 				C900317E2066E4F10096EFDC /* arrow.png */,
 				C900317C2066E4F10096EFDC /* creditList.png */,
 				C900317D2066E4F10096EFDC /* credits.png */,
@@ -317,6 +330,13 @@
 				94BB030B20507A3700E32951 /* HelpText.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		C900319020670AA70096EFDC /* Story Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Story Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +405,7 @@
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				C900317F2066E4F10096EFDC /* creditList.png in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
+				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
 				940232BB203C070B007C9325 /* pop.wav in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
@@ -396,6 +417,7 @@
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
+				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				252372E32048CBF6004B73CB /* drone.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
@@ -417,6 +439,7 @@
 				9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */,
 				94BB032220507A4C00E32951 /* HelpScene.swift in Sources */,
 				C1162A252046744700D55DD3 /* PowerDown.swift in Sources */,
+				C900318F206700520096EFDC /* StoryView.swift in Sources */,
 				949AEDEE20362BF200A436A1 /* Scene.swift in Sources */,
 				94BB032120507A4C00E32951 /* MainMenuScene.swift in Sources */,
 				25813584204799AD008ECC4F /* ObjModel.swift in Sources */,
@@ -429,6 +452,7 @@
 				252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */,
 				94BB031A20507A3700E32951 /* HelpView.swift in Sources */,
 				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
+				C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */,
 				252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */,
 				94BB031C20507A3700E32951 /* HighScoresView.swift in Sources */,
 				94BB032020507A4C00E32951 /* HighScoresScene.swift in Sources */,

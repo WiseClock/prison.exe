@@ -24,7 +24,7 @@ class HelpScene: Scene {
     
     func storylineButtonPressed() {
         self.contentView.removeFromSuperview()
-        
+        self.manager?.scene = StoryScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
     
     func creditsButtonPressed() {
