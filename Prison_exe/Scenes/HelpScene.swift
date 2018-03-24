@@ -32,4 +32,9 @@ class HelpScene: Scene {
         
     }
     
+    func backButtonPressed() {
+        self.contentView.removeFromSuperview()
+        self.manager?.scene = MainMenuScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+    }
+    
 }

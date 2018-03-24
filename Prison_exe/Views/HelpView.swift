@@ -42,4 +42,8 @@ class HelpView: UIView {
         scene?.creditsButtonPressed()
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        scene?.backButtonPressed()
+    }
+    
 }
