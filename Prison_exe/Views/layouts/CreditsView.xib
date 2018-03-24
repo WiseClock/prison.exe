@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreditsView" customModule="Prison_exe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="TOf-z2-P5f"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fck-tb-XXn">
+                    <rect key="frame" x="72" y="532" width="231" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="2f6-3c-kQN"/>
+                        <constraint firstAttribute="width" constant="231" id="PkR-UZ-Ncl"/>
+                    </constraints>
+                    <state key="normal" title="Return"/>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="TwD-qe-rPW"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credits.png" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-kQ-TFt">
+                    <rect key="frame" x="102.5" y="27" width="170" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="Iah-F9-Yn0"/>
+                        <constraint firstAttribute="width" constant="170" id="uye-ep-5rE"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditList.png" translatesAutoresizingMaskIntoConstraints="NO" id="Psm-IB-n5X">
+                    <rect key="frame" x="60" y="175" width="255" height="337"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="255" id="D4o-vD-lpi"/>
+                        <constraint firstAttribute="height" constant="337" id="VAR-Yg-zma"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Psm-IB-n5X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jaX-kQ-TFt" secondAttribute="bottom" constant="20" id="78a-f0-R4H"/>
+                <constraint firstItem="Fck-tb-XXn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CaF-gh-77Z"/>
+                <constraint firstItem="jaX-kQ-TFt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="P5s-26-Cg0"/>
+                <constraint firstItem="jaX-kQ-TFt" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.15" id="XSp-OW-NpR"/>
+                <constraint firstItem="Fck-tb-XXn" firstAttribute="top" secondItem="Psm-IB-n5X" secondAttribute="bottom" constant="20" id="d2E-7n-ieN"/>
+                <constraint firstItem="Psm-IB-n5X" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="fLg-Xf-jnp"/>
+                <constraint firstItem="Psm-IB-n5X" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="umu-g1-X6S"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="creditList.png" width="596" height="488"/>
+        <image name="credits.png" width="307" height="63"/>
+    </resources>
+</document>

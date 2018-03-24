@@ -29,7 +29,7 @@ class HelpScene: Scene {
     
     func creditsButtonPressed() {
         self.contentView.removeFromSuperview()
-        
+        self.manager?.scene = CreditsScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
     
     func backButtonPressed() {
