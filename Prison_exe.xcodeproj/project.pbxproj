@@ -61,6 +61,9 @@
 		C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C900318A2066F7EA0096EFDC /* back_arrow.png */; };
 		C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900318C2066FFE10096EFDC /* StoryScene.swift */; };
 		C900318F206700520096EFDC /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C900318E206700520096EFDC /* StoryView.swift */; };
+		C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90031962067105C0096EFDC /* ReadmeScene.swift */; };
+		C9003199206712830096EFDC /* ReadmeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9003198206712830096EFDC /* ReadmeView.swift */; };
+		C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C900319A2067135F0096EFDC /* ReadmeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,9 @@
 		C900318A2066F7EA0096EFDC /* back_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_arrow.png; sourceTree = "<group>"; };
 		C900318C2066FFE10096EFDC /* StoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryScene.swift; sourceTree = "<group>"; };
 		C900318E206700520096EFDC /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		C90031962067105C0096EFDC /* ReadmeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeScene.swift; sourceTree = "<group>"; };
+		C9003198206712830096EFDC /* ReadmeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeView.swift; sourceTree = "<group>"; };
+		C900319A2067135F0096EFDC /* ReadmeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadmeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				940232B5203C0458007C9325 /* GameOverScene.swift */,
 				C90031842066E6350096EFDC /* CreditsScene.swift */,
 				C900318C2066FFE10096EFDC /* StoryScene.swift */,
+				C90031962067105C0096EFDC /* ReadmeScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 				94BB031220507A3700E32951 /* HighScoresView.swift */,
 				94BB030720507A3700E32951 /* MainMenuView.swift */,
 				C900318E206700520096EFDC /* StoryView.swift */,
+				C9003198206712830096EFDC /* ReadmeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 				94BB030E20507A3700E32951 /* HighScoresView.xib */,
 				C900317A2066DF4E0096EFDC /* CreditsView.xib */,
 				94BB030F20507A3700E32951 /* MainMenuView.xib */,
+				C900319A2067135F0096EFDC /* ReadmeView.xib */,
 			);
 			path = layouts;
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 		94BB030920507A3700E32951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C900319320670EC10096EFDC /* Readme Images */,
 				C900319020670AA70096EFDC /* Story Images */,
 				C900318A2066F7EA0096EFDC /* back_arrow.png */,
 				C900317E2066E4F10096EFDC /* arrow.png */,
@@ -337,6 +347,13 @@
 			children = (
 			);
 			path = "Story Images";
+			sourceTree = "<group>";
+		};
+		C900319320670EC10096EFDC /* Readme Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Readme Images";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +439,7 @@
 				252372E32048CBF6004B73CB /* drone.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
 				252372EE20506A3D004B73CB /* drone.obj in Resources */,
+				C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,9 +466,11 @@
 				9491D6EC203E1BF0005D65BD /* Player.swift in Sources */,
 				94735FAD203CBE8200CA24B6 /* Vertex.swift in Sources */,
 				9447458B202CF3F900BAB97B /* ViewController.swift in Sources */,
+				C9003199206712830096EFDC /* ReadmeView.swift in Sources */,
 				C1162A242046744700D55DD3 /* PowerUp.swift in Sources */,
 				252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */,
 				94BB031A20507A3700E32951 /* HelpView.swift in Sources */,
+				C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */,
 				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
 				C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */,
 				252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */,

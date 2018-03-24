@@ -1,5 +1,5 @@
 //
-//  StoryScene.swift
+//  ReadmeScene.swift
 //  Prison_exe
 //
 //  Created by Matt G on 2018-03-24.
@@ -8,12 +8,12 @@
 
 import GLKit
 
-class StoryScene: Scene {
-    var contentView: StoryView!
+class ReadmeScene: Scene {
+    var contentView: ReadmeView!
     
     init(shaderProgram: ShaderProgram, view: GLKView) {
-        super.init(name: "StoryScene", shaderProgram: shaderProgram)
-        self.contentView = StoryView.init(frame: view.frame)
+        super.init(name: "ReadmeScene", shaderProgram: shaderProgram)
+        self.contentView = ReadmeView.init(frame: view.frame)
         self.contentView.scene = self
         view.addSubview(self.contentView)
     }
@@ -23,4 +23,3 @@ class StoryScene: Scene {
         self.manager?.scene = HelpScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
 }
-

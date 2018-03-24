@@ -19,7 +19,7 @@ class HelpScene: Scene {
     
     func howToPlayButtonPressed() {
         self.contentView.removeFromSuperview()
-
+        self.manager?.scene = ReadmeScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
     
     func storylineButtonPressed() {

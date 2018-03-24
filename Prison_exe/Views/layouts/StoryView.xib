@@ -63,7 +63,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-6M-qAo">
-                    <rect key="frame" x="58" y="454" width="84" height="67"/>
+                    <rect key="frame" x="64.5" y="454" width="84" height="67"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="84" id="PDZ-8h-D2Z"/>
                         <constraint firstAttribute="height" constant="67" id="dli-sW-iRx"/>
@@ -85,7 +85,7 @@
                 <constraint firstItem="QCe-6M-qAo" firstAttribute="height" secondItem="0Ob-d9-dT8" secondAttribute="height" id="PYf-FM-5bE"/>
                 <constraint firstItem="GAS-xX-Vgb" firstAttribute="top" secondItem="0Ob-d9-dT8" secondAttribute="bottom" constant="10" id="ch5-MH-bAP"/>
                 <constraint firstItem="a7z-q1-xM6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dZ3-jT-cBQ"/>
-                <constraint firstItem="QCe-6M-qAo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" multiplier="0.1" constant="81" id="gkg-i7-oOl"/>
+                <constraint firstItem="QCe-6M-qAo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-81" id="gkg-i7-oOl"/>
                 <constraint firstItem="QCe-6M-qAo" firstAttribute="width" secondItem="0Ob-d9-dT8" secondAttribute="width" id="xY1-qR-IMh"/>
                 <constraint firstItem="TJ6-xX-l6q" firstAttribute="top" secondItem="a7z-q1-xM6" secondAttribute="bottom" constant="8" id="xoI-AY-g4r"/>
             </constraints>

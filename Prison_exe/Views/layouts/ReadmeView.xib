@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReadmeView" customModule="Prison_exe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="rVr-TO-m8k"/>
+                <outlet property="guideImage" destination="a4I-90-uuV" id="vh5-Js-aPh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCh-p3-aRU">
+                    <rect key="frame" x="133" y="16" width="108" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="5v1-qS-w1j"/>
+                        <constraint firstAttribute="width" constant="108" id="mGg-58-oqG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.38488586940000002" green="0.92256314770000003" blue="0.87372322979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDr-jt-RzG">
+                    <rect key="frame" x="57" y="531" width="261" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="EEZ-Ad-3JV"/>
+                        <constraint firstAttribute="width" constant="261" id="rd7-os-wLD"/>
+                    </constraints>
+                    <state key="normal" title="Return"/>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="v0o-rO-GiK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-6X-VJj">
+                    <rect key="frame" x="64" y="454" width="84" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="Ztj-gp-V0Q"/>
+                        <constraint firstAttribute="width" constant="84" id="agr-Ld-i7b"/>
+                    </constraints>
+                    <state key="normal" title="Last" image="back_arrow.png"/>
+                    <connections>
+                        <action selector="lastButtonPressed:" destination="-1" eventType="touchUpInside" id="vz6-Mz-xKR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcF-jE-l1K">
+                    <rect key="frame" x="226" y="454" width="84" height="67"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="84" id="Mlz-gU-Q2j"/>
+                        <constraint firstAttribute="height" constant="67" id="wna-Ih-SGm"/>
+                    </constraints>
+                    <state key="normal" title="Next" image="arrow.png"/>
+                    <connections>
+                        <action selector="nextButtonPressed:" destination="-1" eventType="touchUpInside" id="sDB-db-nBH"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-90-uuV">
+                    <rect key="frame" x="62" y="61" width="250" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="H3g-FV-CI6"/>
+                        <constraint firstAttribute="height" constant="375" id="Lki-I5-QUO"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fcF-jE-l1K" firstAttribute="top" secondItem="a4I-90-uuV" secondAttribute="bottom" constant="18" id="1bN-bI-zHT"/>
+                <constraint firstItem="a4I-90-uuV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4m1-4i-cPc"/>
+                <constraint firstItem="RVv-6X-VJj" firstAttribute="width" secondItem="fcF-jE-l1K" secondAttribute="width" id="GM7-90-Ost"/>
+                <constraint firstItem="RVv-6X-VJj" firstAttribute="centerX" secondItem="a4I-90-uuV" secondAttribute="centerX" constant="-81" id="HJW-nM-VeO"/>
+                <constraint firstItem="LDr-jt-RzG" firstAttribute="top" secondItem="fcF-jE-l1K" secondAttribute="bottom" constant="10" id="RLo-Qx-jux"/>
+                <constraint firstItem="uCh-p3-aRU" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.1" id="SVd-Yl-vxJ"/>
+                <constraint firstItem="uCh-p3-aRU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UZp-3W-qOT"/>
+                <constraint firstItem="RVv-6X-VJj" firstAttribute="top" secondItem="fcF-jE-l1K" secondAttribute="top" id="WiB-7A-5Ka"/>
+                <constraint firstItem="fcF-jE-l1K" firstAttribute="centerX" secondItem="a4I-90-uuV" secondAttribute="centerX" constant="81" id="Ymz-0e-hye"/>
+                <constraint firstItem="a4I-90-uuV" firstAttribute="top" secondItem="uCh-p3-aRU" secondAttribute="bottom" constant="8" id="bHW-zf-qxR"/>
+                <constraint firstItem="LDr-jt-RzG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lK9-X1-CQv"/>
+                <constraint firstItem="RVv-6X-VJj" firstAttribute="height" secondItem="fcF-jE-l1K" secondAttribute="height" id="wGi-uE-Bpv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="69.5" y="59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.png" width="307" height="358"/>
+        <image name="back_arrow.png" width="307" height="358"/>
+    </resources>
+</document>
