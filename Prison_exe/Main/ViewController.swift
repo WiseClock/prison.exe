@@ -31,6 +31,8 @@ class ViewController: GLKViewController {
         
         
         //self.manager.setPopEffect(file: "pop.wav")
+        self.manager.setBtnNoise(file: "button.mp3")
+        self.manager.playBackgroundMusic(file: "bgm1.mp3")
         //self.manager.playBackgroundMusic(file: "bgm.mp3")
     }
     

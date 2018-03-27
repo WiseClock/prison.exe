@@ -19,17 +19,17 @@ class HelpScene: Scene {
     
     func howToPlayButtonPressed() {
         self.contentView.removeFromSuperview()
-
+        self.manager?.playBtnNoise();
     }
     
     func storylineButtonPressed() {
         self.contentView.removeFromSuperview()
-        
+        self.manager?.playBtnNoise();
     }
     
     func creditsButtonPressed() {
         self.contentView.removeFromSuperview()
-        
+        self.manager?.playBtnNoise();
     }
     
 }
