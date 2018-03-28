@@ -20,16 +20,19 @@ class MainMenuScene: Scene {
     func playButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
+        self.manager?.playBtnNoise();
     }
     
     func highScoresButtonPressed() {
         self.contentView.removeFromSuperview()
-         self.manager?.scene = HighScoresScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+        self.manager?.scene = HighScoresScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+        self.manager?.playBtnNoise();
         
     }
     
     func helpButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = HelpScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+        self.manager?.playBtnNoise();
     }
 }

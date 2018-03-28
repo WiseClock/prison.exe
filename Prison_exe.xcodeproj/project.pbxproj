@@ -64,6 +64,8 @@
 		C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90031962067105C0096EFDC /* ReadmeScene.swift */; };
 		C9003199206712830096EFDC /* ReadmeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9003198206712830096EFDC /* ReadmeView.swift */; };
 		C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C900319A2067135F0096EFDC /* ReadmeView.xib */; };
+		C9521921206AECAE00D7913B /* button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C952191F206AECAD00D7913B /* button.mp3 */; };
+		C9521922206AECAE00D7913B /* bgm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9521920206AECAD00D7913B /* bgm1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		C90031962067105C0096EFDC /* ReadmeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeScene.swift; sourceTree = "<group>"; };
 		C9003198206712830096EFDC /* ReadmeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeView.swift; sourceTree = "<group>"; };
 		C900319A2067135F0096EFDC /* ReadmeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadmeView.xib; sourceTree = "<group>"; };
+		C952191F206AECAD00D7913B /* button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button.mp3; sourceTree = "<group>"; };
+		C9521920206AECAD00D7913B /* bgm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,7 @@
 		946F820D2009ECE800367168 /* Prison_exe */ = {
 			isa = PBXGroup;
 			children = (
+				C952191E206AEC6B00D7913B /* Audio */,
 				94BB030620507A3700E32951 /* Views */,
 				94735FAB203CBE8200CA24B6 /* DataModels */,
 				94735FA8203CBE7D00CA24B6 /* Managers */,
@@ -354,6 +359,13 @@
 			children = (
 			);
 			path = "Readme Images";
+		C952191E206AEC6B00D7913B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				C9521920206AECAD00D7913B /* bgm1.mp3 */,
+				C952191F206AECAD00D7913B /* button.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +439,7 @@
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
+				C9521922206AECAE00D7913B /* bgm1.mp3 in Resources */,
 				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
@@ -436,6 +449,7 @@
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
+				C9521921206AECAE00D7913B /* button.mp3 in Resources */,
 				252372E32048CBF6004B73CB /* drone.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
 				252372EE20506A3D004B73CB /* drone.obj in Resources */,
