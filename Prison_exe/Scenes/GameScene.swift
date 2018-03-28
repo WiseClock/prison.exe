@@ -147,9 +147,9 @@ class GameScene: Scene {
         super.render(with: parentModelViewMatrix)
         
         // loads a new shader program and draws physics debug info (WARNING: FOR TESTING PURPOSES ONLY)
-        self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
-        self.lineShaderProgram?.prepareToDraw()
-        self.physicsWorld.debugDraw()
+        //self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
+        //self.lineShaderProgram?.prepareToDraw()
+        //self.physicsWorld.debugDraw()
     }
     
     func buildPlatform(atZ: Float) -> Cube
@@ -170,7 +170,7 @@ class GameScene: Scene {
                 let powerPosition = GLKVector3Make(0, 0, 0)
                 let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
                 
-                // set the node parent so we can properly calculate position and scale
+                // set the node's parent so we can properly calculate position and scale
                 powerup.parent = platform
                 
                 powerup.scaleZ = 1 * 0.5
@@ -206,7 +206,7 @@ class GameScene: Scene {
                 let powerPosition = GLKVector3Make(0, 0, 0)
                 let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
             
-                // set the node parent so we can properly calculate position and scale
+                // set the node's parent so we can properly calculate position and scale
                 powerdown.parent = platform
                 
                 powerdown.scaleZ = 1 * 0.7 * 0.5
@@ -252,7 +252,7 @@ class GameScene: Scene {
             //obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
             obstacle.position = GLKVector3Make(0, (obstacle.height * (obstacle.scaleY * obstacle.scale)) / 2.0, 0) // x,y,z
             
-            // set the node parent so we can properly calculate position and scale
+            // set the node's parent so we can properly calculate position and scale
             obstacle.parent = platform
             
             // sets up a bounding box and id tag for collisions
@@ -312,17 +312,20 @@ class GameScene: Scene {
         {
             let platform = self.platforms.children.remove(at: index!)
             
+            // remove node from physics world
             for child in platform.children {
                 if let pn = child as? PhysicsNode {
                     self.physicsWorld.removeCollisionObject(pn.physicsInfo)
                 }
             }
             
-            //self.physicsWorld.removeCollisionObject(pn.physicsInfo)
             // add new
             let lastZPos = self.platforms.children.last?.position.z
             let newCube: Cube = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
+            
+            // set the node's parent so we can properly calculate position and scale
             newCube.parent = self.platforms
+            
             self.platforms.children.append(newCube)
             
             index = self.platforms.children.index(where: { (item) -> Bool in
