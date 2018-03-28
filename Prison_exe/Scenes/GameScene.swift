@@ -9,7 +9,7 @@ import GLKit
 
 // scene that holds our main gameplay logic
 class GameScene: Scene {
-    let maxPlatformSize: Int = 10;
+    let maxPlatformSize: Int = 20;
     let obstacleScale: Float = 7.0 // one meter
     
     var gameArea: CGSize
@@ -20,16 +20,17 @@ class GameScene: Scene {
     var player: Player
     var platforms: Node
     
+    // shaders
+    static var shaders = [
+        ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh")
+    ]
+    
     var obstacleAssets = [
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
-            [EObstaclePosition.Center]
-        ],
-        [
-            "drone",
-            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
-            [EObstaclePosition.Top]
+            [EObstaclePosition.Center],
+            shaders[0]
         ]
     ]
     var obstacles = [ObstacleBaby]()
@@ -38,6 +39,12 @@ class GameScene: Scene {
     let velocity: Double = 1
     
     init(shaderProgram: ShaderProgram) {
+        
+        // init shaders
+        for shader in GameScene.shaders
+        {
+            shader.projectionMatrix = shaderProgram.projectionMatrix
+        }
         
         // import obstacles
         for asset in obstacleAssets
@@ -103,11 +110,12 @@ class GameScene: Scene {
         movePlatforms(velocity: v)
     }
     
-    func buildPlatform(atZ: Float) -> Cube
+    func buildPlatform(atZ: Float) -> Node
     {
-        let platform: Cube = Cube(shader: shaderProgram)
-        platform.scaleX = 3 * obstacleScale
-        // platform.scaleY = 1
+        // let platform: Cube = Cube(shader: GameScene.shaders[0])
+        let platform: ObjModel = ObjModel.init(Bundle.main.path(forResource: "platform", ofType: "obj")!, shader: GameScene.shaders[0], texture: "dungeon_01.png")
+        platform.scaleX = 1 * obstacleScale
+        platform.scaleY = 1 * obstacleScale
         platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
         
@@ -122,19 +130,19 @@ class GameScene: Scene {
                 let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
                 
                 powerup.scaleZ = 1 * 0.5
-                powerup.scaleX = 1 / 3 * 0.5
-                powerup.scaleY = 1 * obstacleScale * 0.5
+                powerup.scaleX = 1 * 0.5
+                powerup.scaleY = 1 * 0.5
                 
                 let randPos: Int = Int(arc4random_uniform(3))
                 switch (randPos)
                 {
                 case 0:
-                    powerup.position.x -= 1/3
+                    powerup.position.x -= 1
                     break;
                 case 1:
                     break;
                 case 2:
-                    powerup.position.x += 1/3
+                    powerup.position.x += 1
                     break;
                 default:
                     break;
@@ -150,19 +158,19 @@ class GameScene: Scene {
                 let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
                 
                 powerdown.scaleZ = 1 * 0.7 * 0.5
-                powerdown.scaleX = 1 / 3 * 0.7 * 0.5
-                powerdown.scaleY = 1 * obstacleScale * 0.7 * 0.5
+                powerdown.scaleX = 1 * 0.7 * 0.5
+                powerdown.scaleY = 1 * 0.7 * 0.5
                 
                 let randPos: Int = Int(arc4random_uniform(3))
                 switch (randPos)
                 {
                 case 0:
-                    powerdown.position.x -= 1/3
+                    powerdown.position.x -= 1
                     break;
                 case 1:
                     break;
                 case 2:
-                    powerdown.position.x += 1/3
+                    powerdown.position.x += 1
                     break;
                 default:
                     break;
@@ -182,8 +190,8 @@ class GameScene: Scene {
             let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
             let obstacle: ObjModel = obstacleBaby.instantiate()
             obstacle.scaleZ = 1 * 0.7
-            obstacle.scaleX = 1 / 3 * 0.7
-            obstacle.scaleY = 1 * obstacleScale * 0.7
+            obstacle.scaleX = 1 * 0.7
+            obstacle.scaleY = 1 * 0.7
             obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
             
             let obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
@@ -192,12 +200,12 @@ class GameScene: Scene {
             switch (obstacleHorizontal)
             {
             case EObstaclePosition.Left:
-                obstacle.position.x -= 1/3
+                obstacle.position.x -= 1
                 break;
             case EObstaclePosition.Middle:
                 break;
             case EObstaclePosition.Right:
-                obstacle.position.x += 1/3
+                obstacle.position.x += 1
                 break;
             default:
                 break;
@@ -239,7 +247,7 @@ class GameScene: Scene {
             
             // add new
             let lastZPos = self.platforms.children.last?.position.z
-            let newCube: Cube = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
+            let newCube: Node = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
             self.platforms.children.append(newCube)
             
             index = self.platforms.children.index(where: { (item) -> Bool in
