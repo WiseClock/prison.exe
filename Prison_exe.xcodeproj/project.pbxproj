@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		252372D12048AEB9004B73CB /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372D02048AEB9004B73CB /* FireHydrant.png */; };
+		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
 		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
-		252372E32048CBF6004B73CB /* drone.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372E22048CBF6004B73CB /* drone.png */; };
-		252372EE20506A3D004B73CB /* drone.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372EC20506A3D004B73CB /* drone.obj */; };
-		252372EF20506A3D004B73CB /* drone.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 252372ED20506A3D004B73CB /* drone.mtl */; };
+		253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BF9206AF58E00B2E8A5 /* Platform.vsh */; };
+		253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BFB206AF5A800B2E8A5 /* Platform.fsh */; };
+		253D3C0A206B773600B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C09206B773600B2E8A5 /* platform.png */; };
+		253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C0F206B80F700B2E8A5 /* FireHydrant.png */; };
+		253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */; };
+		253D3C1A206B867900B2E8A5 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C19206B867900B2E8A5 /* star.png */; };
+		253D3C1C206B868100B2E8A5 /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1B206B868100B2E8A5 /* airplane.png */; };
+		253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1D206B868900B2E8A5 /* airplane2.png */; };
+		253D3C20206B883B00B2E8A5 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1F206B883B00B2E8A5 /* star.obj */; };
+		253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C25206B8AE200B2E8A5 /* airplane.obj */; };
+		253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C27206B8BED00B2E8A5 /* airplane2.obj */; };
+		253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C29206BF92E00B2E8A5 /* Player.fsh */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
+		25F04B9F206C206D00E1E2BB /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F04B9E206C206D00E1E2BB /* platform.obj */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409394320362181004BF7F5 /* ShaderProgram.swift */; };
 		940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940F81B5205267B60060DB4D /* PhysicsWorld.cpp */; };
@@ -213,12 +224,23 @@
 
 /* Begin PBXFileReference section */
 		252372D02048AEB9004B73CB /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
+		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
 		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
-		252372E22048CBF6004B73CB /* drone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drone.png; sourceTree = "<group>"; };
-		252372EC20506A3D004B73CB /* drone.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drone.obj; sourceTree = "<group>"; };
-		252372ED20506A3D004B73CB /* drone.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drone.mtl; sourceTree = "<group>"; };
+		253D3BF9206AF58E00B2E8A5 /* Platform.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.vsh; sourceTree = "<group>"; };
+		253D3BFB206AF5A800B2E8A5 /* Platform.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.fsh; sourceTree = "<group>"; };
+		253D3C09206B773600B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		253D3C0F206B80F700B2E8A5 /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
+		253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholdertexture.png; sourceTree = "<group>"; };
+		253D3C19206B867900B2E8A5 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		253D3C1B206B868100B2E8A5 /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
+		253D3C1D206B868900B2E8A5 /* airplane2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane2.png; sourceTree = "<group>"; };
+		253D3C1F206B883B00B2E8A5 /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
+		253D3C25206B8AE200B2E8A5 /* airplane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane.obj; sourceTree = "<group>"; };
+		253D3C27206B8BED00B2E8A5 /* airplane2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane2.obj; sourceTree = "<group>"; };
+		253D3C29206BF92E00B2E8A5 /* Player.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Player.fsh; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
+		25F04B9E206C206D00E1E2BB /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		9409394320362181004BF7F5 /* ShaderProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		940F81B3205250EC0060DB4D /* PhysicsTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsTags.h; sourceTree = "<group>"; };
@@ -639,9 +661,15 @@
 			children = (
 				94924987206AF9160092BB10 /* FireHydrant.obj */,
 				252372D02048AEB9004B73CB /* FireHydrant.png */,
-				252372E22048CBF6004B73CB /* drone.png */,
-				252372ED20506A3D004B73CB /* drone.mtl */,
-				252372EC20506A3D004B73CB /* drone.obj */,
+				253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */,
+				252372D22048B2F2004B73CB /* FireHydrant.obj */,
+				253D3C0F206B80F700B2E8A5 /* FireHydrant.png */,
+				253D3C25206B8AE200B2E8A5 /* airplane.obj */,
+				253D3C1B206B868100B2E8A5 /* airplane.png */,
+				253D3C27206B8BED00B2E8A5 /* airplane2.obj */,
+				253D3C1D206B868900B2E8A5 /* airplane2.png */,
+				253D3C1F206B883B00B2E8A5 /* star.obj */,
+				253D3C19206B867900B2E8A5 /* star.png */,
 			);
 			path = Obstacle;
 			sourceTree = "<group>";
@@ -1179,6 +1207,8 @@
 		9447457F202CF3F900BAB97B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25F04B9E206C206D00E1E2BB /* platform.obj */,
+				253D3C09206B773600B2E8A5 /* platform.png */,
 				25813544204641D5008ECC4F /* Obstacle */,
 				94474582202CF3F900BAB97B /* Cube */,
 			);
@@ -1200,6 +1230,9 @@
 				941B40BD205F877000CB8B76 /* LineVertexShader.glsl */,
 				94474586202CF3F900BAB97B /* SimpleFragmentShader.glsl */,
 				94474588202CF3F900BAB97B /* SimpleVertexShader.glsl */,
+				253D3BF9206AF58E00B2E8A5 /* Platform.vsh */,
+				253D3BFB206AF5A800B2E8A5 /* Platform.fsh */,
+				253D3C29206BF92E00B2E8A5 /* Player.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1391,7 +1424,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				252372EF20506A3D004B73CB /* drone.mtl in Resources */,
 				949AFE9A206B4DDB00120313 /* bgm1.mp3 in Resources */,
 				C90031812066E4F10096EFDC /* arrow.png in Resources */,
 				949AFE94206B4DCF00120313 /* pop.wav in Resources */,
@@ -1404,25 +1436,41 @@
 				942F5C08205089140099030F /* CMakeLists.txt in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
 				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
+				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
+				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
+				253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */,
+				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
+				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
+				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
+				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
+				253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
 				941B40BE205F877000CB8B76 /* LineFragmentShader.glsl in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
+				253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */,
+				25F04B9F206C206D00E1E2BB /* platform.obj in Resources */,
+				253D3C1A206B867900B2E8A5 /* star.png in Resources */,
+				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
+				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
+				253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
-				252372E32048CBF6004B73CB /* drone.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
 				942F5C0E205089140099030F /* premake4.lua in Resources */,
-				252372EE20506A3D004B73CB /* drone.obj in Resources */,
 				C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */,
 				949AFE99206B4DDB00120313 /* button.mp3 in Resources */,
+				253D3C1C206B868100B2E8A5 /* airplane.png in Resources */,
+				94BB031520507A3700E32951 /* HelpText.png in Resources */,
+				253D3C20206B883B00B2E8A5 /* star.obj in Resources */,
+				253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

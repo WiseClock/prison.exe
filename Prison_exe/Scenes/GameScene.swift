@@ -9,7 +9,7 @@ import GLKit
 
 // scene that holds our main gameplay logic
 class GameScene: Scene {
-    let maxPlatformSize: Int = 10;
+    let maxPlatformSize: Int = 20;
     let obstacleScale: Float = 7.0 // one meter
     
     var gameArea: CGSize
@@ -19,29 +19,57 @@ class GameScene: Scene {
     
     var player: Player
     var platforms: Node
-
+    
+    var totalTime: Double
+    
+    // shaders
+    static var shaders = [
+        ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
+        //ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "Player.fsh")
+    ]
+    
     var obstacleAssets = [
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
-            [EObstaclePosition.Center]
+            [EObstaclePosition.Bottom],
+            shaders[0]
         ],
-       /* [
-            "drone",
+        [
+            "airplane",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
-            [EObstaclePosition.Top]
-        ]*/
+            [EObstaclePosition.Top],
+            shaders[0]
+        ],
+        [
+            "airplane2",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Top],
+            shaders[0]
+        ],
+        [
+            "star",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Center, EObstaclePosition.Bottom, EObstaclePosition.Top],
+            shaders[0]
+        ],
     ]
     var obstacles = [ObstacleBaby]()
     
     // per second
-    let velocity: Double = 1
+    let velocity: Double = 3
     
     var physicsWorld : PhysicsWorldWrapper = PhysicsWorldWrapper()
     
     var lineShaderProgram : LineShaderProgram?
     
     init(shaderProgram: ShaderProgram) {
+        
+        // init shaders
+        for shader in GameScene.shaders
+        {
+            shader.projectionMatrix = shaderProgram.projectionMatrix
+        }
         
         // import obstacles
         for asset in obstacleAssets
@@ -65,6 +93,8 @@ class GameScene: Scene {
         let playerZ : Float = 2.0
     
         let playerPosition = GLKVector3Make(playerX, playerY, playerZ)
+        
+        self.totalTime = 0
         
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
@@ -114,9 +144,15 @@ class GameScene: Scene {
         
         // check current collisions
         let pn : PhysicsNode? = self.physicsWorld.checkCollisionAndReturnNode()
-        if(pn != nil) {
+        collisionCheck: if(pn != nil) {
             // check what the player is colliding with
-            switch pn!.physicsInfo.getTag() {
+            let tag = pn!.physicsInfo.getTag()
+            if (tag == kNoCollisionTag)
+            {
+                break collisionCheck
+            }
+            
+            switch tag {
             case kObstacleTag:
                 print("Collision detected: obstacle")
             case kPowerupTag:
@@ -124,7 +160,7 @@ class GameScene: Scene {
             case kPowerdownTag:
                 print("Collision detected: power down")
             default:
-                print("Collision Error: tag")
+                print("Collision Error: tag: " + String(tag))
             }
             // remove the physics bounding box
             self.physicsWorld.removeCollisionObject(pn?.physicsInfo)
@@ -138,6 +174,16 @@ class GameScene: Scene {
                 }
             }
         }
+        
+        // update platform shader time
+        
+        self.totalTime += dt
+        
+        glUseProgram(GameScene.shaders[0].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(self.totalTime))
+        
+        //glUseProgram(GameScene.shaders[1].programHandle)
+        //glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Time"), GLfloat(self.totalTime))
     }
     
     // renders object and all children with the loaded shader program
@@ -147,16 +193,20 @@ class GameScene: Scene {
         super.render(with: parentModelViewMatrix)
         
         // loads a new shader program and draws physics debug info (WARNING: FOR TESTING PURPOSES ONLY)
-        //self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
-        //self.lineShaderProgram?.prepareToDraw()
-        //self.physicsWorld.debugDraw()
+        // self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
+        // self.lineShaderProgram?.prepareToDraw()
+        // self.physicsWorld.debugDraw()
     }
     
-    func buildPlatform(atZ: Float) -> Cube
+    func buildPlatform(atZ: Float) -> Node
     {
-        let platform: Cube = Cube(shader: shaderProgram)
-        platform.scaleX = 3 * obstacleScale
-        // platform.scaleY = 1
+        // let platform: Cube = Cube(shader: GameScene.shaders[0])
+        let platform: ObjModel = ObjModel.init(Bundle.main.path(forResource: "platform", ofType: "obj")!, shader: GameScene.shaders[0], texture: "platform.png")
+        platform.setupPhysicsInfo(tag: kNoCollisionTag)
+        //self.physicsWorld.addCollisionObject(platform.physicsInfo)
+        
+        platform.scaleX = 1 * obstacleScale
+        platform.scaleY = 1 * obstacleScale
         platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
         
@@ -174,19 +224,19 @@ class GameScene: Scene {
                 powerup.parent = platform
                 
                 powerup.scaleZ = 1 * 0.5
-                powerup.scaleX = 1 / 3 * 0.5
-                powerup.scaleY = 1 * obstacleScale * 0.5
+                powerup.scaleX = 1 * 0.5
+                powerup.scaleY = 1 * 0.5
                 
                 let randPos: Int = Int(arc4random_uniform(3))
                 switch (randPos)
                 {
                 case 0:
-                    powerup.position.x -= 1/3
+                    powerup.position.x -= 1
                     break;
                 case 1:
                     break;
                 case 2:
-                    powerup.position.x += 1/3
+                    powerup.position.x += 1
                     break;
                 default:
                     break;
@@ -210,19 +260,19 @@ class GameScene: Scene {
                 powerdown.parent = platform
                 
                 powerdown.scaleZ = 1 * 0.7 * 0.5
-                powerdown.scaleX = 1 / 3 * 0.7 * 0.5
-                powerdown.scaleY = 1 * obstacleScale * 0.7 * 0.5
+                powerdown.scaleX = 1 * 0.7 * 0.5
+                powerdown.scaleY = 1 * 0.7 * 0.5
                 
                 let randPos: Int = Int(arc4random_uniform(3))
                 switch (randPos)
                 {
                 case 0:
-                    powerdown.position.x -= 1/3
+                    powerdown.position.x -= 1
                     break;
                 case 1:
                     break;
                 case 2:
-                    powerdown.position.x += 1/3
+                    powerdown.position.x += 1
                     break;
                 default:
                     break;
@@ -247,9 +297,8 @@ class GameScene: Scene {
             let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
             let obstacle: ObjModel = obstacleBaby.instantiate()
             obstacle.scaleZ = 1 * 0.7
-            obstacle.scaleX = 1 / 3 * 0.7
-            obstacle.scaleY = 1 * obstacleScale * 0.7
-            //obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
+            obstacle.scaleX = 1 * 0.7
+            obstacle.scaleY = 1 * 0.7
             obstacle.position = GLKVector3Make(0, (obstacle.height * (obstacle.scaleY * obstacle.scale)) / 2.0, 0) // x,y,z
             
             // set the node's parent so we can properly calculate position and scale
@@ -267,12 +316,12 @@ class GameScene: Scene {
             switch (obstacleHorizontal)
             {
             case EObstaclePosition.Left:
-                obstacle.position.x -= 1/3
+                obstacle.position.x -= 1
                 break;
             case EObstaclePosition.Middle:
                 break;
             case EObstaclePosition.Right:
-                obstacle.position.x += 1/3
+                obstacle.position.x += 1
                 break;
             default:
                 break;
@@ -281,9 +330,10 @@ class GameScene: Scene {
             switch (obstacleVerticle)
             {
             case EObstaclePosition.Top:
-                obstacle.position.y += 8 // somewhat floating height
+                obstacle.position.y += 1 // somewhat floating height
                 break;
             case EObstaclePosition.Center:
+                obstacle.position.y += 0.5
                 break;
             case EObstaclePosition.Bottom:
                 break;
@@ -292,7 +342,6 @@ class GameScene: Scene {
             }
             
             platform.children.append(obstacle)
-            return platform
         }
         return platform
     }
@@ -311,6 +360,10 @@ class GameScene: Scene {
         while (index != nil)
         {
             let platform = self.platforms.children.remove(at: index!)
+            if let ppn = platform as? PhysicsNode
+            {
+                self.physicsWorld.removeCollisionObject(ppn.physicsInfo)
+            }
             
             // remove node from physics world
             for child in platform.children {
@@ -321,7 +374,7 @@ class GameScene: Scene {
             
             // add new
             let lastZPos = self.platforms.children.last?.position.z
-            let newCube: Cube = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
+            let newCube: Node = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
             
             // set the node's parent so we can properly calculate position and scale
             newCube.parent = self.platforms

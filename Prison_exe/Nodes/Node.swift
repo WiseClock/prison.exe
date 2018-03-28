@@ -116,7 +116,6 @@ class Node {
     func drawContent() { }
     
     func updateWithDelta(_ dt: TimeInterval) {
-        
         self.positionX = self.position.x
         self.positionY = self.position.y
         self.positionZ = self.position.z

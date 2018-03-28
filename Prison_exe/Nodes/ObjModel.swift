@@ -22,7 +22,7 @@ class ObjModel : PhysicsNode, NSCopying {
         self.shader = shader
         self.tex = texture
         
-        super.init(name: "obj", shaderProgram: shader, vertices: vertexList, indices: indexList)
+        super.init(name: "obj_" + texture, shaderProgram: shader, vertices: vertexList, indices: indexList)
         self.loadTexture(self.tex)
     }
     
@@ -109,7 +109,7 @@ class ObjModel : PhysicsNode, NSCopying {
             }
         } catch {}
         
-        super.init(name: "obj", shaderProgram: shader, vertices: vertexList, indices: indexList)
+        super.init(name: "obj_" + texture, shaderProgram: shader, vertices: vertexList, indices: indexList)
         self.loadTexture(self.tex)
     }
     

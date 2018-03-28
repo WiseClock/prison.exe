@@ -154,7 +154,7 @@ class Player : PhysicsNode {
         self.speed = 50.0
         
         // calculate distance between each lane
-        self.laneDistance = levelWidth / 4.0
+        self.laneDistance = levelWidth / 3.0
         
         // set inital lane
         self.currentLane = Lane.middle
