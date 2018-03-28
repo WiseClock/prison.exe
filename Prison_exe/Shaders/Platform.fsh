@@ -7,6 +7,7 @@ uniform sampler2D u_Texture;
 uniform highp float u_MatSpecularIntensity;
 uniform highp float u_Shininess;
 uniform lowp vec4 u_MatColor;
+uniform highp float u_Time;
 
 struct Light {
     lowp vec3 Color;
@@ -15,6 +16,15 @@ struct Light {
     lowp vec3 Direction;
 };
 uniform Light u_Light;
+
+/*
+highp float makePoint(highp float x, highp float y, highp float fx, highp float fy, highp float sx, highp float sy, highp float t)
+{
+    highp float xx=x+sin(t*fx)*sx;
+    highp float yy=y+cos(t*fy)*sy;
+    return 1.0/sqrt(xx*xx+yy*yy);
+}
+*/
 
 void main(void) {
     // Ambient
@@ -31,5 +41,50 @@ void main(void) {
     lowp float SpecularFactor = pow(max(0.0, -dot(Reflection, Eye)), u_Shininess);
     lowp vec3 SpecularColor = u_Light.Color * u_MatSpecularIntensity * SpecularFactor;
     
-    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0);
+/*
+    highp vec2 p = (vec2(512, 512) / 1.5) * 2.0 - vec2(0.5, 0.5);
+    // highp vec2 p=(frag_TexCoord.xy / 512.0) * 2.0 - vec2(1.0, 512.0 / 512.0);
+    
+    p = p * 2.0;
+    
+    highp float x = p.x;
+    highp float y = p.y;
+    
+    highp float a =
+    makePoint(x,y,3.3,2.9,0.3,0.3,u_Time);
+    a=a+makePoint(x,y,1.9,2.0,0.4,0.4,u_Time);
+    a=a+makePoint(x,y,0.8,0.7,0.4,0.5,u_Time);
+    a=a+makePoint(x,y,2.3,0.1,0.6,0.3,u_Time);
+    a=a+makePoint(x,y,0.8,1.7,0.5,0.4,u_Time);
+    a=a+makePoint(x,y,0.3,1.0,0.4,0.4,u_Time);
+    a=a+makePoint(x,y,1.4,1.7,0.4,0.5,u_Time);
+    a=a+makePoint(x,y,1.3,2.1,0.6,0.3,u_Time);
+    a=a+makePoint(x,y,1.8,1.7,0.5,0.4,u_Time);
+    
+    highp float b =
+    makePoint(x,y,1.2,1.9,0.3,0.3,u_Time);
+    b=b+makePoint(x,y,0.7,2.7,0.4,0.4,u_Time);
+    b=b+makePoint(x,y,1.4,0.6,0.4,0.5,u_Time);
+    b=b+makePoint(x,y,2.6,0.4,0.6,0.3,u_Time);
+    b=b+makePoint(x,y,0.7,1.4,0.5,0.4,u_Time);
+    b=b+makePoint(x,y,0.7,1.7,0.4,0.4,u_Time);
+    b=b+makePoint(x,y,0.8,0.5,0.4,0.5,u_Time);
+    b=b+makePoint(x,y,1.4,0.9,0.6,0.3,u_Time);
+    b=b+makePoint(x,y,0.7,1.3,0.5,0.4,u_Time);
+    
+    highp float c =
+    makePoint(x,y,3.7,0.3,0.3,0.3,u_Time);
+    c=c+makePoint(x,y,1.9,1.3,0.4,0.4,u_Time);
+    c=c+makePoint(x,y,0.8,0.9,0.4,0.5,u_Time);
+    c=c+makePoint(x,y,1.2,1.7,0.6,0.3,u_Time);
+    c=c+makePoint(x,y,0.3,0.6,0.5,0.4,u_Time);
+    c=c+makePoint(x,y,0.3,0.3,0.4,0.4,u_Time);
+    c=c+makePoint(x,y,1.4,0.8,0.4,0.5,u_Time);
+    c=c+makePoint(x,y,0.2,0.6,0.6,0.3,u_Time);
+    c=c+makePoint(x,y,1.3,0.5,0.5,0.4,u_Time);
+    
+    highp vec3 d = vec3(a, b, c) / 32.0;
+*/
+    
+    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0);// + vec4(d, 1.0);
 }

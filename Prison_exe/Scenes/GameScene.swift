@@ -29,14 +29,32 @@ class GameScene: Scene {
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
-            [EObstaclePosition.Center],
+            [EObstaclePosition.Bottom],
             shaders[0]
-        ]
+        ],
+        [
+            "airplane",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Top],
+            shaders[0]
+        ],
+        [
+            "airplane2",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Top],
+            shaders[0]
+        ],
+        [
+            "star",
+            [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
+            [EObstaclePosition.Center, EObstaclePosition.Bottom, EObstaclePosition.Top],
+            shaders[0]
+        ],
     ]
     var obstacles = [ObstacleBaby]()
     
     // per second
-    let velocity: Double = 1
+    let velocity: Double = 3
     
     init(shaderProgram: ShaderProgram) {
         
@@ -108,6 +126,10 @@ class GameScene: Scene {
         // in frame velocity
         let v = velocity * dt
         movePlatforms(velocity: v)
+        
+        // update platform shader time
+        glUseProgram(GameScene.shaders[0].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(dt))
     }
     
     func buildPlatform(atZ: Float) -> Node
@@ -214,9 +236,10 @@ class GameScene: Scene {
             switch (obstacleVerticle)
             {
             case EObstaclePosition.Top:
-                obstacle.position.y += 8 // somewhat floating height
+                obstacle.position.y += 1 // somewhat floating height
                 break;
             case EObstaclePosition.Center:
+                obstacle.position.y += 0.5
                 break;
             case EObstaclePosition.Bottom:
                 break;

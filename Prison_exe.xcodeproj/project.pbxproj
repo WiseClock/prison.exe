@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		252372D12048AEB9004B73CB /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372D02048AEB9004B73CB /* FireHydrant.png */; };
 		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
 		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
@@ -15,6 +14,14 @@
 		253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BFB206AF5A800B2E8A5 /* Platform.fsh */; };
 		253D3C05206B720000B2E8A5 /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C03206B720000B2E8A5 /* platform.obj */; };
 		253D3C0A206B773600B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C09206B773600B2E8A5 /* platform.png */; };
+		253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C0F206B80F700B2E8A5 /* FireHydrant.png */; };
+		253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */; };
+		253D3C1A206B867900B2E8A5 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C19206B867900B2E8A5 /* star.png */; };
+		253D3C1C206B868100B2E8A5 /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1B206B868100B2E8A5 /* airplane.png */; };
+		253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1D206B868900B2E8A5 /* airplane2.png */; };
+		253D3C20206B883B00B2E8A5 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1F206B883B00B2E8A5 /* star.obj */; };
+		253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C25206B8AE200B2E8A5 /* airplane.obj */; };
+		253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C27206B8BED00B2E8A5 /* airplane2.obj */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
@@ -55,7 +62,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		252372D02048AEB9004B73CB /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
 		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
 		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
@@ -63,6 +69,14 @@
 		253D3BFB206AF5A800B2E8A5 /* Platform.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.fsh; sourceTree = "<group>"; };
 		253D3C03206B720000B2E8A5 /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		253D3C09206B773600B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		253D3C0F206B80F700B2E8A5 /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
+		253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholdertexture.png; sourceTree = "<group>"; };
+		253D3C19206B867900B2E8A5 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		253D3C1B206B868100B2E8A5 /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
+		253D3C1D206B868900B2E8A5 /* airplane2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane2.png; sourceTree = "<group>"; };
+		253D3C1F206B883B00B2E8A5 /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
+		253D3C25206B8AE200B2E8A5 /* airplane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane.obj; sourceTree = "<group>"; };
+		253D3C27206B8BED00B2E8A5 /* airplane2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane2.obj; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -118,8 +132,15 @@
 		25813544204641D5008ECC4F /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
-				252372D02048AEB9004B73CB /* FireHydrant.png */,
+				253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */,
 				252372D22048B2F2004B73CB /* FireHydrant.obj */,
+				253D3C0F206B80F700B2E8A5 /* FireHydrant.png */,
+				253D3C25206B8AE200B2E8A5 /* airplane.obj */,
+				253D3C1B206B868100B2E8A5 /* airplane.png */,
+				253D3C27206B8BED00B2E8A5 /* airplane2.obj */,
+				253D3C1D206B868900B2E8A5 /* airplane2.png */,
+				253D3C1F206B883B00B2E8A5 /* star.obj */,
+				253D3C19206B867900B2E8A5 /* star.png */,
 			);
 			path = Obstacle;
 			sourceTree = "<group>";
@@ -364,14 +385,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
+				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
+				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
 				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
-				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
+				253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */,
 				940232BB203C070B007C9325 /* pop.wav in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
+				253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */,
 				253D3C05206B720000B2E8A5 /* platform.obj in Resources */,
+				253D3C1A206B867900B2E8A5 /* star.png in Resources */,
 				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
@@ -381,7 +406,10 @@
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
+				253D3C1C206B868100B2E8A5 /* airplane.png in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
+				253D3C20206B883B00B2E8A5 /* star.obj in Resources */,
+				253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
