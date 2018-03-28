@@ -19,23 +19,27 @@ class GameScene: Scene {
     
     var player: Player
     var platforms: Node
-    
+
     var obstacleAssets = [
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Center]
         ],
-        [
+       /* [
             "drone",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Top]
-        ]
+        ]*/
     ]
     var obstacles = [ObstacleBaby]()
     
     // per second
     let velocity: Double = 1
+    
+    var physicsWorld : PhysicsWorldWrapper = PhysicsWorldWrapper()
+    
+    var lineShaderProgram : LineShaderProgram?
     
     init(shaderProgram: ShaderProgram) {
         
@@ -59,12 +63,17 @@ class GameScene: Scene {
         let playerX = Float(self.gameArea.width / 2)
         let playerY = Float(self.gameArea.height * 0.2 + 3.75 + 1)
         let playerZ : Float = 2.0
-        
-        //let playerPosition = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2 + 3.75 + 1), 2.0)
+    
         let playerPosition = GLKVector3Make(playerX, playerY, playerZ)
         
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
+        
+        // sets up a bounding box and id tag for collisions
+        self.player.setupPhysicsInfo(tag: kPlayerTag)
+
+        // add players bounding box to the world
+        self.physicsWorld.addCollisionObject(self.player.physicsInfo)
         
         platforms = Node(name: "empty", shaderProgram: shaderProgram)
         platforms.scaleY = 1
@@ -77,6 +86,7 @@ class GameScene: Scene {
         for index in 1 ... maxPlatformSize
         {
             let platform = buildPlatform(atZ: -1 * obstacleScale * Float(index - 1))
+            platform.parent = self.platforms
             self.platforms.children.append(platform)
         }
         
@@ -91,16 +101,55 @@ class GameScene: Scene {
         // add objects as children of the scene
         self.children.append(self.player)
         self.children.append(self.platforms)
-        //self.children.append(self.powerdown)
-        
     }
     
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
         
+        physicsWorld.update(Float(dt));
+        
         // in frame velocity
         let v = velocity * dt
         movePlatforms(velocity: v)
+        
+        // check current collisions
+        let pn : PhysicsNode? = self.physicsWorld.checkCollisionAndReturnNode()
+        if(pn != nil) {
+            // check what the player is colliding with
+            switch pn!.physicsInfo.getTag() {
+            case kObstacleTag:
+                print("Collision detected: obstacle")
+            case kPowerupTag:
+                print("Collision detected: power up")
+            case kPowerdownTag:
+                print("Collision detected: power down")
+            default:
+                print("Collision Error: tag")
+            }
+            // remove the physics bounding box
+            self.physicsWorld.removeCollisionObject(pn?.physicsInfo)
+            
+            // remove node from scene graph
+            let myNode = pn as! Node
+            for platform in self.platforms.children {
+                let indexOfNode = platform.children.index(where: {$0.id == myNode.id})
+                if(indexOfNode != nil) {
+                    platform.children.remove(at: indexOfNode!)
+                }
+            }
+        }
+    }
+    
+    // renders object and all children with the loaded shader program
+    override func render(with parentModelViewMatrix: GLKMatrix4) {
+        let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
+        
+        super.render(with: parentModelViewMatrix)
+        
+        // loads a new shader program and draws physics debug info (WARNING: FOR TESTING PURPOSES ONLY)
+        self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
+        self.lineShaderProgram?.prepareToDraw()
+        self.physicsWorld.debugDraw()
     }
     
     func buildPlatform(atZ: Float) -> Cube
@@ -121,6 +170,9 @@ class GameScene: Scene {
                 let powerPosition = GLKVector3Make(0, 0, 0)
                 let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
                 
+                // set the node parent so we can properly calculate position and scale
+                powerup.parent = platform
+                
                 powerup.scaleZ = 1 * 0.5
                 powerup.scaleX = 1 / 3 * 0.5
                 powerup.scaleY = 1 * obstacleScale * 0.5
@@ -140,6 +192,11 @@ class GameScene: Scene {
                     break;
                 }
                 
+                // sets up a bounding box and id tag for collisions
+                powerup.setupPhysicsInfo(tag: kPowerupTag)
+                // add bounding box to the world
+                self.physicsWorld.addCollisionObject(powerup.physicsInfo)
+                
                 platform.children.append(powerup)
                 return platform
             }
@@ -148,6 +205,9 @@ class GameScene: Scene {
                 // power down
                 let powerPosition = GLKVector3Make(0, 0, 0)
                 let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
+            
+                // set the node parent so we can properly calculate position and scale
+                powerdown.parent = platform
                 
                 powerdown.scaleZ = 1 * 0.7 * 0.5
                 powerdown.scaleX = 1 / 3 * 0.7 * 0.5
@@ -168,6 +228,11 @@ class GameScene: Scene {
                     break;
                 }
                 
+                // sets up a bounding box and id tag for collisions
+                powerdown.setupPhysicsInfo(tag: kPowerdownTag)
+                // add bounding box to the world
+                self.physicsWorld.addCollisionObject(powerdown.physicsInfo)
+                
                 platform.children.append(powerdown)
                 return platform
             }
@@ -184,7 +249,17 @@ class GameScene: Scene {
             obstacle.scaleZ = 1 * 0.7
             obstacle.scaleX = 1 / 3 * 0.7
             obstacle.scaleY = 1 * obstacleScale * 0.7
-            obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
+            //obstacle.position = GLKVector3Make(0, 0, 0) // x,y,z
+            obstacle.position = GLKVector3Make(0, (obstacle.height * (obstacle.scaleY * obstacle.scale)) / 2.0, 0) // x,y,z
+            
+            // set the node parent so we can properly calculate position and scale
+            obstacle.parent = platform
+            
+            // sets up a bounding box and id tag for collisions
+            obstacle.setupPhysicsInfo(tag: kObstacleTag)
+            
+            // add obstacle's bounding box to the world
+            self.physicsWorld.addCollisionObject(obstacle.physicsInfo)
             
             let obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
             let obstacleVerticle: EObstaclePosition = obstacleBaby.getRandomVerticle()
@@ -235,11 +310,19 @@ class GameScene: Scene {
         })
         while (index != nil)
         {
-            self.platforms.children.remove(at: index!)
+            let platform = self.platforms.children.remove(at: index!)
             
+            for child in platform.children {
+                if let pn = child as? PhysicsNode {
+                    self.physicsWorld.removeCollisionObject(pn.physicsInfo)
+                }
+            }
+            
+            //self.physicsWorld.removeCollisionObject(pn.physicsInfo)
             // add new
             let lastZPos = self.platforms.children.last?.position.z
             let newCube: Cube = buildPlatform(atZ: lastZPos! - 1 * obstacleScale)
+            newCube.parent = self.platforms
             self.platforms.children.append(newCube)
             
             index = self.platforms.children.index(where: { (item) -> Bool in

@@ -8,7 +8,7 @@
 
 import GLKit
 
-class ObjModel : Node, NSCopying {
+class ObjModel : PhysicsNode, NSCopying {
     
     var indexList = [GLuint]()
     var vertexList = [Vertex]()

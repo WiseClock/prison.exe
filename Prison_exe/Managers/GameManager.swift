@@ -14,6 +14,8 @@ class GameManager {
     var scene: Scene {didSet{ scene.manager = self }}
     var shaderProgram: ShaderProgram
     
+    var lineShaderProgram: LineShaderProgram
+    
     var backgroundMusicPlayer: AVAudioPlayer?
     var popEffect: AVAudioPlayer?
     
@@ -21,6 +23,13 @@ class GameManager {
         self.glkView = view
         self.scene = scene
         self.shaderProgram = shaderProgram
+        self.lineShaderProgram = LineShaderProgram.init(vertexShader: "LineVertexShader.glsl",
+                                                        fragmentShader: "LineFragmentShader.glsl")
+        self.lineShaderProgram.projectionMatrix = GLKMatrix4MakePerspective(
+            GLKMathDegreesToRadians(85.0),
+            GLfloat(view.bounds.size.width / view.bounds.size.height),
+            1,
+            300)
         self.scene.manager = self
     }
     
