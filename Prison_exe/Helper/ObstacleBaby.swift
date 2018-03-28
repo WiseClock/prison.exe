@@ -14,11 +14,16 @@ public class ObstacleBaby
     var horizontal: [EObstaclePosition]
     var verticle: [EObstaclePosition]
 
+    // container to hold physics bounding box
+    //var physicsInfo : PhysicsInfoWrapper = PhysicsInfoWrapper()
+    
     init(_ name: String, shader: ShaderProgram, horizontalPos: [EObstaclePosition], verticlePos: [EObstaclePosition])
     {
         obstacleModel = ObjModel.init(Bundle.main.path(forResource: name, ofType: "obj")!, shader: shader, texture: name + ".png")
         horizontal = horizontalPos
         verticle = verticlePos
+    
+        //self.physicsInfo.setup(withTag: obstacleTag, width: self.obstacleModel.width, height: self.obstacleModel.height, depth: self.obstacleModel.depth)
     }
     
     func getRandomHorizontal() -> EObstaclePosition
@@ -36,5 +41,9 @@ public class ObstacleBaby
     func instantiate() -> ObjModel
     {
         return obstacleModel.copy() as! ObjModel
+    }
+    
+    func updateWithDelta(_ dt: TimeInterval) {
+        //self.physicsInfo.setPosition(self.obstacleModel.position)
     }
 }

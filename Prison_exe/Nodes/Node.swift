@@ -10,6 +10,8 @@ import GLKit
 // base node class that all game objects and scene will inherit from
 // includes size, position, scale, rotation as well as draw and update methods
 class Node {
+    static var idCounter : Int = 0
+    var id: Int = 0
     var shaderProgram : ShaderProgram
     var name : String
     var vertices : [Vertex]
@@ -21,6 +23,11 @@ class Node {
     var texture: GLuint = 0
     
     var position : GLKVector3 = GLKVector3(v: (0.0, 0.0, 0.0))
+    
+    var positionX : Float = 0.0
+    var positionY : Float = 0.0
+    var positionZ : Float = 0.0
+    
     var rotationX : Float = 0.0
     var rotationY : Float = 0.0
     var rotationZ : Float = 0.0
@@ -32,6 +39,7 @@ class Node {
     
     var width : Float = 0.0
     var height : Float = 0.0
+    var depth : Float = 0.0
     
     var rotating : Bool = false
     
@@ -47,6 +55,9 @@ class Node {
         self.indices = indices
         
         self.setupVertexBuffer()
+        self.computeVolume()
+        
+        self.id = self.createID()
     }
     
     // clean up textures, vertex and index info
@@ -69,7 +80,7 @@ class Node {
     }
     
     // renders object and all children with the loaded shader program
-    func render(with parentModelViewMatrix: GLKMatrix4) {
+    /*func render(with parentModelViewMatrix: GLKMatrix4) {
         let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
         
         for child in self.children { child.render(with: modelViewMatrix) }
@@ -84,16 +95,38 @@ class Node {
         self.drawContent()
 
         glBindVertexArrayOES(0)
-    }
+    }*/
 
+    func render(with parentModelViewMatrix: GLKMatrix4) {
+        let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
+        
+        for child in self.children { child.render(with: modelViewMatrix) }
+        
+        self.shaderProgram.modelViewMatrix = modelViewMatrix
+        self.shaderProgram.texture = self.texture
+        self.shaderProgram.matColor = self.matColor
+        self.shaderProgram.prepareToDraw()
+        
+        glBindVertexArrayOES(self.vao)
+        self.drawContent()
+        glBindVertexArrayOES(0)
+    }
+    
     // override this function with the relavant drawing method (drawArrays or drawElements)
     func drawContent() { }
     
     func updateWithDelta(_ dt: TimeInterval) {
+        
+        self.positionX = self.position.x
+        self.positionY = self.position.y
+        self.positionZ = self.position.z
+        
+        
         // call update on all of the node's children
         for child in self.children {
             child.updateWithDelta(dt)
         }
+
     }
     
     // loads texture from file
@@ -187,6 +220,7 @@ class Node {
     func touchGestureSwipedUp(_ sender: UISwipeGestureRecognizer) {}
     func touchGestureSwipedDown(_ sender: UISwipeGestureRecognizer) {}
     
+    /*
     // creates a bounding box based on the node's width and height
     func boundingBoxWithModelViewMatrix(parentModelViewMatrix: GLKMatrix4) -> CGRect {
         let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
@@ -202,5 +236,38 @@ class Node {
                                  width: CGFloat(upperRight.x - lowerLeft.x),
                                  height: CGFloat(upperRight.y - lowerLeft.y))
         return boundingBox
+    }
+    */
+    
+    func computeWidth() {
+        let xs = self.vertices.map{ $0.x }
+        let minX = xs.min() ?? 0
+        let maxX = xs.max() ?? 0
+        self.width = (maxX - minX) * self.scaleX * self.scale
+    }
+    
+    func computeHeight() {
+        let ys = self.vertices.map{ $0.y }
+        let minY = ys.min() ?? 0
+        let maxY = ys.max() ?? 0
+        self.height = (maxY - minY) * self.scaleY * self.scale
+    }
+    
+    func computeDepth() {
+        let zs = self.vertices.map{ $0.z }
+        let minZ = zs.min() ?? 0
+        let maxZ = zs.max() ?? 0
+        self.depth = (maxZ - minZ) * self.scaleZ * self.scale
+    }
+    
+    func computeVolume() {
+        self.computeWidth()
+        self.computeHeight()
+        self.computeDepth()
+    }
+    
+    func createID() -> Int {
+        Node.idCounter += 1;
+        return Node.idCounter
     }
 }
