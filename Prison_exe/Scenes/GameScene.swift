@@ -259,6 +259,52 @@ class GameScene: Scene {
             }
             
             platform.children.append(obstacle)
+            
+            let rand2 = Int(arc4random_uniform(100))
+            if (rand2 < 20)
+            {
+                let randomObstacleIndex2: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
+                let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex2]
+                let obstacle2: ObjModel = obstacleBaby.instantiate()
+                obstacle2.scaleZ = 1 * 0.7
+                obstacle2.scaleX = 1 * 0.7
+                obstacle2.scaleY = 1 * 0.7
+                obstacle2.position = GLKVector3Make(0, 0, 0) // x,y,z
+                
+                let obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
+                let obstacleVerticle: EObstaclePosition = obstacleBaby.getRandomVerticle()
+                
+                switch (obstacleHorizontal)
+                {
+                case EObstaclePosition.Left:
+                    obstacle2.position.x -= 1
+                    break;
+                case EObstaclePosition.Middle:
+                    break;
+                case EObstaclePosition.Right:
+                    obstacle2.position.x += 1
+                    break;
+                default:
+                    break;
+                }
+                
+                switch (obstacleVerticle)
+                {
+                case EObstaclePosition.Top:
+                    obstacle2.position.y += 1 // somewhat floating height
+                    break;
+                case EObstaclePosition.Center:
+                    obstacle2.position.y += 0.5
+                    break;
+                case EObstaclePosition.Bottom:
+                    break;
+                default:
+                    break;
+                }
+                
+                platform.children.append(obstacle2)
+            }
+            
             return platform
         }
         return platform
