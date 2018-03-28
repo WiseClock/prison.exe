@@ -19,22 +19,34 @@ class HelpScene: Scene {
     
     func howToPlayButtonPressed() {
         self.contentView.removeFromSuperview()
+
         self.manager?.scene = ReadmeScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+
+        self.manager?.playBtnNoise();
+
     }
     
     func storylineButtonPressed() {
         self.contentView.removeFromSuperview()
+
         self.manager?.scene = StoryScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+
+        self.manager?.playBtnNoise();
+
     }
     
     func creditsButtonPressed() {
         self.contentView.removeFromSuperview()
+
         self.manager?.scene = CreditsScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }
     
     func backButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = MainMenuScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+
+        self.manager?.playBtnNoise();
+
     }
     
 }

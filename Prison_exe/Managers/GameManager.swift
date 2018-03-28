@@ -16,6 +16,7 @@ class GameManager {
     
     var backgroundMusicPlayer: AVAudioPlayer?
     var popEffect: AVAudioPlayer?
+    var btnNoise: AVAudioPlayer?
     
     init(view: GLKView, scene: Scene, shaderProgram: ShaderProgram) {
         self.glkView = view
@@ -56,6 +57,7 @@ class GameManager {
         return GameManager(view: view, scene: scene, shaderProgram: program)
     }
     
+    //BGM Handling
     func playBackgroundMusic(file: String) {
         guard let player = self.preloadSoundEffect(file: file) else { return }
         player.numberOfLoops = -1
@@ -63,17 +65,32 @@ class GameManager {
         self.backgroundMusicPlayer = player
     }
     
+    func stopBackgroundMusic() {
+        self.backgroundMusicPlayer?.stop();
+    }
+    
+    //SE setups
     func setPopEffect(file: String) {
         self.popEffect = self.preloadSoundEffect(file: file)
     }
     
+    func setBtnNoise(file: String) {
+        self.btnNoise = self.preloadSoundEffect(file: file)
+    }
+    
+    //load sound file method
     func preloadSoundEffect(file: String) -> AVAudioPlayer? {
         guard let url = Bundle.main.url(forResource: file, withExtension: nil), let player = try? AVAudioPlayer(contentsOf: url) else { return nil }
         player.prepareToPlay()
         return player
     }
     
+    //SE play methods.
     func playPopEffect() {
         self.popEffect?.play()
+    }
+    
+    func playBtnNoise() {
+        self.btnNoise?.play()
     }
 }
