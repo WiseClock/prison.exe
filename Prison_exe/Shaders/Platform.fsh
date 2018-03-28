@@ -43,7 +43,7 @@ void main(void) {
     //lowp vec2 p = (vec2(64, 64) / 1.5) * 2.0 - vec2(0.5, 0.5);
     lowp vec2 p = (frag_TexCoord.xy) - vec2(0.5, 0.5);
     
-    p = p / 5.0;
+    p = p / 8.0;
     
     lowp float x = p.x;
     lowp float y = p.y;
@@ -83,7 +83,7 @@ void main(void) {
     
     lowp vec3 d = vec3(a, b, c) / 32.0;
     
-    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0) + vec4(d, 1.0);
+    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0) + vec4(d, 0.2);
     // gl_FragColor = vec4(d.x,d.y,d.z,0.5);
 }
 
