@@ -113,7 +113,7 @@ class GameScene: Scene {
     func buildPlatform(atZ: Float) -> Node
     {
         // let platform: Cube = Cube(shader: GameScene.shaders[0])
-        let platform: ObjModel = ObjModel.init(Bundle.main.path(forResource: "platform", ofType: "obj")!, shader: GameScene.shaders[0], texture: "dungeon_01.png")
+        let platform: ObjModel = ObjModel.init(Bundle.main.path(forResource: "platform", ofType: "obj")!, shader: GameScene.shaders[0], texture: "platform.png")
         platform.scaleX = 1 * obstacleScale
         platform.scaleY = 1 * obstacleScale
         platform.scaleZ = 1 * obstacleScale
