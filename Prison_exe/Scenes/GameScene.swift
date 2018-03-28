@@ -20,9 +20,12 @@ class GameScene: Scene {
     var player: Player
     var platforms: Node
     
+    var totalTime: Double
+    
     // shaders
     static var shaders = [
-        ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh")
+        ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
+        //ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "Player.fsh")
     ]
     
     var obstacleAssets = [
@@ -88,6 +91,8 @@ class GameScene: Scene {
         //let playerPosition = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2 + 3.75 + 1), 2.0)
         let playerPosition = GLKVector3Make(playerX, playerY, playerZ)
         
+        self.totalTime = 0
+        
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
         
@@ -128,8 +133,14 @@ class GameScene: Scene {
         movePlatforms(velocity: v)
         
         // update platform shader time
+        
+        self.totalTime += dt
+        
         glUseProgram(GameScene.shaders[0].programHandle)
-        glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(dt))
+        glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(self.totalTime))
+        
+        //glUseProgram(GameScene.shaders[1].programHandle)
+        //glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Time"), GLfloat(self.totalTime))
     }
     
     func buildPlatform(atZ: Float) -> Node

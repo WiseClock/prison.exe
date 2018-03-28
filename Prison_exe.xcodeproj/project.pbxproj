@@ -22,6 +22,7 @@
 		253D3C20206B883B00B2E8A5 /* star.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C1F206B883B00B2E8A5 /* star.obj */; };
 		253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C25206B8AE200B2E8A5 /* airplane.obj */; };
 		253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C27206B8BED00B2E8A5 /* airplane2.obj */; };
+		253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C29206BF92E00B2E8A5 /* Player.fsh */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
@@ -77,6 +78,7 @@
 		253D3C1F206B883B00B2E8A5 /* star.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = star.obj; sourceTree = "<group>"; };
 		253D3C25206B8AE200B2E8A5 /* airplane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane.obj; sourceTree = "<group>"; };
 		253D3C27206B8BED00B2E8A5 /* airplane2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane2.obj; sourceTree = "<group>"; };
+		253D3C29206BF92E00B2E8A5 /* Player.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Player.fsh; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				94474588202CF3F900BAB97B /* SimpleVertexShader.glsl */,
 				253D3BF9206AF58E00B2E8A5 /* Platform.vsh */,
 				253D3BFB206AF5A800B2E8A5 /* Platform.fsh */,
+				253D3C29206BF92E00B2E8A5 /* Player.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			files = (
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
+				253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
 				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
