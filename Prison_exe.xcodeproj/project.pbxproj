@@ -14,7 +14,7 @@
 		253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BF9206AF58E00B2E8A5 /* Platform.vsh */; };
 		253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BFB206AF5A800B2E8A5 /* Platform.fsh */; };
 		253D3C05206B720000B2E8A5 /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C03206B720000B2E8A5 /* platform.obj */; };
-		253D3C08206B730200B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C07206B730200B2E8A5 /* platform.png */; };
+		253D3C0A206B773600B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C09206B773600B2E8A5 /* platform.png */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		940232BA203C070B007C9325 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 940232B8203C070B007C9325 /* bgm.mp3 */; };
@@ -62,7 +62,7 @@
 		253D3BF9206AF58E00B2E8A5 /* Platform.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.vsh; sourceTree = "<group>"; };
 		253D3BFB206AF5A800B2E8A5 /* Platform.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.fsh; sourceTree = "<group>"; };
 		253D3C03206B720000B2E8A5 /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
-		253D3C07206B730200B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		253D3C09206B773600B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		940232B8203C070B007C9325 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				253D3C03206B720000B2E8A5 /* platform.obj */,
-				253D3C07206B730200B2E8A5 /* platform.png */,
+				253D3C09206B773600B2E8A5 /* platform.png */,
 				25813544204641D5008ECC4F /* Obstacle */,
 				94474582202CF3F900BAB97B /* Cube */,
 			);
@@ -375,7 +375,7 @@
 				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
-				253D3C08206B730200B2E8A5 /* platform.png in Resources */,
+				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
