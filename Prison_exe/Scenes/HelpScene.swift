@@ -23,7 +23,6 @@ class HelpScene: Scene {
         self.manager?.scene = ReadmeScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
 
         self.manager?.playBtnNoise();
-
     }
     
     func storylineButtonPressed() {
@@ -32,7 +31,6 @@ class HelpScene: Scene {
         self.manager?.scene = StoryScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
 
         self.manager?.playBtnNoise();
-
     }
     
     func creditsButtonPressed() {
@@ -46,7 +44,6 @@ class HelpScene: Scene {
         self.manager?.scene = MainMenuScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
 
         self.manager?.playBtnNoise();
-
     }
     
 }
