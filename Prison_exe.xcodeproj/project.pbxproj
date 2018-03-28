@@ -156,7 +156,6 @@
 		942F5C8E205089140099030F /* btHeightfieldTerrainShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 942F5BFE205089140099030F /* btHeightfieldTerrainShape.cpp */; };
 		942F5C8F205089140099030F /* btPolyhedralConvexShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 942F5C03205089140099030F /* btPolyhedralConvexShape.cpp */; };
 		942F5C90205089140099030F /* btConvexPointCloudShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 942F5C04205089140099030F /* btConvexPointCloudShape.cpp */; };
-		9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94474575202CF3F900BAB97B /* GLKMatrix+Array.swift */; };
 		9447458B202CF3F900BAB97B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94474577202CF3F900BAB97B /* ViewController.swift */; };
 		9447458D202CF3F900BAB97B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94474579202CF3F900BAB97B /* AppDelegate.swift */; };
 		9447458E202CF3F900BAB97B /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9447457B202CF3F900BAB97B /* Cube.swift */; };
@@ -172,6 +171,7 @@
 		94735FAF203CC06F00CA24B6 /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94735FAE203CC06F00CA24B6 /* TestScene.swift */; };
 		9491D6EC203E1BF0005D65BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491D6EB203E1BF0005D65BD /* Player.swift */; };
 		94924988206AF9160092BB10 /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 94924987206AF9160092BB10 /* FireHydrant.obj */; };
+		949414E8206B530800FEC27E /* GLKMatrix+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949414E7206B530700FEC27E /* GLKMatrix+Array.swift */; };
 		949AEDEE20362BF200A436A1 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949AEDED20362BF200A436A1 /* Scene.swift */; };
 		949AFE94206B4DCF00120313 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 949AFE92206B4DCF00120313 /* pop.wav */; };
 		949AFE95206B4DCF00120313 /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 949AFE93206B4DCF00120313 /* bgm.mp3 */; };
@@ -562,7 +562,6 @@
 		942F5C03205089140099030F /* btPolyhedralConvexShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btPolyhedralConvexShape.cpp; sourceTree = "<group>"; };
 		942F5C04205089140099030F /* btConvexPointCloudShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = btConvexPointCloudShape.cpp; sourceTree = "<group>"; };
 		942F5C05205089140099030F /* btScaledBvhTriangleMeshShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btScaledBvhTriangleMeshShape.h; sourceTree = "<group>"; };
-		94474575202CF3F900BAB97B /* GLKMatrix+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GLKMatrix+Array.swift"; sourceTree = "<group>"; };
 		94474577202CF3F900BAB97B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94474579202CF3F900BAB97B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9447457B202CF3F900BAB97B /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
@@ -581,6 +580,7 @@
 		94735FAE203CC06F00CA24B6 /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		9491D6EB203E1BF0005D65BD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		94924987206AF9160092BB10 /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
+		949414E7206B530700FEC27E /* GLKMatrix+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GLKMatrix+Array.swift"; sourceTree = "<group>"; };
 		949AEDED20362BF200A436A1 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		949AFE92206B4DCF00120313 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
 		949AFE93206B4DCF00120313 /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
@@ -1146,7 +1146,7 @@
 		94474574202CF3F900BAB97B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				94474575202CF3F900BAB97B /* GLKMatrix+Array.swift */,
+				949414E7206B530700FEC27E /* GLKMatrix+Array.swift */,
 				252372D42048B3A0004B73CB /* EObstaclePosition.swift */,
 				252372D62048B478004B73CB /* ObstacleBaby.swift */,
 			);
@@ -1407,10 +1407,8 @@
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
-				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				941B40BE205F877000CB8B76 /* LineFragmentShader.glsl in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
-				940232BA203C070B007C9325 /* bgm.mp3 in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
@@ -1461,6 +1459,7 @@
 				942F5C71205089140099030F /* btTriangleIndexVertexArray.cpp in Sources */,
 				949AEDEE20362BF200A436A1 /* Scene.swift in Sources */,
 				94BB032120507A4C00E32951 /* MainMenuScene.swift in Sources */,
+				949414E8206B530800FEC27E /* GLKMatrix+Array.swift in Sources */,
 				942F5C2E205089140099030F /* btPoint2PointConstraint.cpp in Sources */,
 				942F5C7E205089140099030F /* btTriangleMesh.cpp in Sources */,
 				942F5C1A205089140099030F /* btMultiBodyConstraintSolver.cpp in Sources */,
@@ -1546,14 +1545,12 @@
 				942F5C27205089140099030F /* btTypedConstraint.cpp in Sources */,
 				94BB031A20507A3700E32951 /* HelpView.swift in Sources */,
 				C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */,
-				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
 				C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */,
 				942F5C3C205089140099030F /* btGjkPairDetector.cpp in Sources */,
 				942F5C51205089140099030F /* btActivatingCollisionAlgorithm.cpp in Sources */,
 				940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */,
 				942F5C4A205089140099030F /* btUnionFind.cpp in Sources */,
 				942F5C31205089140099030F /* btQuantizedBvh.cpp in Sources */,
-				9447458A202CF3F900BAB97B /* GLKMatrix+Array.swift in Sources */,
 				942F5C65205089140099030F /* gim_box_set.cpp in Sources */,
 				942F5C8D205089140099030F /* btTriangleIndexVertexMaterialArray.cpp in Sources */,
 				942F5C55205089140099030F /* btDefaultCollisionConfiguration.cpp in Sources */,
