@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250C0EF3206E0B4B00FDAA9F /* Background.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 250C0EF2206E0B4B00FDAA9F /* Background.vsh */; };
+		250C0EF5206E0B5F00FDAA9F /* Background.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 250C0EF4206E0B5F00FDAA9F /* Background.fsh */; };
+		250C0EF7206E0C3200FDAA9F /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C0EF6206E0C3200FDAA9F /* Quad.swift */; };
 		252372D12048AEB9004B73CB /* FireHydrant.png in Resources */ = {isa = PBXBuildFile; fileRef = 252372D02048AEB9004B73CB /* FireHydrant.png */; };
 		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
@@ -224,6 +227,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250C0EF2206E0B4B00FDAA9F /* Background.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Background.vsh; sourceTree = "<group>"; };
+		250C0EF4206E0B5F00FDAA9F /* Background.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Background.fsh; sourceTree = "<group>"; };
+		250C0EF6206E0C3200FDAA9F /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		252372D02048AEB9004B73CB /* FireHydrant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireHydrant.png; sourceTree = "<group>"; };
 		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
@@ -1202,6 +1208,7 @@
 				9491D6EB203E1BF0005D65BD /* Player.swift */,
 				25813583204799AD008ECC4F /* ObjModel.swift */,
 				94B7E786205E1E8000E16CFB /* PhysicsNode.swift */,
+				250C0EF6206E0C3200FDAA9F /* Quad.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1236,6 +1243,8 @@
 				253D3BFB206AF5A800B2E8A5 /* Platform.fsh */,
 				253D3C29206BF92E00B2E8A5 /* Obstacle.fsh */,
 				25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */,
+				250C0EF2206E0B4B00FDAA9F /* Background.vsh */,
+				250C0EF4206E0B5F00FDAA9F /* Background.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1438,6 +1447,7 @@
 				C900317F2066E4F10096EFDC /* creditList.png in Resources */,
 				942F5C08205089140099030F /* CMakeLists.txt in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
+				250C0EF5206E0B5F00FDAA9F /* Background.fsh in Resources */,
 				25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */,
 				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
@@ -1474,6 +1484,7 @@
 				253D3C1C206B868100B2E8A5 /* airplane.png in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				253D3C20206B883B00B2E8A5 /* star.obj in Resources */,
+				250C0EF3206E0B4B00FDAA9F /* Background.vsh in Resources */,
 				253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
@@ -1537,6 +1548,7 @@
 				942F5C36205089140099030F /* btDbvtBroadphase.cpp in Sources */,
 				942F5C3A205089140099030F /* btCollisionAlgorithm.cpp in Sources */,
 				942F5C6E205089140099030F /* btConvexTriangleMeshShape.cpp in Sources */,
+				250C0EF7206E0C3200FDAA9F /* Quad.swift in Sources */,
 				942F5C16205089140099030F /* btRaycastVehicle.cpp in Sources */,
 				942F5C4E205089140099030F /* btSimulationIslandManager.cpp in Sources */,
 				9447458E202CF3F900BAB97B /* Cube.swift in Sources */,
