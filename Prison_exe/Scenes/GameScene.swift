@@ -22,6 +22,10 @@ class GameScene: Scene {
     
     var totalTime: Double
     
+    var isPowerUpDown: Bool
+    var powerTimer: Int
+    var powersOnScreen: Bool
+    
     // shaders
     static var shaders = [
         ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
@@ -95,6 +99,9 @@ class GameScene: Scene {
         let playerPosition = GLKVector3Make(playerX, playerY, playerZ)
         
         self.totalTime = 0
+        self.isPowerUpDown = false
+        self.powersOnScreen = false
+        self.powerTimer = 0
         
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
@@ -152,13 +159,23 @@ class GameScene: Scene {
                 break collisionCheck
             }
             
+            if(powerTimer != 0) {
+                isPowerUpDown = true
+            } else {
+                isPowerUpDown = false
+            }
+            
             switch tag {
             case kObstacleTag:
                 print("Collision detected: obstacle")
             case kPowerupTag:
                 print("Collision detected: power up")
+                powerTimer = 30
+                //powersOnScreen = false
             case kPowerdownTag:
                 print("Collision detected: power down")
+                powerTimer = 30
+                //powersOnScreen = false
             default:
                 print("Collision Error: tag: " + String(tag))
             }
@@ -214,81 +231,86 @@ class GameScene: Scene {
         {
             let rand: Int = Int(arc4random_uniform(100))
             
-            if (rand <= 20) // powerup
-            {
-                // power up
-                let powerPosition = GLKVector3Make(0, 0, 0)
-                let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
-                
-                // set the node's parent so we can properly calculate position and scale
-                powerup.parent = platform
-                
-                powerup.scaleZ = 1 * 0.5
-                powerup.scaleX = 1 * 0.5
-                powerup.scaleY = 1 * 0.5
-                
-                let randPos: Int = Int(arc4random_uniform(3))
-                switch (randPos)
+            print("powerTimer = " + String(powerTimer))
+            if(powerTimer == 0) {
+                if (rand <= 5) // powerup
                 {
-                case 0:
-                    powerup.position.x -= 1
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    powerup.position.x += 1
-                    break;
-                default:
-                    break;
+                    // power up
+                    let powerPosition = GLKVector3Make(0, 0, 0)
+                    let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
+                    
+                    // set the node's parent so we can properly calculate position and scale
+                    powerup.parent = platform
+                    
+                    powerup.scaleZ = 1 * 0.5
+                    powerup.scaleX = 1 * 0.5
+                    powerup.scaleY = 1 * 0.5
+                    
+                    let randPos: Int = Int(arc4random_uniform(3))
+                    switch (randPos)
+                    {
+                    case 0:
+                        powerup.position.x -= 1
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        powerup.position.x += 1
+                        break;
+                    default:
+                        break;
+                    }
+                    
+                    // sets up a bounding box and id tag for collisions
+                    powerup.setupPhysicsInfo(tag: kPowerupTag)
+                    // add bounding box to the world
+                    self.physicsWorld.addCollisionObject(powerup.physicsInfo)
+                    
+                    platform.children.append(powerup)
+                    return platform
                 }
-                
-                // sets up a bounding box and id tag for collisions
-                powerup.setupPhysicsInfo(tag: kPowerupTag)
-                // add bounding box to the world
-                self.physicsWorld.addCollisionObject(powerup.physicsInfo)
-                
-                platform.children.append(powerup)
-                return platform
-            }
-            else if (rand <= 40) // powerdown
-            {
-                // power down
-                let powerPosition = GLKVector3Make(0, 0, 0)
-                let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
-            
-                // set the node's parent so we can properly calculate position and scale
-                powerdown.parent = platform
-                
-                powerdown.scaleZ = 1 * 0.7 * 0.5
-                powerdown.scaleX = 1 * 0.7 * 0.5
-                powerdown.scaleY = 1 * 0.7 * 0.5
-                
-                let randPos: Int = Int(arc4random_uniform(3))
-                switch (randPos)
+                else if (rand <= 10) // powerdown
                 {
-                case 0:
-                    powerdown.position.x -= 1
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    powerdown.position.x += 1
-                    break;
-                default:
-                    break;
+                    // power down
+                    let powerPosition = GLKVector3Make(0, 0, 0)
+                    let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
+                    
+                    // set the node's parent so we can properly calculate position and scale
+                    powerdown.parent = platform
+                    
+                    powerdown.scaleZ = 1 * 0.7 * 0.5
+                    powerdown.scaleX = 1 * 0.7 * 0.5
+                    powerdown.scaleY = 1 * 0.7 * 0.5
+                    
+                    let randPos: Int = Int(arc4random_uniform(3))
+                    switch (randPos)
+                    {
+                    case 0:
+                        powerdown.position.x -= 1
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        powerdown.position.x += 1
+                        break;
+                    default:
+                        break;
+                    }
+                    
+                    // sets up a bounding box and id tag for collisions
+                    powerdown.setupPhysicsInfo(tag: kPowerdownTag)
+                    // add bounding box to the world
+                    self.physicsWorld.addCollisionObject(powerdown.physicsInfo)
+                    
+                    platform.children.append(powerdown)
+                    return platform
                 }
-                
-                // sets up a bounding box and id tag for collisions
-                powerdown.setupPhysicsInfo(tag: kPowerdownTag)
-                // add bounding box to the world
-                self.physicsWorld.addCollisionObject(powerdown.physicsInfo)
-                
-                platform.children.append(powerdown)
-                return platform
-            }
-            else if (rand > 80)
-            {
-                return platform;
+                else if (rand > 80)
+                {
+                    return platform;
+                }
+            } else {
+                powerTimer -= 1;
             }
             
             // obstacle
