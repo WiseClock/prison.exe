@@ -155,6 +155,8 @@ class GameScene: Scene {
             switch tag {
             case kObstacleTag:
                 print("Collision detected: obstacle")
+                // collision with obstacle detected, change scene to gameover scene
+                //self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
             case kPowerupTag:
                 print("Collision detected: power up")
             case kPowerdownTag:
