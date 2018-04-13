@@ -14,6 +14,7 @@
 		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
 		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
+		253CCF082076CD130062DF17 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CCF072076CD130062DF17 /* PrologueScene.swift */; };
 		253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BF9206AF58E00B2E8A5 /* Platform.vsh */; };
 		253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BFB206AF5A800B2E8A5 /* Platform.fsh */; };
 		253D3C0A206B773600B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C09206B773600B2E8A5 /* platform.png */; };
@@ -26,6 +27,13 @@
 		253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C25206B8AE200B2E8A5 /* airplane.obj */; };
 		253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C27206B8BED00B2E8A5 /* airplane2.obj */; };
 		253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C29206BF92E00B2E8A5 /* Obstacle.fsh */; };
+		2543482420800AB1002733EF /* glitchFont.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2543482220800AB0002733EF /* glitchFont.txt */; };
+		2543482520800AB1002733EF /* glitchFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543482320800AB1002733EF /* glitchFont.png */; };
+		2543482720800AE4002733EF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482620800AE4002733EF /* Font.swift */; };
+		2543482920800DD2002733EF /* FontGlyph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482820800DD2002733EF /* FontGlyph.swift */; };
+		2543482B20804050002733EF /* FontShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482A20804050002733EF /* FontShader.vsh */; };
+		2543482D2080405C002733EF /* FontShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482C2080405C002733EF /* FontShader.fsh */; };
+		2543482F208042DA002733EF /* GlyphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482E208042DA002733EF /* GlyphNode.swift */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		25F04B9F206C206D00E1E2BB /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F04B9E206C206D00E1E2BB /* platform.obj */; };
 		25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */; };
@@ -234,6 +242,7 @@
 		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
 		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
+		253CCF072076CD130062DF17 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
 		253D3BF9206AF58E00B2E8A5 /* Platform.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.vsh; sourceTree = "<group>"; };
 		253D3BFB206AF5A800B2E8A5 /* Platform.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.fsh; sourceTree = "<group>"; };
 		253D3C09206B773600B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
@@ -246,6 +255,13 @@
 		253D3C25206B8AE200B2E8A5 /* airplane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane.obj; sourceTree = "<group>"; };
 		253D3C27206B8BED00B2E8A5 /* airplane2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane2.obj; sourceTree = "<group>"; };
 		253D3C29206BF92E00B2E8A5 /* Obstacle.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.fsh; sourceTree = "<group>"; };
+		2543482220800AB0002733EF /* glitchFont.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = glitchFont.txt; sourceTree = "<group>"; };
+		2543482320800AB1002733EF /* glitchFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glitchFont.png; sourceTree = "<group>"; };
+		2543482620800AE4002733EF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		2543482820800DD2002733EF /* FontGlyph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontGlyph.swift; sourceTree = "<group>"; };
+		2543482A20804050002733EF /* FontShader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.vsh; sourceTree = "<group>"; };
+		2543482C2080405C002733EF /* FontShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.fsh; sourceTree = "<group>"; };
+		2543482E208042DA002733EF /* GlyphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNode.swift; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		25F04B9E206C206D00E1E2BB /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.vsh; sourceTree = "<group>"; };
@@ -664,6 +680,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2543482120800A9C002733EF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2543482320800AB1002733EF /* glitchFont.png */,
+				2543482220800AB0002733EF /* glitchFont.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		25813544204641D5008ECC4F /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +729,7 @@
 				C90031842066E6350096EFDC /* CreditsScene.swift */,
 				C900318C2066FFE10096EFDC /* StoryScene.swift */,
 				C90031962067105C0096EFDC /* ReadmeScene.swift */,
+				253CCF072076CD130062DF17 /* PrologueScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1209,6 +1235,7 @@
 				25813583204799AD008ECC4F /* ObjModel.swift */,
 				94B7E786205E1E8000E16CFB /* PhysicsNode.swift */,
 				250C0EF6206E0C3200FDAA9F /* Quad.swift */,
+				2543482E208042DA002733EF /* GlyphNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1245,6 +1272,8 @@
 				25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */,
 				250C0EF2206E0B4B00FDAA9F /* Background.vsh */,
 				250C0EF4206E0B5F00FDAA9F /* Background.fsh */,
+				2543482A20804050002733EF /* FontShader.vsh */,
+				2543482C2080405C002733EF /* FontShader.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1271,6 +1300,7 @@
 		946F820D2009ECE800367168 /* Prison_exe */ = {
 			isa = PBXGroup;
 			children = (
+				2543482120800A9C002733EF /* Fonts */,
 				949AFE96206B4DDB00120313 /* Audio */,
 				942F5C9220508A850099030F /* Physics */,
 				94BB030620507A3700E32951 /* Views */,
@@ -1305,6 +1335,8 @@
 			isa = PBXGroup;
 			children = (
 				94735FAC203CBE8200CA24B6 /* Vertex.swift */,
+				2543482620800AE4002733EF /* Font.swift */,
+				2543482820800DD2002733EF /* FontGlyph.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -1443,8 +1475,10 @@
 				941B40BF205F877000CB8B76 /* LineVertexShader.glsl in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				949AFE95206B4DCF00120313 /* bgm.mp3 in Resources */,
+				2543482B20804050002733EF /* FontShader.vsh in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				C900317F2066E4F10096EFDC /* creditList.png in Resources */,
+				2543482520800AB1002733EF /* glitchFont.png in Resources */,
 				942F5C08205089140099030F /* CMakeLists.txt in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
 				250C0EF5206E0B5F00FDAA9F /* Background.fsh in Resources */,
@@ -1452,6 +1486,7 @@
 				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
+				2543482D2080405C002733EF /* FontShader.fsh in Resources */,
 				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
@@ -1474,6 +1509,7 @@
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
+				2543482420800AB1002733EF /* glitchFont.txt in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
@@ -1534,6 +1570,7 @@
 				942F5C1E205089140099030F /* btMultiBodyConstraint.cpp in Sources */,
 				942F5C7A205089140099030F /* btMultimaterialTriangleMeshShape.cpp in Sources */,
 				942F5C62205089140099030F /* btGImpactQuantizedBvh.cpp in Sources */,
+				2543482920800DD2002733EF /* FontGlyph.swift in Sources */,
 				942F5C72205089140099030F /* btTriangleCallback.cpp in Sources */,
 				942F5C11205089140099030F /* Bullet-C-API.cpp in Sources */,
 				942F5C20205089140099030F /* btMLCPSolver.cpp in Sources */,
@@ -1595,6 +1632,7 @@
 				942F5C6D205089140099030F /* btMultiSphereShape.cpp in Sources */,
 				252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */,
 				942F5C07205089140099030F /* btQuickprof.cpp in Sources */,
+				2543482F208042DA002733EF /* GlyphNode.swift in Sources */,
 				942F5C42205089140099030F /* btVoronoiSimplexSolver.cpp in Sources */,
 				942F5C69205089140099030F /* btGImpactCollisionAlgorithm.cpp in Sources */,
 				942F5C85205089140099030F /* btOptimizedBvh.cpp in Sources */,
@@ -1610,6 +1648,7 @@
 				94BB031A20507A3700E32951 /* HelpView.swift in Sources */,
 				C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */,
 				C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */,
+				253CCF082076CD130062DF17 /* PrologueScene.swift in Sources */,
 				942F5C3C205089140099030F /* btGjkPairDetector.cpp in Sources */,
 				942F5C51205089140099030F /* btActivatingCollisionAlgorithm.cpp in Sources */,
 				940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */,
@@ -1661,6 +1700,7 @@
 				942F5C0B205089140099030F /* btGeometryUtil.cpp in Sources */,
 				942F5C56205089140099030F /* btConvexConcaveCollisionAlgorithm.cpp in Sources */,
 				94474590202CF3F900BAB97B /* Node.swift in Sources */,
+				2543482720800AE4002733EF /* Font.swift in Sources */,
 				942F5C54205089140099030F /* btCollisionDispatcher.cpp in Sources */,
 				942F5C09205089140099030F /* btConvexHullComputer.cpp in Sources */,
 				942F5C0F205089140099030F /* btConvexHull.cpp in Sources */,
