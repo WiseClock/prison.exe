@@ -65,10 +65,10 @@ class PrologueScene: Scene
         self.children.append(TextHolder)
         self.children.append(BottomTextHolder)
 
-        setText("Tap to skip", BottomTextHolder, 0.03, 0.03)
+        setText("Tap to skip", BottomTextHolder, 0.03, 0.03, true)
     }
     
-    func setText(_ text : String, _ container : Node, _ yInit : Float, _ fontScale : Float)
+    func setText(_ text : String, _ container : Node, _ yInit : Float, _ fontScale : Float, _ forceSolid : Bool = false)
     {
         container.children.removeAll(keepingCapacity: false)
         
@@ -114,7 +114,7 @@ class PrologueScene: Scene
                 let endX: Float = startX + texWidth * ratioX;
                 let endY: Float = startY + texHeight * ratioY;
                 
-                let g = GlyphNode(shader: fontShader, texture: fontGlitch.Texture, width: texWidth * fontScale, height: texHeight * fontScale, startX: startX, startY: startY, endX: endX, endY: endY)
+                let g = GlyphNode(shader: fontShader, texture: fontGlitch.Texture, width: texWidth * fontScale, height: texHeight * fontScale, startX: startX, startY: startY, endX: endX, endY: endY, forceSolid: forceSolid)
                 g.position = GLKVector3Make(Float(self.gameArea.width / 2) + currentX + texOffX * fontScale,
                                             yInit + lineOffset + (lineHeight - base) + (lineHeight - texOffY * fontScale - texHeight * fontScale),
                                             zIndexOffset)
@@ -132,12 +132,26 @@ class PrologueScene: Scene
         
         if (currentTextIndex >= 0)
         {
-            if (texts.count > currentTextIndex && currentTextTime > texts[currentTextIndex][1] as! Double)
+            if (currentTextTime > texts[currentTextIndex][1] as! Double)
             {
                 currentTextTime = 0;
             }
             else
             {
+                glUseProgram(fontShader.programHandle)
+                if (currentTextTime <= 0.5)
+                {
+                    glUniform1f(glGetUniformLocation(fontShader.programHandle, "u_Transparency"), GLfloat(currentTextTime * 2))
+                }
+                else if (currentTextTime >= texts[currentTextIndex][1] as! Double - 0.5)
+                {
+                    glUniform1f(glGetUniformLocation(fontShader.programHandle, "u_Transparency"), GLfloat((texts[currentTextIndex][1] as! Double - 0.5 - currentTextTime) * 2 + 1))
+                }
+                else
+                {
+                    glUniform1f(glGetUniformLocation(fontShader.programHandle, "u_Transparency"), GLfloat(1))
+                }
+                
                 currentTextTime += dt;
             }
         }
@@ -150,6 +164,10 @@ class PrologueScene: Scene
             {
                 setText(texts[currentTextIndex][0] as! String, TextHolder, Float(self.gameArea.height / 2), 0.05)
                 // todo: play audio
+            }
+            else
+            {
+                currentTextIndex -= 1;
             }
         }
     }

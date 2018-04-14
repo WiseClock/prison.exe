@@ -17,10 +17,12 @@ class GlyphNode : Node
         0, 1, 2,
         2, 3, 0,
         ]
+    let solid : Bool
     
-    init(shader: ShaderProgram, texture: String, width: Float, height: Float, startX: Float, startY: Float, endX: Float, endY: Float)
+    init(shader: ShaderProgram, texture: String, width: Float, height: Float, startX: Float, startY: Float, endX: Float, endY: Float, forceSolid: Bool = false)
     {
         self.shader = shader
+        self.solid = forceSolid
         
         vertexList = [
             // Front x,y,z,r,g,b,a,u,v,nx,ny,nz
@@ -36,6 +38,8 @@ class GlyphNode : Node
     
     override func drawContent()
     {
+        glUseProgram(shader.programHandle)
+        glUniform1f(glGetUniformLocation(shader.programHandle, "u_ForceSolid"), GLfloat(self.solid ? 1 : 0))
         glDrawElements(GLenum(GL_TRIANGLES), GLsizei(indices.count), GLenum(GL_UNSIGNED_INT), nil)
     }
 }
