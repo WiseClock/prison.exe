@@ -222,7 +222,7 @@ class GameScene: Scene {
         platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
         
-        if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
+        if (atZ < Float(maxPlatformSize) / 3 * -obstacleScale)
         {
             let rand: Int = Int(arc4random_uniform(100))
             

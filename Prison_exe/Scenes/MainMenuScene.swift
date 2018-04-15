@@ -22,6 +22,7 @@ class MainMenuScene: Scene {
 
         //self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         self.manager?.playBtnNoise();
+        self.manager?.stopBackgroundMusic()
 
         var gs : PrologueScene = PrologueScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         // gs.lineShaderProgram = self.manager?.lineShaderProgram

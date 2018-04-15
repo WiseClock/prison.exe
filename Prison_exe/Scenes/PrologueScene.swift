@@ -7,6 +7,7 @@
 //
 
 import GLKit
+import AVFoundation
 
 extension String {
     var asciiArray: [UInt32] {
@@ -21,6 +22,8 @@ class PrologueScene: Scene
     let TextHolder : Node;
     let BottomTextHolder : Node;
     
+    let gs: GameScene
+    
     var gameArea: CGSize
     let sceneOffset: Float
     var previousTouchLocation = CGPoint.zero
@@ -28,10 +31,25 @@ class PrologueScene: Scene
     var currentTextIndex: Int = -1
     var currentTextTime: Double = 0
     var texts = [
-        ["First One\nAAA", 2.0],
-        ["Second One\nTest", 5.0],
-        ["Third One", 3.0],
+        ["Year 21XX", 3.6, "op1_3.599s.mp3"],
+        ["Under the guidance of the\nNeo-Terra Government", 3.8, "op2_3.776s.mp3"],
+        ["Peace has come to Humanity", 3.3, "op3_3.234s.mp3"],
+        ["But not all is well\nin this world", 3.2, "op4_3.168s.mp3"],
+        ["The people paid a terrible\ncost to secure this safety", 4.5, "op5_4.468s.mp3"],
+        ["One's fate is decided at birth", 3.5, "op6_3.415s.mp3"],
+        ["You are either born into\none of the ten families\nof the Council", 5.0, "op7_5.009s.mp3"],
+        ["Or born a slave, with\nno power over your\nown future", 5.5, "op8_5.445s.mp3"],
+        ["But not all is lost", 2.5, "op9_2.487s.mp3"],
+        ["Secret Resistance\ngroup ASCALON fights\nin the shadows", 4.7, "op10_4.642s.mp3"],
+        ["To restore freedom\nto peoplekind", 2.9, "op11_2.841s.mp3"],
+        ["Now they have dispatched their\nfinest operative", 3.7, "op12_3.699s.mp3"],
+        ["To infiltrate Neo-Terra's\nCyber-prison - SAMSARA", 5.0, "op13_4.905s.mp3"],
+        ["Their misson", 2.0, "op14_1.909s.mp3"],
+        ["Release all prisoners\nfree their minds\nand strike back at Neo-Terra", 7.6, "op15_7.530s.mp3"],
+        ["The first step?", 2.2, "op16_2.178s.mp3"],
+        ["Getting through\nSAMSARA's firewalls...", 6.0, "op17_5.960s.mp3"],
     ]
+    var player: AVAudioPlayer? = nil
     
     init(shaderProgram: ShaderProgram)
     {
@@ -52,7 +70,11 @@ class PrologueScene: Scene
         TextHolder = Node.init(name: "TextHolder", shaderProgram: shaderProgram)
         BottomTextHolder = Node.init(name: "TextHolder", shaderProgram: shaderProgram)
 
+        gs = GameScene.init(shaderProgram: shaderProgram)
+        
         super.init(name: "PrologueScene", shaderProgram: shaderProgram)
+        
+        gs.lineShaderProgram = self.manager?.lineShaderProgram
 
         // create the initial scene position so (x,y): (0, 0) is the center of the screen
         self.position = GLKVector3Make(Float(-self.gameArea.width / 2),
@@ -162,8 +184,18 @@ class PrologueScene: Scene
             
             if (texts.count > currentTextIndex)
             {
-                setText(texts[currentTextIndex][0] as! String, TextHolder, Float(self.gameArea.height / 2), 0.05)
+                if (self.player != nil)
+                {
+                    self.player!.stop()
+                }
+                setText(texts[currentTextIndex][0] as! String, TextHolder, Float(self.gameArea.height / 2), 0.04)
                 // todo: play audio
+                let file = texts[currentTextIndex][2] as! String
+                let url = Bundle.main.url(forResource: file, withExtension: nil)
+                let player = try? AVAudioPlayer(contentsOf: url!)
+                player!.prepareToPlay()
+                self.player = player!
+                self.player!.play()
             }
             else
             {
@@ -208,8 +240,6 @@ class PrologueScene: Scene
         //self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         //self.manager?.playBtnNoise();
         
-        let gs = GameScene.init(shaderProgram: shaderProgram)
-        gs.lineShaderProgram = self.manager?.lineShaderProgram
         self.manager?.scene = gs
     }
     
