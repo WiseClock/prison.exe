@@ -101,9 +101,7 @@ class PowerUp : PhysicsNode {
         // set color and size of power-up
         self.matColor = GLKVector4Make(0, 1, 0, 1)        
     }
-    
-    // Still need to add the function to do the power up
-    
+        
     override func drawContent() {
         glDrawElements(GLenum(GL_TRIANGLES), GLsizei(indices.count), GLenum(GL_UNSIGNED_INT), nil)
     }

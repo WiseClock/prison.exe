@@ -237,149 +237,295 @@ class Player : PhysicsNode {
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
         
-        if(isMoving && !isControlsSwapped) {
-            switch(currentMoveDirection) {
-            case UISwipeGestureRecognizerDirection.left:
-                // move from the middle lane to the left lane
-                if(currentLane == Lane.middle) {
-                    if(self.position.x != self.maxMoveLength) {
-                        self.position.x -= self.speed * Float(dt)
-                    } else {
-                        self.currentLane = Lane.left
-                        self.isMoving = false
-                    }
-                    
-                    // if we go over, set the position
-                    if(self.position.x < self.maxMoveLength) {
-                        self.position.x = self.maxMoveLength
-                    }
-                    // move from the right lane to the middle lane
-                } else if (currentLane == Lane.right) {
-                    if(self.position.x != self.initialPosition.x) {
-                        self.position.x -= self.speed * Float(dt)
-                    } else {
-                        self.currentLane = Lane.middle
-                        self.isMoving = false
-                    }
-                    
-                    // if we go over, set the position
-                    if(self.position.x < self.initialPosition.x) {
-                        self.position.x = self.initialPosition.x
-                    }
-                }
-                else
-                {
-                    // swipe left at left lane
-                    self.isMoving = false
-                }
-                
-            case UISwipeGestureRecognizerDirection.right:
-                // move from middle lane to the right lane
-                if(currentLane == Lane.middle) {
-                    if(self.position.x != self.maxMoveLength) {
-                        self.position.x += self.speed * Float(dt)
-                    } else {
-                        self.currentLane = Lane.right
-                        self.isMoving = false
-                    }
-                    
-                    // if we go over, set the position
-                    if(self.position.x > self.maxMoveLength) {
-                        self.position.x = self.maxMoveLength
-                    }
-                    // move from left lane to the middle lane
-                } else if (currentLane == Lane.left) {
-                    if(self.position.x != self.initialPosition.x) {
-                        self.position.x += self.speed * Float(dt)
-                    } else {
-                        self.currentLane = Lane.middle
-                        self.isMoving = false
-                    }
-                    
-                    // if we go over, set the position
-                    if(self.position.x > self.initialPosition.x) {
-                        self.position.x = self.initialPosition.x
-                    }
-                }
-                else
-                {
-                    // swipe right when at right lane
-                    self.isMoving = false
-                }
-                
-            case UISwipeGestureRecognizerDirection.up:
-                
-                // TODO: change this to a parabola or sin function for smooth jumping
-                // TODO: consider adding gravity for falling through gaps
-                
-                // begin jumping
-                if(isJumping) {
-                    if(self.position.y != self.maxJumpHeight) {
-                        self.position.y += self.speed * Float(dt)
-                    } else {
-                        // once we reach our max height, begin to hang
-                        self.jumpHang += Float(dt)
-                        if(self.jumpHang >= self.maxJumpHang) {
-                            self.jumpHang = 0.0
-                            self.isJumping = false
-                        }
-                    }
-                    
-                    // if we go to high, set the positon
-                    if(self.position.y > self.maxJumpHeight) {
-                        self.position.y = self.maxJumpHeight
-                    }
-                } else {
-                    // fall back down until player is grounded
-                    if(self.position.y != self.initialPosition.y) {
-                        self.position.y -= self.speed * Float(dt)
-                    } else {
-                        self.isMoving = false
-                    }
-                    
-                    // if we pass the floor, set the positon
-                    if(self.position.y < self.initialPosition.y) {
-                        self.position.y = self.initialPosition.y
-                    }
-                }
-                
-            case UISwipeGestureRecognizerDirection.down:
-                if(isCrouching) {
-                    //begin crouching
-                    if(self.scaleY != self.minCrouchFactor) {
-                        self.scaleY -= self.speed * Float(dt)
-                        self.position.y -= (self.speed * 0.5) * Float(dt)
-                    } else {
-                        // once we reach our min crouch factor, begin to hang
-                        self.crouchHang += Float(dt);
-                        if(self.crouchHang >= maxCrouchHang) {
-                            self.crouchHang = 0.0
-                            self.isCrouching = false;
-                        }
-                    }
-                    
-                    // if we scale too small, set the scale
-                    if(self.scaleY < self.minCrouchFactor) {
-                        self.scaleY = self.minCrouchFactor
-                    }
-                } else {
-                    // scale back up to our inital scale
-                    if(self.scaleY != self.initalScaleY) {
-                        self.scaleY += self.speed * Float(dt)
-                        self.position.y += (self.speed * 0.5) * Float(dt)
-                    } else {
-                        self.isMoving = false
-                    }
-                    
-                    // if we scale to big, set the scale
-                    if(self.scaleY > self.initalScaleY) {
-                        self.scaleY = self.initalScaleY
-                    }
-                }
-                
-            default:
-                print("error: reached default case in player update function")
-            }
+        if(isMoving) {
+		
+			if(!isControlsSwapped) {
+				switch(currentMoveDirection) {
+				case UISwipeGestureRecognizerDirection.left:
+					// move from the middle lane to the left lane
+					if(currentLane == Lane.middle) {
+						if(self.position.x != self.maxMoveLength) {
+							self.position.x -= self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.left
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x < self.maxMoveLength) {
+							self.position.x = self.maxMoveLength
+						}
+						// move from the right lane to the middle lane
+					} else if (currentLane == Lane.right) {
+						if(self.position.x != self.initialPosition.x) {
+							self.position.x -= self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.middle
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x < self.initialPosition.x) {
+							self.position.x = self.initialPosition.x
+						}
+					}
+					else
+					{
+						// swipe left at left lane
+						self.isMoving = false
+					}
+					
+				case UISwipeGestureRecognizerDirection.right:
+					// move from middle lane to the right lane
+					if(currentLane == Lane.middle) {
+						if(self.position.x != self.maxMoveLength) {
+							self.position.x += self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.right
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x > self.maxMoveLength) {
+							self.position.x = self.maxMoveLength
+						}
+						// move from left lane to the middle lane
+					} else if (currentLane == Lane.left) {
+						if(self.position.x != self.initialPosition.x) {
+							self.position.x += self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.middle
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x > self.initialPosition.x) {
+							self.position.x = self.initialPosition.x
+						}
+					}
+					else
+					{
+						// swipe right when at right lane
+						self.isMoving = false
+					}
+					
+				case UISwipeGestureRecognizerDirection.up:
+					
+					// TODO: change this to a parabola or sin function for smooth jumping
+					// TODO: consider adding gravity for falling through gaps
+					
+					// begin jumping
+					if(isJumping) {
+						if(self.position.y != self.maxJumpHeight) {
+							self.position.y += self.speed * Float(dt)
+						} else {
+							// once we reach our max height, begin to hang
+							self.jumpHang += Float(dt)
+							if(self.jumpHang >= self.maxJumpHang) {
+								self.jumpHang = 0.0
+								self.isJumping = false
+							}
+						}
+						
+						// if we go to high, set the positon
+						if(self.position.y > self.maxJumpHeight) {
+							self.position.y = self.maxJumpHeight
+						}
+					} else {
+						// fall back down until player is grounded
+						if(self.position.y != self.initialPosition.y) {
+							self.position.y -= self.speed * Float(dt)
+						} else {
+							self.isMoving = false
+						}
+						
+						// if we pass the floor, set the positon
+						if(self.position.y < self.initialPosition.y) {
+							self.position.y = self.initialPosition.y
+						}
+					}
+					
+				case UISwipeGestureRecognizerDirection.down:
+					if(isCrouching) {
+						//begin crouching
+						if(self.scaleY != self.minCrouchFactor) {
+							self.scaleY -= self.speed * Float(dt)
+							self.position.y -= (self.speed * 0.5) * Float(dt)
+						} else {
+							// once we reach our min crouch factor, begin to hang
+							self.crouchHang += Float(dt);
+							if(self.crouchHang >= maxCrouchHang) {
+								self.crouchHang = 0.0
+								self.isCrouching = false;
+							}
+						}
+						
+						// if we scale too small, set the scale
+						if(self.scaleY < self.minCrouchFactor) {
+							self.scaleY = self.minCrouchFactor
+						}
+					} else {
+						// scale back up to our inital scale
+						if(self.scaleY != self.initalScaleY) {
+							self.scaleY += self.speed * Float(dt)
+							self.position.y += (self.speed * 0.5) * Float(dt)
+						} else {
+							self.isMoving = false
+						}
+						
+						// if we scale to big, set the scale
+						if(self.scaleY > self.initalScaleY) {
+							self.scaleY = self.initalScaleY
+						}
+					}
+						
+					default:
+						print("error: reached default case in player update function")
+				}
+			} else {
+				switch(currentMoveDirection) {
+				case UISwipeGestureRecognizerDirection.right:
+					// move from the middle lane to the left lane
+					if(currentLane == Lane.middle) {
+						if(self.position.x != self.maxMoveLength) {
+							self.position.x -= self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.left
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x < self.maxMoveLength) {
+							self.position.x = self.maxMoveLength
+						}
+						// move from the right lane to the middle lane
+					} else if (currentLane == Lane.right) {
+						if(self.position.x != self.initialPosition.x) {
+							self.position.x -= self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.middle
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x < self.initialPosition.x) {
+							self.position.x = self.initialPosition.x
+						}
+					}
+					else
+					{
+						// swipe left at left lane
+						self.isMoving = false
+					}
+					
+				case UISwipeGestureRecognizerDirection.left:
+					// move from middle lane to the right lane
+					if(currentLane == Lane.middle) {
+						if(self.position.x != self.maxMoveLength) {
+							self.position.x += self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.right
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x > self.maxMoveLength) {
+							self.position.x = self.maxMoveLength
+						}
+						// move from left lane to the middle lane
+					} else if (currentLane == Lane.left) {
+						if(self.position.x != self.initialPosition.x) {
+							self.position.x += self.speed * Float(dt)
+						} else {
+							self.currentLane = Lane.middle
+							self.isMoving = false
+						}
+						
+						// if we go over, set the position
+						if(self.position.x > self.initialPosition.x) {
+							self.position.x = self.initialPosition.x
+						}
+					}
+					else
+					{
+						// swipe right when at right lane
+						self.isMoving = false
+					}
+					
+				case UISwipeGestureRecognizerDirection.down:
+					
+					// TODO: change this to a parabola or sin function for smooth jumping
+					// TODO: consider adding gravity for falling through gaps
+					
+					// begin jumping
+					if(isJumping) {
+						if(self.position.y != self.maxJumpHeight) {
+							self.position.y += self.speed * Float(dt)
+						} else {
+							// once we reach our max height, begin to hang
+							self.jumpHang += Float(dt)
+							if(self.jumpHang >= self.maxJumpHang) {
+								self.jumpHang = 0.0
+								self.isJumping = false
+							}
+						}
+						
+						// if we go to high, set the positon
+						if(self.position.y > self.maxJumpHeight) {
+							self.position.y = self.maxJumpHeight
+						}
+					} else {
+						// fall back down until player is grounded
+						if(self.position.y != self.initialPosition.y) {
+							self.position.y -= self.speed * Float(dt)
+						} else {
+							self.isMoving = false
+						}
+						
+						// if we pass the floor, set the positon
+						if(self.position.y < self.initialPosition.y) {
+							self.position.y = self.initialPosition.y
+						}
+					}
+					
+				case UISwipeGestureRecognizerDirection.up:
+					if(isCrouching) {
+						//begin crouching
+						if(self.scaleY != self.minCrouchFactor) {
+							self.scaleY -= self.speed * Float(dt)
+							self.position.y -= (self.speed * 0.5) * Float(dt)
+						} else {
+							// once we reach our min crouch factor, begin to hang
+							self.crouchHang += Float(dt);
+							if(self.crouchHang >= maxCrouchHang) {
+								self.crouchHang = 0.0
+								self.isCrouching = false;
+							}
+						}
+						
+						// if we scale too small, set the scale
+						if(self.scaleY < self.minCrouchFactor) {
+							self.scaleY = self.minCrouchFactor
+						}
+					} else {
+						// scale back up to our inital scale
+						if(self.scaleY != self.initalScaleY) {
+							self.scaleY += self.speed * Float(dt)
+							self.position.y += (self.speed * 0.5) * Float(dt)
+						} else {
+							self.isMoving = false
+						}
+						
+						// if we scale to big, set the scale
+						if(self.scaleY > self.initalScaleY) {
+							self.scaleY = self.initalScaleY
+						}
+					}
+						
+					default:
+						print("error: reached default case in player update function")
+				}
+			}
         }
     }
     

@@ -22,10 +22,20 @@ class GameScene: Scene {
     
     var totalTime: Double
     
-    var isPowerUpDown: Bool
-    var powerTimer: Int
+	// PowerUp and PowerDown
+    var powerTimer: Double
     var powersOnScreen: Bool
+	var powerChoice: Int
+	var isScoreDoubled: Bool
+	var isSheilded: Bool
+	var isSlowDown: Bool
+	var isSpeedUp: Bool
+	var isSwapControls: Bool
+	var isFog: Bool
     
+	var powerUps   = ["Double Scoring", "Shield", "Slow Down"]
+	var powerDowns = ["Speed Up", "Swap Controls", "Fog"]
+	
     // shaders
     static var shaders = [
         ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
@@ -99,9 +109,15 @@ class GameScene: Scene {
         let playerPosition = GLKVector3Make(playerX, playerY, playerZ)
         
         self.totalTime = 0
-        self.isPowerUpDown = false
         self.powersOnScreen = false
         self.powerTimer = 0
+		self.powerChoice = 0
+		self.isScoreDoubled = false
+		self.isSheilded = false
+		self.isSlowDown = false
+		self.isSpeedUp = false
+		self.isSwapControls = false
+		self.isFog = false
         
         self.player = Player(shader: shaderProgram, levelWidth: 20.0, initialPosition: playerPosition)
         self.player.position = playerPosition
@@ -144,8 +160,28 @@ class GameScene: Scene {
         super.updateWithDelta(dt)
         
         physicsWorld.update(Float(dt));
+		
+		if(powerTimer <= 0) {
+			powerTimer = 0
+			powersOnScreen = false
+			isScoreDoubled = false
+			isSheilded = false
+			isSlowDown = false
+			isSpeedUp = false
+			self.player.isControlsSwapped = false
+			isFog = false
+		}
         
-        // in frame velocity
+		// in frame velocity
+		// check for slow down/speed up
+		if(isSlowDown) {
+			velocity = 1.5
+		} else if(isSpeedUp) {
+			velocity = 5
+		} else {
+			velocity = 3
+		}
+		
         let v = velocity * dt
         movePlatforms(velocity: v)
         
@@ -159,23 +195,35 @@ class GameScene: Scene {
                 break collisionCheck
             }
             
-            if(powerTimer != 0) {
-                isPowerUpDown = true
-            } else {
-                isPowerUpDown = false
-            }
-            
             switch tag {
             case kObstacleTag:
                 print("Collision detected: obstacle")
+                // collision with obstacle detected, change scene to gameover scene
+				if(!isShielded) {
+					self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+				}
             case kPowerupTag:
-                print("Collision detected: power up")
-                powerTimer = 30
-                //powersOnScreen = false
+                print("Collision detected: power up \(powerUps[powerChoice])")
+                powerTimer = 5				
+				switch powerChoice {
+					case 0:
+						// isScoreDoubled = true
+					case 1:
+						isSheilded = true
+					case 2:
+						isSlowDown = true
+				}				
             case kPowerdownTag:
-                print("Collision detected: power down")
-                powerTimer = 30
-                //powersOnScreen = false
+                print("Collision detected: power down \(powerDowns[powerChoice])")
+                powerTimer = 5				
+				switch powerChoice {
+					case 0:
+						isSpeedUp = true
+					case 1:
+						self.player.isControlsSwapped = true
+					case 2:
+						// isFog = true
+				}
             default:
                 print("Collision Error: tag: " + String(tag))
             }
@@ -195,6 +243,7 @@ class GameScene: Scene {
         // update platform shader time
         
         self.totalTime += dt
+        self.powerTimer -= dt
         
         glUseProgram(GameScene.shaders[0].programHandle)
         glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(self.totalTime))
@@ -230,10 +279,11 @@ class GameScene: Scene {
         if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
         {
             let rand: Int = Int(arc4random_uniform(100))
+			let powerChoice = Int(arc4random_uniform(3))
             
             print("powerTimer = " + String(powerTimer))
-            if(powerTimer == 0) {
-                if (rand <= 5) // powerup
+            if(powerTimer <= 0) {
+                if (rand <= 10 && powersOnScreen == false) // powerup
                 {
                     // power up
                     let powerPosition = GLKVector3Make(0, 0, 0)
@@ -267,9 +317,10 @@ class GameScene: Scene {
                     self.physicsWorld.addCollisionObject(powerup.physicsInfo)
                     
                     platform.children.append(powerup)
+					self.powersOnScreen = true
                     return platform
                 }
-                else if (rand <= 10) // powerdown
+                else if (rand <= 20 && powersOnScreen == false) // powerdown
                 {
                     // power down
                     let powerPosition = GLKVector3Make(0, 0, 0)
@@ -303,14 +354,13 @@ class GameScene: Scene {
                     self.physicsWorld.addCollisionObject(powerdown.physicsInfo)
                     
                     platform.children.append(powerdown)
+                    self.powersOnScreen = true
                     return platform
                 }
                 else if (rand > 80)
                 {
                     return platform;
                 }
-            } else {
-                powerTimer -= 1;
             }
             
             // obstacle
