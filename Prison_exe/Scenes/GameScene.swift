@@ -20,6 +20,8 @@ class GameScene: Scene {
     var player: Player
     var platforms: Node
     
+    var score: Int
+    
     var totalTime: Double
     
     // shaders
@@ -110,6 +112,8 @@ class GameScene: Scene {
         platforms.scaleX = 1
         platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
         
+        //score reset each new game
+        self.score = 0;
         super.init(name: "GameScene", shaderProgram: shaderProgram)
         
         // initialize platform with properties
@@ -175,6 +179,9 @@ class GameScene: Scene {
             }
         }
         
+        // update score based on playtime
+        score += 10;
+        
         // update platform shader time
         
         self.totalTime += dt
@@ -184,6 +191,10 @@ class GameScene: Scene {
         
         //glUseProgram(GameScene.shaders[1].programHandle)
         //glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Time"), GLfloat(self.totalTime))
+    }
+    
+    func returnscore(){
+        
     }
     
     // renders object and all children with the loaded shader program

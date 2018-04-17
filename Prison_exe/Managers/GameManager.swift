@@ -16,6 +16,8 @@ class GameManager {
     
     var lineShaderProgram: LineShaderProgram
     
+    var Scorelabel: UILabel?
+    
     var backgroundMusicPlayer: AVAudioPlayer?
     var popEffect: AVAudioPlayer?
     var btnNoise: AVAudioPlayer?
@@ -76,6 +78,16 @@ class GameManager {
     
     func stopBackgroundMusic() {
         self.backgroundMusicPlayer?.stop();
+    }
+    
+    //Score System
+    func setupScoreLabel(label :UILabel){
+        self.Scorelabel=label;
+    }
+    
+    func updateScore(score: Int){
+        self.Scorelabel?.text=NumberFormatter.localizedString(from: NSNumber(value: score), number:
+            NumberFormatter.Style.decimal)
     }
     
     //SE setups

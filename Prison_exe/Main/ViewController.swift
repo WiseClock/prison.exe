@@ -12,6 +12,10 @@ class ViewController: GLKViewController {
     var glView : GLKView!
     var glkUpdater : GLKUpdater!
     var manager: GameManager!
+    var gamescene: GameScene!
+    var _score: Int!
+    
+    @IBOutlet weak var score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,20 @@ class ViewController: GLKViewController {
         self.manager.setBtnNoise(file: "button.mp3")
         self.manager.playBackgroundMusic(file: "bgm1.mp3")
         //self.manager.playBackgroundMusic(file: "bgm.mp3")
+        
+        //score  ------not finished
+        self.manager.setupScoreLabel(label: score);
+        
+        if _score != nil{
+            
+            let _score = gamescene.score;
+            self.manager.updateScore(score: _score);
+        }else{
+            _score = self.gamescene.score;
+            self.manager.updateScore(score: _score);
+            //print("no score value")
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

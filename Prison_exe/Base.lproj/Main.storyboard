@@ -17,6 +17,22 @@
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="rNz-fu-In7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-fJ-5GX">
+                                <rect key="frame" x="296" y="20" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123,456,789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrM-BR-rn9">
+                                <rect key="frame" x="223" y="41" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="Woi-6I-udI"/>
                         <connections>
@@ -27,6 +43,9 @@
                             <outletCollection property="gestureRecognizers" destination="Fgp-Ok-gob" appends="YES" id="Pza-bq-x3p"/>
                         </connections>
                     </glkView>
+                    <connections>
+                        <outlet property="score" destination="LrM-BR-rn9" id="1c9-Pe-9SJ"/>
+                    </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN8-EN-R34" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="Fgp-Ok-gob" userLabel="Swipe Left Gesture Recognizer">
@@ -50,7 +69,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7" y="9"/>
+            <point key="canvasLocation" x="5.5999999999999996" y="8.5457271364317844"/>
         </scene>
     </scenes>
 </document>
