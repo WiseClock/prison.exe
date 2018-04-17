@@ -27,7 +27,7 @@ class GameScene: Scene {
     var powersOnScreen: Bool
 	var powerChoice: Int
 	var isScoreDoubled: Bool
-	var isSheilded: Bool
+	var isShielded: Bool
 	var isSlowDown: Bool
 	var isSpeedUp: Bool
 	var isSwapControls: Bool
@@ -71,7 +71,7 @@ class GameScene: Scene {
     var obstacles = [ObstacleBaby]()
     
     // per second
-    let velocity: Double = 3
+    var velocity: Double = 3
     
     var physicsWorld : PhysicsWorldWrapper = PhysicsWorldWrapper()
     
@@ -113,7 +113,7 @@ class GameScene: Scene {
         self.powerTimer = 0
 		self.powerChoice = 0
 		self.isScoreDoubled = false
-		self.isSheilded = false
+		self.isShielded = false
 		self.isSlowDown = false
 		self.isSpeedUp = false
 		self.isSwapControls = false
@@ -165,7 +165,7 @@ class GameScene: Scene {
 			powerTimer = 0
 			powersOnScreen = false
 			isScoreDoubled = false
-			isSheilded = false
+			isShielded = false
 			isSlowDown = false
 			isSpeedUp = false
 			self.player.isControlsSwapped = false
@@ -174,7 +174,8 @@ class GameScene: Scene {
         
 		// in frame velocity
 		// check for slow down/speed up
-		if(isSlowDown) {
+		if (isSlowDown)
+        {
 			velocity = 1.5
 		} else if(isSpeedUp) {
 			velocity = 5
@@ -205,24 +206,36 @@ class GameScene: Scene {
             case kPowerupTag:
                 print("Collision detected: power up \(powerUps[powerChoice])")
                 powerTimer = 5				
-				switch powerChoice {
-					case 0:
-						// isScoreDoubled = true
-					case 1:
-						isSheilded = true
-					case 2:
-						isSlowDown = true
+				switch powerChoice
+                {
+                case 0:
+                    // isScoreDoubled = true
+                    break
+                case 1:
+                    isShielded = true
+                    break
+                case 2:
+                    isSlowDown = true
+                    break
+                default:
+                    break
 				}				
             case kPowerdownTag:
                 print("Collision detected: power down \(powerDowns[powerChoice])")
                 powerTimer = 5				
-				switch powerChoice {
-					case 0:
-						isSpeedUp = true
-					case 1:
-						self.player.isControlsSwapped = true
-					case 2:
-						// isFog = true
+				switch powerChoice
+                {
+                case 0:
+                    isSpeedUp = true
+                    break
+                case 1:
+                    self.player.isControlsSwapped = true
+                    break
+                case 2:
+                    // isFog = true
+                    break
+                default:
+                    break
 				}
             default:
                 print("Collision Error: tag: " + String(tag))
@@ -276,12 +289,12 @@ class GameScene: Scene {
         platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
         
-        if (atZ < Float(maxPlatformSize) / 2 * -obstacleScale)
+        if (atZ < Float(maxPlatformSize) / Float(2) * -obstacleScale)
         {
             let rand: Int = Int(arc4random_uniform(100))
 			let powerChoice = Int(arc4random_uniform(3))
             
-            print("powerTimer = " + String(powerTimer))
+            // print("powerTimer = " + String(powerTimer))
             if(powerTimer <= 0) {
                 if (rand <= 10 && powersOnScreen == false) // powerup
                 {
