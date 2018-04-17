@@ -250,11 +250,14 @@ class GameScene: Scene {
                 print("Collision detected: obstacle")
                 // collision with obstacle detected, change scene to gameover scene
 				if(!isShielded) {
+                    self.manager?.stopBackgroundMusic()
+                    self.manager?.playBackgroundMusic(file: "game_over.mp3")
 					self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
 				}
                 break
             case kPowerupTag:
                 print("Collision detected: power up \(powerUps[powerChoice])")
+                self.manager?.playPowerupNoise()
                 powerTimer = 5				
 				switch powerChoice
                 {
@@ -274,9 +277,9 @@ class GameScene: Scene {
                     break
 				}
                 break
-                self.manager?.playPowerupNoise()
             case kPowerdownTag:
                 print("Collision detected: power down \(powerDowns[powerChoice])")
+                self.manager?.playPowerDownNoise()
                 powerTimer = 5				
 				switch powerChoice
                 {
@@ -296,7 +299,6 @@ class GameScene: Scene {
                     break
 				}
                 break
-                self.manager?.playPowerDownNoise()
             default:
                 print("Collision Error: tag: " + String(tag))
                 break

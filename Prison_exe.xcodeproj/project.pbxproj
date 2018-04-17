@@ -828,6 +828,8 @@
 				25F3FB8F2085B69F00CCC948 /* pu_slow.png */,
 			);
 			path = Texture;
+			sourceTree = "<group>";
+		};
 		5F2B9F6F2086721E00BD52EB /* StoryImages */ = {
 			isa = PBXGroup;
 			children = (
