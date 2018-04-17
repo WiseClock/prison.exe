@@ -154,10 +154,13 @@ class GameScene: Scene {
             
             switch tag {
             case kObstacleTag:
+                self.manager?.playCollisionNoise()
                 print("Collision detected: obstacle")
             case kPowerupTag:
+                self.manager?.playPowerupNoise()
                 print("Collision detected: power up")
             case kPowerdownTag:
+                self.manager?.playPowerDownNoise()
                 print("Collision detected: power down")
             default:
                 print("Collision Error: tag: " + String(tag))
@@ -409,6 +412,7 @@ class GameScene: Scene {
     }
     
     override func touchGestureSwipedDown(_ sender: UISwipeGestureRecognizer) {
+        self.manager?.playSlideNoise();
         player.move(direction: sender.direction)
     }
     

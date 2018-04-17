@@ -17,8 +17,14 @@ class GameManager {
     var lineShaderProgram: LineShaderProgram
     
     var backgroundMusicPlayer: AVAudioPlayer?
+    
+    //se
     var popEffect: AVAudioPlayer?
     var btnNoise: AVAudioPlayer?
+    var collisionNoise : AVAudioPlayer?
+    var powerupNoise : AVAudioPlayer?
+    var powerDownNoise : AVAudioPlayer?
+    var slideNoise :AVAudioPlayer?
     
     init(view: GLKView, scene: Scene, shaderProgram: ShaderProgram) {
         self.glkView = view
@@ -87,6 +93,22 @@ class GameManager {
         self.btnNoise = self.preloadSoundEffect(file: file)
     }
     
+    func setCollisionNoise(file : String) {
+        self.collisionNoise = self.preloadSoundEffect(file: file)
+    }
+    
+    func setSlideNoise(file : String) {
+        self.slideNoise = self.preloadSoundEffect(file: file)
+    }
+    
+    func setPowerupNoise(file : String) {
+        self.powerupNoise = self.preloadSoundEffect(file: file)
+    }
+    
+    func setPowerDownNoise(file : String) {
+        self.powerDownNoise = self.preloadSoundEffect(file: file)
+    }
+    
     //load sound file method
     func preloadSoundEffect(file: String) -> AVAudioPlayer? {
         guard let url = Bundle.main.url(forResource: file, withExtension: nil), let player = try? AVAudioPlayer(contentsOf: url) else { return nil }
@@ -101,5 +123,21 @@ class GameManager {
     
     func playBtnNoise() {
         self.btnNoise?.play()
+    }
+    
+    func playCollisionNoise() {
+        self.collisionNoise?.play()
+    }
+    
+    func playSlideNoise() {
+        self.slideNoise?.play()
+    }
+    
+    func playPowerupNoise() {
+        self.powerupNoise?.play()
+    }
+    
+    func playPowerDownNoise() {
+        self.powerDownNoise?.play()
     }
 }
