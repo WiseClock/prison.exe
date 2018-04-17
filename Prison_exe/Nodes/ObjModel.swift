@@ -26,7 +26,7 @@ class ObjModel : PhysicsNode, NSCopying {
         self.loadTexture(self.tex)
     }
     
-    init(_ path: String, shader: ShaderProgram, texture: String = "dungeon_01.png")
+    init(_ path: String, shader: ShaderProgram, texture: String = "dungeon_01.png", color: GLKVector4 = GLKVector4Make(1, 1, 1, 1))
     {
         // path: Bundle.main.path(forResource: "xxx", ofType: "obj")
         
@@ -111,6 +111,7 @@ class ObjModel : PhysicsNode, NSCopying {
         
         super.init(name: "obj_" + texture, shaderProgram: shader, vertices: vertexList, indices: indexList)
         self.loadTexture(self.tex)
+        self.matColor = color
     }
     
     override func drawContent() {

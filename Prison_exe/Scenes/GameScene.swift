@@ -36,6 +36,7 @@ class GameScene: Scene {
     
 	var powerUps   = ["Double Scoring", "Shield", "Slow Down"]
 	var powerDowns = ["Speed Up", "Swap Controls", "Fog"]
+    var powerRotation: Float = 0
 	
     // shaders
     static var shaders = [
@@ -85,10 +86,11 @@ class GameScene: Scene {
         ],
     ]
     var obstacles = [ObstacleBaby]()
+    var lastObstaclePos:EObstaclePosition = EObstaclePosition.Middle
     var powerQuad1: QuadPowers
     
     // per second
-    var velocity: Double = 2
+    var velocity: Double = 3
     
     var physicsWorld : PhysicsWorldWrapper = PhysicsWorldWrapper()
     
@@ -209,6 +211,12 @@ class GameScene: Scene {
 			isSwapControls = false
 			isFog = false
 		}
+        
+        powerRotation += Float(2 * dt)
+        if (powerRotation > 360)
+        {
+            powerRotation = 0
+        }
         
 		// in frame velocity
         velocity += 0.01 * dt // acceleration = 0.01
@@ -356,7 +364,9 @@ class GameScene: Scene {
                 {
                     // power up
                     let powerPosition = GLKVector3Make(0, 0, 0)
-                    let powerup = PowerUp(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition)
+                    //let powerup = PowerUp(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition)
+                    let powerup = ObjModel.init(Bundle.main.path(forResource: "power", ofType: "obj")!, shader: GameScene.shaders[4], texture: "powerup", color: GLKVector4Make(0, 1, 0, 1))
+                    powerup.position = powerPosition
                     
                     // set the node's parent so we can properly calculate position and scale
                     powerup.parent = platform
@@ -380,6 +390,8 @@ class GameScene: Scene {
                         break;
                     }
                     
+                    powerup.position.y += 1
+                    
                     // sets up a bounding box and id tag for collisions
                     powerup.setupPhysicsInfo(tag: kPowerupTag)
                     // add bounding box to the world
@@ -393,14 +405,16 @@ class GameScene: Scene {
                 {
                     // power down
                     let powerPosition = GLKVector3Make(0, 0, 0)
-                    let powerdown = PowerDown(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition, player: player)
+                    //let powerdown = PowerDown(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition, player: player)
+                    let powerdown = ObjModel.init(Bundle.main.path(forResource: "power", ofType: "obj")!, shader: GameScene.shaders[4], texture: "powerdown", color: GLKVector4Make(1, 0, 0, 1))
+                    powerdown.position = powerPosition
                     
                     // set the node's parent so we can properly calculate position and scale
                     powerdown.parent = platform
                     
-                    powerdown.scaleZ = 1 * 0.7 * 0.5
-                    powerdown.scaleX = 1 * 0.7 * 0.5
-                    powerdown.scaleY = 1 * 0.7 * 0.5
+                    powerdown.scaleZ = 1 * 0.5
+                    powerdown.scaleX = 1 * 0.5
+                    powerdown.scaleY = 1 * 0.5
                     
                     let randPos: Int = Int(arc4random_uniform(3))
                     switch (randPos)
@@ -416,6 +430,8 @@ class GameScene: Scene {
                     default:
                         break;
                     }
+                    
+                    powerdown.position.y += 1
                     
                     // sets up a bounding box and id tag for collisions
                     powerdown.setupPhysicsInfo(tag: kPowerdownTag)
@@ -442,6 +458,20 @@ class GameScene: Scene {
             
             let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
             let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
+            
+            var tryCounter = 0
+            var obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
+            while (tryCounter < 5 && obstacleHorizontal == lastObstaclePos)
+            {
+                obstacleHorizontal = obstacleBaby.getRandomHorizontal()
+                tryCounter += 1
+            }
+            if (obstacleHorizontal == lastObstaclePos)
+            {
+                return platform
+            }
+            let obstacleVerticle: EObstaclePosition = obstacleBaby.getRandomVerticle()
+            
             let obstacle: ObjModel = obstacleBaby.instantiate()
             obstacle.scaleZ = 1 * 0.7
             obstacle.scaleX = 1 * 0.7
@@ -456,9 +486,6 @@ class GameScene: Scene {
             
             // add obstacle's bounding box to the world
             self.physicsWorld.addCollisionObject(obstacle.physicsInfo)
-            
-            let obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
-            let obstacleVerticle: EObstaclePosition = obstacleBaby.getRandomVerticle()
 
             switch (obstacleHorizontal)
             {
@@ -500,6 +527,7 @@ class GameScene: Scene {
             }
             
             platform.children.append(obstacle)
+            lastObstaclePos = obstacleHorizontal
         }
         return platform
     }
@@ -509,22 +537,28 @@ class GameScene: Scene {
         for platform in self.platforms.children
         {
             platform.position.z += Float(velocity) * obstacleScale
-            if (powerTimer > 0.1)
+            
+            var index = platform.children.index(where: { (item) -> Bool in
+                item.name.contains("power")
+            })
+            while (index != nil)
             {
-                var index = platform.children.index(where: { (item) -> Bool in
-                    item.name == "powerup" || item.name == "powerdown"
-                })
-                while (index != nil)
+                let power = platform.children[index!]
+                
+                power.rotationY = powerRotation
+                
+                if (powerTimer > 0.1)
                 {
-                    let power = platform.children.remove(at: index!)
+                    platform.children.remove(at: index!)
                     if let ppn = power as? PhysicsNode
                     {
                         self.physicsWorld.removeCollisionObject(ppn.physicsInfo)
                     }
-                    index = platform.children.index(where: { (item) -> Bool in
-                        item.name == "powerup" || item.name == "powerdown"
-                    })
                 }
+                
+                index = platform.children.index(where: { (item) -> Bool in
+                    item.name == "powerup" || item.name == "powerdown"
+                })
             }
         }
         

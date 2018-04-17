@@ -41,6 +41,7 @@
 		25F3FB982085C7B800CCC948 /* PowerObj.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB972085C7B800CCC948 /* PowerObj.fsh */; };
 		25F3FB9B2086914700CCC948 /* justice.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB992086914500CCC948 /* justice.obj */; };
 		25F3FB9C2086914700CCC948 /* slave.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB9A2086914700CCC948 /* slave.obj */; };
+		25F3FB9E20869B5F00CCC948 /* power.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB9D20869B5F00CCC948 /* power.obj */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409394320362181004BF7F5 /* ShaderProgram.swift */; };
 		940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940F81B5205267B60060DB4D /* PhysicsWorld.cpp */; };
@@ -273,6 +274,7 @@
 		25F3FB972085C7B800CCC948 /* PowerObj.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = PowerObj.fsh; sourceTree = "<group>"; };
 		25F3FB992086914500CCC948 /* justice.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = justice.obj; sourceTree = "<group>"; };
 		25F3FB9A2086914700CCC948 /* slave.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slave.obj; sourceTree = "<group>"; };
+		25F3FB9D20869B5F00CCC948 /* power.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = power.obj; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		9409394320362181004BF7F5 /* ShaderProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		940F81B3205250EC0060DB4D /* PhysicsTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsTags.h; sourceTree = "<group>"; };
@@ -1259,6 +1261,7 @@
 				25F3FB8A2085B65E00CCC948 /* Texture */,
 				25F04B9E206C206D00E1E2BB /* platform.obj */,
 				253D3C09206B773600B2E8A5 /* platform.png */,
+				25F3FB9D20869B5F00CCC948 /* power.obj */,
 				25813544204641D5008ECC4F /* Obstacle */,
 				94474582202CF3F900BAB97B /* Cube */,
 			);
@@ -1521,6 +1524,7 @@
 				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */,
+				25F3FB9E20869B5F00CCC948 /* power.obj in Resources */,
 				25F3FB942085B6A000CCC948 /* pu_score.png in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
