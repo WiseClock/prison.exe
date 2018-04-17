@@ -19,7 +19,7 @@ uniform Light u_Light;
 
 lowp float makePoint(lowp float x, lowp float y, lowp float fx, lowp float fy, lowp float sx, lowp float sy, lowp float t)
 {
-    //t = t * 1000.0;
+    t = t / 6.0;
     lowp float xx=x+sin(t*fx)*sx;
     lowp float yy=y+cos(t*fy)*sy;
     return 1.0/sqrt(xx*xx+yy*yy);
@@ -43,7 +43,7 @@ void main(void) {
     //lowp vec2 p = (vec2(64, 64) / 1.5) * 2.0 - vec2(0.5, 0.5);
     lowp vec2 p = (frag_TexCoord.xy) - vec2(0.5, 0.5);
     
-    p = p / 8.0;
+    p = p / 10.0;
     
     lowp float x = p.x;
     lowp float y = p.y;
@@ -81,9 +81,9 @@ void main(void) {
     //c=c+makePoint(x,y,0.2,0.6,0.6,0.3,u_Time);
     //c=c+makePoint(x,y,1.3,0.5,0.5,0.4,u_Time);
     
-    lowp vec3 d = vec3(a, b, c) / 32.0;
+    lowp vec3 d = vec3(a, b, c) / 5.0;
     
-    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0) + vec4(d, 0.2);
+    gl_FragColor = u_MatColor * texture2D(u_Texture, frag_TexCoord) * vec4(d, 1.0) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0);
     // gl_FragColor = vec4(d.x,d.y,d.z,0.5);
 }
 

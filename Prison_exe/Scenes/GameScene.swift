@@ -39,7 +39,8 @@ class GameScene: Scene {
     // shaders
     static var shaders = [
         ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
-        //ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "Player.fsh")
+        ShaderProgram.init(vertexShader: "Obstacle.vsh", fragmentShader: "Obstacle.fsh"),
+        ShaderProgram.init(vertexShader: "Background.vsh", fragmentShader: "Background.fsh"),
     ]
     
     var obstacleAssets = [
@@ -47,31 +48,31 @@ class GameScene: Scene {
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Bottom],
-            shaders[0]
+            shaders[1]
         ],
         [
             "airplane",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Top],
-            shaders[0]
+            shaders[1]
         ],
         [
             "airplane2",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Top],
-            shaders[0]
+            shaders[1]
         ],
         [
             "star",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
             [EObstaclePosition.Center, EObstaclePosition.Bottom, EObstaclePosition.Top],
-            shaders[0]
+            shaders[1]
         ],
     ]
     var obstacles = [ObstacleBaby]()
     
     // per second
-    var velocity: Double = 3
+    var velocity: Double = 2
     
     var physicsWorld : PhysicsWorldWrapper = PhysicsWorldWrapper()
     
@@ -89,7 +90,7 @@ class GameScene: Scene {
         for asset in obstacleAssets
         {
             let name: String = asset[0] as! String
-            obstacles.append(ObstacleBaby.init(name, shader: shaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
+            obstacles.append(ObstacleBaby.init(name, shader: asset[3] as! ShaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
         }
         
         // setup a virtual game size so we have a manageable work area
@@ -154,6 +155,14 @@ class GameScene: Scene {
         // add objects as children of the scene
         self.children.append(self.player)
         self.children.append(self.platforms)
+        
+        // background
+        let bgDistance = Float(maxPlatformSize - 2) * obstacleScale
+        let bg: Quad = Quad(shader: GameScene.shaders[2])
+        bg.scaleY = 200
+        bg.scaleX = 200
+        bg.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), -bgDistance)
+        self.children.append(bg)
     }
     
     override func updateWithDelta(_ dt: TimeInterval) {
@@ -261,8 +270,11 @@ class GameScene: Scene {
         glUseProgram(GameScene.shaders[0].programHandle)
         glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(self.totalTime))
         
-        //glUseProgram(GameScene.shaders[1].programHandle)
-        //glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Time"), GLfloat(self.totalTime))
+        glUseProgram(GameScene.shaders[1].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Time"), GLfloat(self.totalTime))
+        
+        glUseProgram(GameScene.shaders[2].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[2].programHandle, "u_Time"), GLfloat(self.totalTime))
     }
     
     // renders object and all children with the loaded shader program
