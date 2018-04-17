@@ -1352,7 +1352,6 @@
 		94BB030620507A3700E32951 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5F2B9F6F2086721E00BD52EB /* StoryImages */,
 				94BB030820507A3700E32951 /* layouts */,
 				94BB031020507A3700E32951 /* HelpView.swift */,
 				94BB031120507A3700E32951 /* GameOverView.swift */,
@@ -1383,8 +1382,8 @@
 		94BB030920507A3700E32951 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5F2B9F6F2086721E00BD52EB /* StoryImages */,
 				C900319320670EC10096EFDC /* Readme Images */,
-				C900319020670AA70096EFDC /* Story Images */,
 				C900318A2066F7EA0096EFDC /* back_arrow.png */,
 				C900317E2066E4F10096EFDC /* arrow.png */,
 				C900317C2066E4F10096EFDC /* creditList.png */,
@@ -1393,13 +1392,6 @@
 				94BB030B20507A3700E32951 /* HelpText.png */,
 			);
 			path = Images;
-			sourceTree = "<group>";
-		};
-		C900319020670AA70096EFDC /* Story Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Story Images";
 			sourceTree = "<group>";
 		};
 		C900319320670EC10096EFDC /* Readme Images */ = {

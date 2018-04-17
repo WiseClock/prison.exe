@@ -28,6 +28,7 @@ class GameOverView: UIView {
         addSubview(contentView);
         contentView.frame = self.bounds;
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth];
+        scene?.manager?.playBackgroundMusic(file: "game_over.mp3")
     }
 
     @IBAction func playAgainButtonPressed(_ sender: Any) {
