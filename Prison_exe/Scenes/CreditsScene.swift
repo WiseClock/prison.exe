@@ -19,6 +19,7 @@ class CreditsScene: Scene {
     }
     
     func backButtonPressed() {
+        self.manager?.playBtnNoise();
         self.contentView.removeFromSuperview()
         self.manager?.scene = HelpScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
     }

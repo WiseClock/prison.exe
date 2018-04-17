@@ -27,6 +27,8 @@ class MainMenuScene: Scene {
         var gs : PrologueScene = PrologueScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         // gs.lineShaderProgram = self.manager?.lineShaderProgram
         self.manager?.scene = gs;
+        self.manager?.stopBackgroundMusic()
+        self.manager?.playBackgroundMusic(file: "game.mp3")
 
     }
     

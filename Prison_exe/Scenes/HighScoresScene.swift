@@ -21,6 +21,8 @@ class HighScoresScene: Scene {
         self.contentView.removeFromSuperview()
         self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         self.manager?.playBtnNoise();
+        self.manager?.stopBackgroundMusic()
+        self.manager?.playBackgroundMusic(file: "game.mp3")
     }
     
     func mainMenuButtonPressed() {

@@ -15,12 +15,15 @@ class GameOverScene: Scene {
         self.contentView = GameOverView.init(frame: view.frame)
         self.contentView.scene = self
         view.addSubview(self.contentView)
+        
     }
     
     func playAgainButtonPressed() {
         self.contentView.removeFromSuperview()
         self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         self.manager?.playBtnNoise();
+        self.manager?.stopBackgroundMusic()
+        self.manager?.playBackgroundMusic(file: "game.mp3")
     }
     
     func highScoresButtonPressed() {

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,42 +21,64 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n83-rl-D9u">
-                    <rect key="frame" x="16" y="69" width="343" height="79"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n83-rl-D9u">
+                    <rect key="frame" x="16" y="29" width="343" height="79"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="79" id="eXd-dN-NVm"/>
+                        <constraint firstAttribute="width" constant="343" id="hyu-yc-k2l"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
                     <color key="textColor" red="0.38488586940000002" green="0.92256314770000003" blue="0.87372322979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fO-8l-w75">
-                    <rect key="frame" x="72" y="422" width="231" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29I-Ls-WDV">
+                    <rect key="frame" x="57" y="291.5" width="261" height="44"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Play Again"/>
-                    <connections>
-                        <action selector="playAgainButtonPressed:" destination="-1" eventType="touchUpInside" id="EhD-0l-fiZ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29I-Ls-WDV">
-                    <rect key="frame" x="72" y="490" width="231" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="AYr-fc-i2e"/>
+                        <constraint firstAttribute="width" constant="261" id="egC-j6-gW0"/>
+                    </constraints>
                     <state key="normal" title="High Scores"/>
                     <connections>
                         <action selector="highScoresButtonPressed:" destination="-1" eventType="touchUpInside" id="png-FW-MPJ"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxu-uh-7kc">
-                    <rect key="frame" x="72" y="555" width="231" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxu-uh-7kc">
+                    <rect key="frame" x="57" y="363.5" width="261" height="44"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="aT3-m5-Rco"/>
+                        <constraint firstAttribute="width" constant="261" id="sPZ-eP-32q"/>
+                    </constraints>
                     <state key="normal" title="Main Menu"/>
                     <connections>
                         <action selector="mainMenuButtonPressed:" destination="-1" eventType="touchUpInside" id="lCB-n9-tgw"/>
                     </connections>
                 </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fO-8l-w75">
+                    <rect key="frame" x="57" y="219.5" width="261" height="44"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="16V-wJ-66q"/>
+                        <constraint firstAttribute="width" constant="261" id="KHV-wX-YTs"/>
+                    </constraints>
+                    <state key="normal" title="Play Again"/>
+                    <connections>
+                        <action selector="playAgainButtonPressed:" destination="-1" eventType="touchUpInside" id="EhD-0l-fiZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6fO-8l-w75" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="24C-iM-8r2"/>
+                <constraint firstItem="Jxu-uh-7kc" firstAttribute="top" secondItem="29I-Ls-WDV" secondAttribute="bottom" constant="28" id="5Yq-W4-sXB"/>
+                <constraint firstItem="29I-Ls-WDV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-20" id="9M5-9k-V6D"/>
+                <constraint firstItem="n83-rl-D9u" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.2" id="FLi-X3-faJ"/>
+                <constraint firstItem="29I-Ls-WDV" firstAttribute="top" secondItem="6fO-8l-w75" secondAttribute="bottom" constant="28" id="LJD-lj-9Hw"/>
+                <constraint firstItem="Jxu-uh-7kc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Rda-Qr-hZP"/>
+                <constraint firstItem="29I-Ls-WDV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ckX-wB-CLF"/>
+                <constraint firstItem="n83-rl-D9u" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ecj-DL-4eH"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>

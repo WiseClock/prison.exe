@@ -246,6 +246,7 @@ class GameScene: Scene {
             
             switch tag {
             case kObstacleTag:
+                self.manager?.playCollisionNoise()
                 print("Collision detected: obstacle")
                 // collision with obstacle detected, change scene to gameover scene
 				if(!isShielded) {
@@ -273,6 +274,7 @@ class GameScene: Scene {
                     break
 				}
                 break
+                self.manager?.playPowerupNoise()
             case kPowerdownTag:
                 print("Collision detected: power down \(powerDowns[powerChoice])")
                 powerTimer = 5				
@@ -294,6 +296,7 @@ class GameScene: Scene {
                     break
 				}
                 break
+                self.manager?.playPowerDownNoise()
             default:
                 print("Collision Error: tag: " + String(tag))
                 break
@@ -647,6 +650,7 @@ class GameScene: Scene {
         {
             player.move(direction: sender.direction)
         }
+        self.manager?.playSlideNoise();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
