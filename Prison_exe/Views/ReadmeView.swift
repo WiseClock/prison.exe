@@ -56,6 +56,7 @@ class ReadmeView: UIView {
         imageNumber = imageNumber! - 1
         //check here
         swapImage(image: imageNumber!)
+        scene?.manager?.playBtnNoise();
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
@@ -63,9 +64,11 @@ class ReadmeView: UIView {
         imageNumber = imageNumber! + 1
         //check here
         swapImage(image: imageNumber!)
+        scene?.manager?.playBtnNoise();
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        scene?.manager?.playBtnNoise();
         scene?.backButtonPressed()
     }
     
