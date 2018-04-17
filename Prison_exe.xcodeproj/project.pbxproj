@@ -14,6 +14,24 @@
 		252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */ = {isa = PBXBuildFile; fileRef = 252372D22048B2F2004B73CB /* FireHydrant.obj */; };
 		252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D42048B3A0004B73CB /* EObstaclePosition.swift */; };
 		252372D72048B478004B73CB /* ObstacleBaby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252372D62048B478004B73CB /* ObstacleBaby.swift */; };
+		2529DFF120834EFA000CBDCE /* op15_7.530s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE020834EEF000CBDCE /* op15_7.530s.mp3 */; };
+		2529DFF220834EFA000CBDCE /* op3_3.234s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE120834EEF000CBDCE /* op3_3.234s.mp3 */; };
+		2529DFF320834EFA000CBDCE /* op7_5.009s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE220834EF0000CBDCE /* op7_5.009s.mp3 */; };
+		2529DFF420834EFA000CBDCE /* op1_3.599s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE320834EF1000CBDCE /* op1_3.599s.mp3 */; };
+		2529DFF520834EFA000CBDCE /* op9_2.487s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE420834EF1000CBDCE /* op9_2.487s.mp3 */; };
+		2529DFF620834EFA000CBDCE /* op5_4.468s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE520834EF2000CBDCE /* op5_4.468s.mp3 */; };
+		2529DFF720834EFA000CBDCE /* op14_1.909s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE620834EF3000CBDCE /* op14_1.909s.mp3 */; };
+		2529DFF820834EFA000CBDCE /* op8_5.445s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE720834EF4000CBDCE /* op8_5.445s.mp3 */; };
+		2529DFF920834EFA000CBDCE /* op4_3.168s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE820834EF4000CBDCE /* op4_3.168s.mp3 */; };
+		2529DFFA20834EFA000CBDCE /* op2_3.776s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFE920834EF5000CBDCE /* op2_3.776s.mp3 */; };
+		2529DFFB20834EFA000CBDCE /* op11_2.841s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFEA20834EF6000CBDCE /* op11_2.841s.mp3 */; };
+		2529DFFC20834EFA000CBDCE /* op10_4.642s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFEB20834EF7000CBDCE /* op10_4.642s.mp3 */; };
+		2529DFFD20834EFA000CBDCE /* op12_3.699s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFEC20834EF7000CBDCE /* op12_3.699s.mp3 */; };
+		2529DFFE20834EFA000CBDCE /* op16_2.178s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFED20834EF8000CBDCE /* op16_2.178s.mp3 */; };
+		2529DFFF20834EFA000CBDCE /* op13_4.905s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFEE20834EF9000CBDCE /* op13_4.905s.mp3 */; };
+		2529E00020834EFA000CBDCE /* op6_3.415s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFEF20834EF9000CBDCE /* op6_3.415s.mp3 */; };
+		2529E00120834EFA000CBDCE /* op17_5.960s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2529DFF020834EFA000CBDCE /* op17_5.960s.mp3 */; };
+		253CCF082076CD130062DF17 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253CCF072076CD130062DF17 /* PrologueScene.swift */; };
 		253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BF9206AF58E00B2E8A5 /* Platform.vsh */; };
 		253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3BFB206AF5A800B2E8A5 /* Platform.fsh */; };
 		253D3C0A206B773600B2E8A5 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C09206B773600B2E8A5 /* platform.png */; };
@@ -26,6 +44,13 @@
 		253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C25206B8AE200B2E8A5 /* airplane.obj */; };
 		253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C27206B8BED00B2E8A5 /* airplane2.obj */; };
 		253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 253D3C29206BF92E00B2E8A5 /* Obstacle.fsh */; };
+		2543482420800AB1002733EF /* glitchFont.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2543482220800AB0002733EF /* glitchFont.txt */; };
+		2543482520800AB1002733EF /* glitchFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543482320800AB1002733EF /* glitchFont.png */; };
+		2543482720800AE4002733EF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482620800AE4002733EF /* Font.swift */; };
+		2543482920800DD2002733EF /* FontGlyph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482820800DD2002733EF /* FontGlyph.swift */; };
+		2543482B20804050002733EF /* FontShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482A20804050002733EF /* FontShader.vsh */; };
+		2543482D2080405C002733EF /* FontShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482C2080405C002733EF /* FontShader.fsh */; };
+		2543482F208042DA002733EF /* GlyphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482E208042DA002733EF /* GlyphNode.swift */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		25F04B9F206C206D00E1E2BB /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F04B9E206C206D00E1E2BB /* platform.obj */; };
 		25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */; };
@@ -247,6 +272,24 @@
 		252372D22048B2F2004B73CB /* FireHydrant.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireHydrant.obj; sourceTree = "<group>"; };
 		252372D42048B3A0004B73CB /* EObstaclePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EObstaclePosition.swift; sourceTree = "<group>"; };
 		252372D62048B478004B73CB /* ObstacleBaby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleBaby.swift; sourceTree = "<group>"; };
+		2529DFE020834EEF000CBDCE /* op15_7.530s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op15_7.530s.mp3; sourceTree = "<group>"; };
+		2529DFE120834EEF000CBDCE /* op3_3.234s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op3_3.234s.mp3; sourceTree = "<group>"; };
+		2529DFE220834EF0000CBDCE /* op7_5.009s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op7_5.009s.mp3; sourceTree = "<group>"; };
+		2529DFE320834EF1000CBDCE /* op1_3.599s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op1_3.599s.mp3; sourceTree = "<group>"; };
+		2529DFE420834EF1000CBDCE /* op9_2.487s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op9_2.487s.mp3; sourceTree = "<group>"; };
+		2529DFE520834EF2000CBDCE /* op5_4.468s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op5_4.468s.mp3; sourceTree = "<group>"; };
+		2529DFE620834EF3000CBDCE /* op14_1.909s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op14_1.909s.mp3; sourceTree = "<group>"; };
+		2529DFE720834EF4000CBDCE /* op8_5.445s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op8_5.445s.mp3; sourceTree = "<group>"; };
+		2529DFE820834EF4000CBDCE /* op4_3.168s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op4_3.168s.mp3; sourceTree = "<group>"; };
+		2529DFE920834EF5000CBDCE /* op2_3.776s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op2_3.776s.mp3; sourceTree = "<group>"; };
+		2529DFEA20834EF6000CBDCE /* op11_2.841s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op11_2.841s.mp3; sourceTree = "<group>"; };
+		2529DFEB20834EF7000CBDCE /* op10_4.642s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op10_4.642s.mp3; sourceTree = "<group>"; };
+		2529DFEC20834EF7000CBDCE /* op12_3.699s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op12_3.699s.mp3; sourceTree = "<group>"; };
+		2529DFED20834EF8000CBDCE /* op16_2.178s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op16_2.178s.mp3; sourceTree = "<group>"; };
+		2529DFEE20834EF9000CBDCE /* op13_4.905s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op13_4.905s.mp3; sourceTree = "<group>"; };
+		2529DFEF20834EF9000CBDCE /* op6_3.415s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op6_3.415s.mp3; sourceTree = "<group>"; };
+		2529DFF020834EFA000CBDCE /* op17_5.960s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = op17_5.960s.mp3; sourceTree = "<group>"; };
+		253CCF072076CD130062DF17 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
 		253D3BF9206AF58E00B2E8A5 /* Platform.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.vsh; sourceTree = "<group>"; };
 		253D3BFB206AF5A800B2E8A5 /* Platform.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Platform.fsh; sourceTree = "<group>"; };
 		253D3C09206B773600B2E8A5 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
@@ -259,6 +302,13 @@
 		253D3C25206B8AE200B2E8A5 /* airplane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane.obj; sourceTree = "<group>"; };
 		253D3C27206B8BED00B2E8A5 /* airplane2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airplane2.obj; sourceTree = "<group>"; };
 		253D3C29206BF92E00B2E8A5 /* Obstacle.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.fsh; sourceTree = "<group>"; };
+		2543482220800AB0002733EF /* glitchFont.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = glitchFont.txt; sourceTree = "<group>"; };
+		2543482320800AB1002733EF /* glitchFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glitchFont.png; sourceTree = "<group>"; };
+		2543482620800AE4002733EF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		2543482820800DD2002733EF /* FontGlyph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontGlyph.swift; sourceTree = "<group>"; };
+		2543482A20804050002733EF /* FontShader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.vsh; sourceTree = "<group>"; };
+		2543482C2080405C002733EF /* FontShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.fsh; sourceTree = "<group>"; };
+		2543482E208042DA002733EF /* GlyphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNode.swift; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		25F04B9E206C206D00E1E2BB /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.vsh; sourceTree = "<group>"; };
@@ -690,6 +740,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2543482120800A9C002733EF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2543482320800AB1002733EF /* glitchFont.png */,
+				2543482220800AB0002733EF /* glitchFont.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2543483020834313002733EF /* prologue */ = {
+			isa = PBXGroup;
+			children = (
+				2529DFE320834EF1000CBDCE /* op1_3.599s.mp3 */,
+				2529DFE920834EF5000CBDCE /* op2_3.776s.mp3 */,
+				2529DFE120834EEF000CBDCE /* op3_3.234s.mp3 */,
+				2529DFE820834EF4000CBDCE /* op4_3.168s.mp3 */,
+				2529DFE520834EF2000CBDCE /* op5_4.468s.mp3 */,
+				2529DFEF20834EF9000CBDCE /* op6_3.415s.mp3 */,
+				2529DFE220834EF0000CBDCE /* op7_5.009s.mp3 */,
+				2529DFE720834EF4000CBDCE /* op8_5.445s.mp3 */,
+				2529DFE420834EF1000CBDCE /* op9_2.487s.mp3 */,
+				2529DFEB20834EF7000CBDCE /* op10_4.642s.mp3 */,
+				2529DFEA20834EF6000CBDCE /* op11_2.841s.mp3 */,
+				2529DFEC20834EF7000CBDCE /* op12_3.699s.mp3 */,
+				2529DFEE20834EF9000CBDCE /* op13_4.905s.mp3 */,
+				2529DFE620834EF3000CBDCE /* op14_1.909s.mp3 */,
+				2529DFE020834EEF000CBDCE /* op15_7.530s.mp3 */,
+				2529DFED20834EF8000CBDCE /* op16_2.178s.mp3 */,
+				2529DFF020834EFA000CBDCE /* op17_5.960s.mp3 */,
+			);
+			path = prologue;
+			sourceTree = "<group>";
+		};
 		25813544204641D5008ECC4F /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +828,7 @@
 				C90031842066E6350096EFDC /* CreditsScene.swift */,
 				C900318C2066FFE10096EFDC /* StoryScene.swift */,
 				C90031962067105C0096EFDC /* ReadmeScene.swift */,
+				253CCF072076CD130062DF17 /* PrologueScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1251,6 +1335,7 @@
 				94B7E786205E1E8000E16CFB /* PhysicsNode.swift */,
 				250C0EF6206E0C3200FDAA9F /* Quad.swift */,
 				25F3FB882085B5B500CCC948 /* QuadPowers.swift */,
+				2543482E208042DA002733EF /* GlyphNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1292,6 +1377,8 @@
 				25F3FB842085A3A100CCC948 /* Power.vsh */,
 				25F3FB862085A3B600CCC948 /* Power.fsh */,
 				25F3FB972085C7B800CCC948 /* PowerObj.fsh */,
+				2543482A20804050002733EF /* FontShader.vsh */,
+				2543482C2080405C002733EF /* FontShader.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1318,6 +1405,7 @@
 		946F820D2009ECE800367168 /* Prison_exe */ = {
 			isa = PBXGroup;
 			children = (
+				2543482120800A9C002733EF /* Fonts */,
 				949AFE96206B4DDB00120313 /* Audio */,
 				942F5C9220508A850099030F /* Physics */,
 				94BB030620507A3700E32951 /* Views */,
@@ -1352,6 +1440,8 @@
 			isa = PBXGroup;
 			children = (
 				94735FAC203CBE8200CA24B6 /* Vertex.swift */,
+				2543482620800AE4002733EF /* Font.swift */,
+				2543482820800DD2002733EF /* FontGlyph.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -1359,6 +1449,7 @@
 		949AFE96206B4DDB00120313 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				2543483020834313002733EF /* prologue */,
 				949AFE97206B4DDB00120313 /* button.mp3 */,
 				949AFE98206B4DDB00120313 /* bgm1.mp3 */,
 			);
@@ -1490,19 +1581,29 @@
 				25F3FB962085B6A000CCC948 /* pd_fast.png in Resources */,
 				25F3FB952085B6A000CCC948 /* pu_slow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
+				2529DFFE20834EFA000CBDCE /* op16_2.178s.mp3 in Resources */,
 				941B40BF205F877000CB8B76 /* LineVertexShader.glsl in Resources */,
+				2529DFF520834EFA000CBDCE /* op9_2.487s.mp3 in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				949AFE95206B4DCF00120313 /* bgm.mp3 in Resources */,
 				25F3FB872085A3B600CCC948 /* Power.fsh in Resources */,
+				2543482B20804050002733EF /* FontShader.vsh in Resources */,
+				2529DFFB20834EFA000CBDCE /* op11_2.841s.mp3 in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
+				2529DFF720834EFA000CBDCE /* op14_1.909s.mp3 in Resources */,
 				C900317F2066E4F10096EFDC /* creditList.png in Resources */,
+				2543482520800AB1002733EF /* glitchFont.png in Resources */,
 				942F5C08205089140099030F /* CMakeLists.txt in Resources */,
+				2529DFFA20834EFA000CBDCE /* op2_3.776s.mp3 in Resources */,
 				252372D12048AEB9004B73CB /* FireHydrant.png in Resources */,
 				250C0EF5206E0B5F00FDAA9F /* Background.fsh in Resources */,
 				25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */,
 				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
+				2529DFF120834EFA000CBDCE /* op15_7.530s.mp3 in Resources */,
 				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
+				2529E00120834EFA000CBDCE /* op17_5.960s.mp3 in Resources */,
+				2543482D2080405C002733EF /* FontShader.fsh in Resources */,
 				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
@@ -1521,15 +1622,24 @@
 				253D3C1A206B867900B2E8A5 /* star.png in Resources */,
 				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
+				2529DFF320834EFA000CBDCE /* op7_5.009s.mp3 in Resources */,
 				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */,
 				25F3FB9E20869B5F00CCC948 /* power.obj in Resources */,
 				25F3FB942085B6A000CCC948 /* pu_score.png in Resources */,
+				2529DFF820834EFA000CBDCE /* op8_5.445s.mp3 in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
+				2529DFFF20834EFA000CBDCE /* op13_4.905s.mp3 in Resources */,
+				2529DFFD20834EFA000CBDCE /* op12_3.699s.mp3 in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
+				2529E00020834EFA000CBDCE /* op6_3.415s.mp3 in Resources */,
+				2529DFFC20834EFA000CBDCE /* op10_4.642s.mp3 in Resources */,
+				2529DFF220834EFA000CBDCE /* op3_3.234s.mp3 in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
+				2543482420800AB1002733EF /* glitchFont.txt in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
+				2529DFF920834EFA000CBDCE /* op4_3.168s.mp3 in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
@@ -1541,10 +1651,12 @@
 				25F3FB852085A3A100CCC948 /* Power.vsh in Resources */,
 				253D3C1C206B868100B2E8A5 /* airplane.png in Resources */,
 				25F3FB912085B6A000CCC948 /* pd_swap.png in Resources */,
+				2529DFF620834EFA000CBDCE /* op5_4.468s.mp3 in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				253D3C20206B883B00B2E8A5 /* star.obj in Resources */,
 				250C0EF3206E0B4B00FDAA9F /* Background.vsh in Resources */,
 				253D3C28206B8BED00B2E8A5 /* airplane2.obj in Resources */,
+				2529DFF420834EFA000CBDCE /* op1_3.599s.mp3 in Resources */,
 				946F82142009ECE800367168 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1594,6 +1706,7 @@
 				942F5C1E205089140099030F /* btMultiBodyConstraint.cpp in Sources */,
 				942F5C7A205089140099030F /* btMultimaterialTriangleMeshShape.cpp in Sources */,
 				942F5C62205089140099030F /* btGImpactQuantizedBvh.cpp in Sources */,
+				2543482920800DD2002733EF /* FontGlyph.swift in Sources */,
 				942F5C72205089140099030F /* btTriangleCallback.cpp in Sources */,
 				942F5C11205089140099030F /* Bullet-C-API.cpp in Sources */,
 				942F5C20205089140099030F /* btMLCPSolver.cpp in Sources */,
@@ -1655,6 +1768,7 @@
 				942F5C6D205089140099030F /* btMultiSphereShape.cpp in Sources */,
 				252372D52048B3A0004B73CB /* EObstaclePosition.swift in Sources */,
 				942F5C07205089140099030F /* btQuickprof.cpp in Sources */,
+				2543482F208042DA002733EF /* GlyphNode.swift in Sources */,
 				942F5C42205089140099030F /* btVoronoiSimplexSolver.cpp in Sources */,
 				942F5C69205089140099030F /* btGImpactCollisionAlgorithm.cpp in Sources */,
 				942F5C85205089140099030F /* btOptimizedBvh.cpp in Sources */,
@@ -1670,6 +1784,7 @@
 				94BB031A20507A3700E32951 /* HelpView.swift in Sources */,
 				C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */,
 				C900318D2066FFE10096EFDC /* StoryScene.swift in Sources */,
+				253CCF082076CD130062DF17 /* PrologueScene.swift in Sources */,
 				942F5C3C205089140099030F /* btGjkPairDetector.cpp in Sources */,
 				942F5C51205089140099030F /* btActivatingCollisionAlgorithm.cpp in Sources */,
 				940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */,
@@ -1721,6 +1836,7 @@
 				942F5C0B205089140099030F /* btGeometryUtil.cpp in Sources */,
 				942F5C56205089140099030F /* btConvexConcaveCollisionAlgorithm.cpp in Sources */,
 				94474590202CF3F900BAB97B /* Node.swift in Sources */,
+				2543482720800AE4002733EF /* Font.swift in Sources */,
 				942F5C54205089140099030F /* btCollisionDispatcher.cpp in Sources */,
 				942F5C09205089140099030F /* btConvexHullComputer.cpp in Sources */,
 				942F5C0F205089140099030F /* btConvexHull.cpp in Sources */,
