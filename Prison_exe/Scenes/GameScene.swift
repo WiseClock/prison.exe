@@ -21,6 +21,7 @@ class GameScene: Scene {
     var platforms: Node
     
     var totalTime: Double
+    var graceTime: Double = 2
     
 	// PowerUp and PowerDown
     var powerTimer: Double
@@ -41,6 +42,8 @@ class GameScene: Scene {
         ShaderProgram.init(vertexShader: "Platform.vsh", fragmentShader: "Platform.fsh"),
         ShaderProgram.init(vertexShader: "Obstacle.vsh", fragmentShader: "Obstacle.fsh"),
         ShaderProgram.init(vertexShader: "Background.vsh", fragmentShader: "Background.fsh"),
+        ShaderProgram.init(vertexShader: "Power.vsh", fragmentShader: "Power.fsh"),
+        ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "PowerObj.fsh"),
     ]
     
     var obstacleAssets = [
@@ -70,6 +73,7 @@ class GameScene: Scene {
         ],
     ]
     var obstacles = [ObstacleBaby]()
+    var powerQuad1: QuadPowers
     
     // per second
     var velocity: Double = 2
@@ -134,12 +138,14 @@ class GameScene: Scene {
         platforms.scaleX = 1
         platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
         
+        powerQuad1 = QuadPowers.init(shader: GameScene.shaders[3])
+        
         super.init(name: "GameScene", shaderProgram: shaderProgram)
         
         // initialize platform with properties
         for index in 1 ... maxPlatformSize
         {
-            let platform = buildPlatform(atZ: -1 * obstacleScale * Float(index - 1))
+            let platform = buildPlatform(atZ: -1 * obstacleScale * Float(index - 1), false)
             platform.parent = self.platforms
             self.platforms.children.append(platform)
         }
@@ -163,10 +169,21 @@ class GameScene: Scene {
         bg.scaleX = 200
         bg.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), -bgDistance)
         self.children.append(bg)
+        
+        // power icons
+        powerQuad1.position = GLKVector3Make(2, Float(self.gameArea.height - 2), -20)
+        powerQuad1.scaleX = 5
+        powerQuad1.scaleY = 5
+        powerQuad1.rotationX = GLKMathDegreesToRadians(-15)
+        self.children.append(powerQuad1)
     }
     
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
+        if (graceTime >= 0)
+        {
+            graceTime -= dt
+        }
         
         physicsWorld.update(Float(dt));
 		
@@ -177,7 +194,7 @@ class GameScene: Scene {
 			isShielded = false
 			isSlowDown = false
 			isSpeedUp = false
-			self.player.isControlsSwapped = false
+			isSwapControls = false
 			isFog = false
 		}
         
@@ -197,7 +214,7 @@ class GameScene: Scene {
         
         // check current collisions
         let pn : PhysicsNode? = self.physicsWorld.checkCollisionAndReturnNode()
-        collisionCheck: if(pn != nil) {
+        collisionCheck: if(graceTime <= 0 && pn != nil) {
             // check what the player is colliding with
             let tag = pn!.physicsInfo.getTag()
             if (tag == kNoCollisionTag)
@@ -212,23 +229,28 @@ class GameScene: Scene {
 				if(!isShielded) {
 					self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
 				}
+                break
             case kPowerupTag:
                 print("Collision detected: power up \(powerUps[powerChoice])")
                 powerTimer = 5				
 				switch powerChoice
                 {
                 case 0:
-                    // isScoreDoubled = true
+                    isScoreDoubled = true
+                    powerQuad1.setTexture("pu_score.png")
                     break
                 case 1:
                     isShielded = true
+                    powerQuad1.setTexture("pu_shield.png")
                     break
                 case 2:
                     isSlowDown = true
+                    powerQuad1.setTexture("pu_slow.png")
                     break
                 default:
                     break
-				}				
+				}
+                break
             case kPowerdownTag:
                 print("Collision detected: power down \(powerDowns[powerChoice])")
                 powerTimer = 5				
@@ -236,18 +258,23 @@ class GameScene: Scene {
                 {
                 case 0:
                     isSpeedUp = true
+                    powerQuad1.setTexture("pd_fast.png")
                     break
                 case 1:
-                    self.player.isControlsSwapped = true
+                    isSwapControls = true
+                    powerQuad1.setTexture("pd_swap.png")
                     break
                 case 2:
                     // isFog = true
+                    powerQuad1.setTexture("pd_fog.png")
                     break
                 default:
                     break
 				}
+                break
             default:
                 print("Collision Error: tag: " + String(tag))
+                break
             }
             // remove the physics bounding box
             self.physicsWorld.removeCollisionObject(pn?.physicsInfo)
@@ -266,6 +293,9 @@ class GameScene: Scene {
         
         self.totalTime += dt
         self.powerTimer -= dt
+        
+        glUseProgram(GameScene.shaders[3].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[3].programHandle, "u_PowerTime"), GLfloat(self.powerTimer / 5.0))
         
         glUseProgram(GameScene.shaders[0].programHandle)
         glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Time"), GLfloat(self.totalTime))
@@ -289,7 +319,7 @@ class GameScene: Scene {
         // self.physicsWorld.debugDraw()
     }
     
-    func buildPlatform(atZ: Float) -> Node
+    func buildPlatform(atZ: Float, _ genObstacle: Bool = true) -> Node
     {
         // let platform: Cube = Cube(shader: GameScene.shaders[0])
         let platform: ObjModel = ObjModel.init(Bundle.main.path(forResource: "platform", ofType: "obj")!, shader: GameScene.shaders[0], texture: "platform.png")
@@ -301,10 +331,10 @@ class GameScene: Scene {
         platform.scaleZ = 1 * obstacleScale
         platform.position = GLKVector3Make(0, 0, atZ)
         
-        if (atZ < Float(maxPlatformSize) / Float(2) * -obstacleScale)
+        if (genObstacle)
         {
             let rand: Int = Int(arc4random_uniform(100))
-			let powerChoice = Int(arc4random_uniform(3))
+            powerChoice = Int(arc4random_uniform(3))
             
             // print("powerTimer = " + String(powerTimer))
             if(powerTimer <= 0) {
@@ -312,7 +342,7 @@ class GameScene: Scene {
                 {
                     // power up
                     let powerPosition = GLKVector3Make(0, 0, 0)
-                    let powerup = PowerUp(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition)
+                    let powerup = PowerUp(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition)
                     
                     // set the node's parent so we can properly calculate position and scale
                     powerup.parent = platform
@@ -349,7 +379,7 @@ class GameScene: Scene {
                 {
                     // power down
                     let powerPosition = GLKVector3Make(0, 0, 0)
-                    let powerdown = PowerDown(shader: shaderProgram, levelWidth: 20.0, initialPosition: powerPosition, player: player)
+                    let powerdown = PowerDown(shader: GameScene.shaders[4], levelWidth: 20.0, initialPosition: powerPosition, player: player)
                     
                     // set the node's parent so we can properly calculate position and scale
                     powerdown.parent = platform
@@ -448,6 +478,23 @@ class GameScene: Scene {
         for platform in self.platforms.children
         {
             platform.position.z += Float(velocity) * obstacleScale
+            if (powerTimer > 0.1)
+            {
+                var index = platform.children.index(where: { (item) -> Bool in
+                    item.name == "powerup" || item.name == "powerdown"
+                })
+                while (index != nil)
+                {
+                    let power = platform.children.remove(at: index!)
+                    if let ppn = power as? PhysicsNode
+                    {
+                        self.physicsWorld.removeCollisionObject(ppn.physicsInfo)
+                    }
+                    index = platform.children.index(where: { (item) -> Bool in
+                        item.name == "powerup" || item.name == "powerdown"
+                    })
+                }
+            }
         }
         
         // delete platfroms cant be seen
@@ -494,19 +541,47 @@ class GameScene: Scene {
     }
     
     override func touchGestureSwipedLeft(_ sender: UISwipeGestureRecognizer) {
-        player.move(direction: sender.direction)
+        if (isSwapControls)
+        {
+            player.move(direction: UISwipeGestureRecognizerDirection.right)
+        }
+        else
+        {
+            player.move(direction: sender.direction)
+        }
     }
     
     override func touchGestureSwipedRight(_ sender: UISwipeGestureRecognizer) {
-        player.move(direction: sender.direction)
+        if (isSwapControls)
+        {
+            player.move(direction: UISwipeGestureRecognizerDirection.left)
+        }
+        else
+        {
+            player.move(direction: sender.direction)
+        }
     }
     
     override func touchGestureSwipedUp(_ sender: UISwipeGestureRecognizer) {
-        player.move(direction: sender.direction)
+        if (isSwapControls)
+        {
+            player.move(direction: UISwipeGestureRecognizerDirection.down)
+        }
+        else
+        {
+            player.move(direction: sender.direction)
+        }
     }
     
     override func touchGestureSwipedDown(_ sender: UISwipeGestureRecognizer) {
-        player.move(direction: sender.direction)
+        if (isSwapControls)
+        {
+            player.move(direction: UISwipeGestureRecognizerDirection.up)
+        }
+        else
+        {
+            player.move(direction: sender.direction)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

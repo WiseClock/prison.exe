@@ -29,6 +29,16 @@
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		25F04B9F206C206D00E1E2BB /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F04B9E206C206D00E1E2BB /* platform.obj */; };
 		25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */; };
+		25F3FB852085A3A100CCC948 /* Power.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB842085A3A100CCC948 /* Power.vsh */; };
+		25F3FB872085A3B600CCC948 /* Power.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB862085A3B600CCC948 /* Power.fsh */; };
+		25F3FB892085B5B500CCC948 /* QuadPowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F3FB882085B5B500CCC948 /* QuadPowers.swift */; };
+		25F3FB912085B6A000CCC948 /* pd_swap.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8B2085B69B00CCC948 /* pd_swap.png */; };
+		25F3FB922085B6A000CCC948 /* pu_shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8C2085B69C00CCC948 /* pu_shield.png */; };
+		25F3FB932085B6A000CCC948 /* pd_fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8D2085B69D00CCC948 /* pd_fog.png */; };
+		25F3FB942085B6A000CCC948 /* pu_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8E2085B69E00CCC948 /* pu_score.png */; };
+		25F3FB952085B6A000CCC948 /* pu_slow.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8F2085B69F00CCC948 /* pu_slow.png */; };
+		25F3FB962085B6A000CCC948 /* pd_fast.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB902085B6A000CCC948 /* pd_fast.png */; };
+		25F3FB982085C7B800CCC948 /* PowerObj.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB972085C7B800CCC948 /* PowerObj.fsh */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409394320362181004BF7F5 /* ShaderProgram.swift */; };
 		940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940F81B5205267B60060DB4D /* PhysicsWorld.cpp */; };
@@ -249,6 +259,16 @@
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		25F04B9E206C206D00E1E2BB /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.vsh; sourceTree = "<group>"; };
+		25F3FB842085A3A100CCC948 /* Power.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Power.vsh; sourceTree = "<group>"; };
+		25F3FB862085A3B600CCC948 /* Power.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Power.fsh; sourceTree = "<group>"; };
+		25F3FB882085B5B500CCC948 /* QuadPowers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadPowers.swift; sourceTree = "<group>"; };
+		25F3FB8B2085B69B00CCC948 /* pd_swap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pd_swap.png; sourceTree = "<group>"; };
+		25F3FB8C2085B69C00CCC948 /* pu_shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pu_shield.png; sourceTree = "<group>"; };
+		25F3FB8D2085B69D00CCC948 /* pd_fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pd_fog.png; sourceTree = "<group>"; };
+		25F3FB8E2085B69E00CCC948 /* pu_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pu_score.png; sourceTree = "<group>"; };
+		25F3FB8F2085B69F00CCC948 /* pu_slow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pu_slow.png; sourceTree = "<group>"; };
+		25F3FB902085B6A000CCC948 /* pd_fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pd_fast.png; sourceTree = "<group>"; };
+		25F3FB972085C7B800CCC948 /* PowerObj.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = PowerObj.fsh; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		9409394320362181004BF7F5 /* ShaderProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		940F81B3205250EC0060DB4D /* PhysicsTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsTags.h; sourceTree = "<group>"; };
@@ -680,6 +700,19 @@
 				253D3C19206B867900B2E8A5 /* star.png */,
 			);
 			path = Obstacle;
+			sourceTree = "<group>";
+		};
+		25F3FB8A2085B65E00CCC948 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				25F3FB902085B6A000CCC948 /* pd_fast.png */,
+				25F3FB8D2085B69D00CCC948 /* pd_fog.png */,
+				25F3FB8B2085B69B00CCC948 /* pd_swap.png */,
+				25F3FB8E2085B69E00CCC948 /* pu_score.png */,
+				25F3FB8C2085B69C00CCC948 /* pu_shield.png */,
+				25F3FB8F2085B69F00CCC948 /* pu_slow.png */,
+			);
+			path = Texture;
 			sourceTree = "<group>";
 		};
 		940232B7203C070B007C9325 /* Sounds */ = {
@@ -1209,6 +1242,7 @@
 				25813583204799AD008ECC4F /* ObjModel.swift */,
 				94B7E786205E1E8000E16CFB /* PhysicsNode.swift */,
 				250C0EF6206E0C3200FDAA9F /* Quad.swift */,
+				25F3FB882085B5B500CCC948 /* QuadPowers.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1216,6 +1250,7 @@
 		9447457F202CF3F900BAB97B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25F3FB8A2085B65E00CCC948 /* Texture */,
 				25F04B9E206C206D00E1E2BB /* platform.obj */,
 				253D3C09206B773600B2E8A5 /* platform.png */,
 				25813544204641D5008ECC4F /* Obstacle */,
@@ -1245,6 +1280,9 @@
 				25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */,
 				250C0EF2206E0B4B00FDAA9F /* Background.vsh */,
 				250C0EF4206E0B5F00FDAA9F /* Background.fsh */,
+				25F3FB842085A3A100CCC948 /* Power.vsh */,
+				25F3FB862085A3B600CCC948 /* Power.fsh */,
+				25F3FB972085C7B800CCC948 /* PowerObj.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1439,10 +1477,14 @@
 				949AFE9A206B4DDB00120313 /* bgm1.mp3 in Resources */,
 				C90031812066E4F10096EFDC /* arrow.png in Resources */,
 				949AFE94206B4DCF00120313 /* pop.wav in Resources */,
+				25F3FB982085C7B800CCC948 /* PowerObj.fsh in Resources */,
+				25F3FB962085B6A000CCC948 /* pd_fast.png in Resources */,
+				25F3FB952085B6A000CCC948 /* pu_slow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				941B40BF205F877000CB8B76 /* LineVertexShader.glsl in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				949AFE95206B4DCF00120313 /* bgm.mp3 in Resources */,
+				25F3FB872085A3B600CCC948 /* Power.fsh in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				C900317F2066E4F10096EFDC /* creditList.png in Resources */,
 				942F5C08205089140099030F /* CMakeLists.txt in Resources */,
@@ -1460,8 +1502,10 @@
 				253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
+				25F3FB922085B6A000CCC948 /* pu_shield.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
 				941B40BE205F877000CB8B76 /* LineFragmentShader.glsl in Resources */,
+				25F3FB932085B6A000CCC948 /* pd_fog.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
 				253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */,
 				25F04B9F206C206D00E1E2BB /* platform.obj in Resources */,
@@ -1471,6 +1515,7 @@
 				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				94474597202CF3F900BAB97B /* SimpleVertexShader.glsl in Resources */,
 				253D3BFA206AF58E00B2E8A5 /* Platform.vsh in Resources */,
+				25F3FB942085B6A000CCC948 /* pu_score.png in Resources */,
 				94BB031720507A3700E32951 /* HelpView.xib in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
@@ -1481,7 +1526,9 @@
 				942F5C0E205089140099030F /* premake4.lua in Resources */,
 				C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */,
 				949AFE99206B4DDB00120313 /* button.mp3 in Resources */,
+				25F3FB852085A3A100CCC948 /* Power.vsh in Resources */,
 				253D3C1C206B868100B2E8A5 /* airplane.png in Resources */,
+				25F3FB912085B6A000CCC948 /* pd_swap.png in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				253D3C20206B883B00B2E8A5 /* star.obj in Resources */,
 				250C0EF3206E0B4B00FDAA9F /* Background.vsh in Resources */,
@@ -1527,6 +1574,7 @@
 				942F5C7E205089140099030F /* btTriangleMesh.cpp in Sources */,
 				942F5C1A205089140099030F /* btMultiBodyConstraintSolver.cpp in Sources */,
 				25813584204799AD008ECC4F /* ObjModel.swift in Sources */,
+				25F3FB892085B5B500CCC948 /* QuadPowers.swift in Sources */,
 				941B40B9205F385300CB8B76 /* PhysicsDebugDrawer.mm in Sources */,
 				942F5C30205089140099030F /* btGeneric6DofSpringConstraint.cpp in Sources */,
 				942F5C40205089140099030F /* btGjkEpa2.cpp in Sources */,
