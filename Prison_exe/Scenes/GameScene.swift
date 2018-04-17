@@ -211,17 +211,19 @@ class GameScene: Scene {
 		}
         
 		// in frame velocity
-		// check for slow down/speed up
-		if (isSlowDown)
+        velocity += 0.01 * dt // acceleration = 0.01
+        var v = velocity * dt
+        
+        // check for slow down/speed up
+        if (isSlowDown)
         {
-			velocity = 1.5
-		} else if(isSpeedUp) {
-			velocity = 5
-		} else {
-			velocity = 3
-		}
-		
-        let v = velocity * dt
+            v /= 2.0
+        }
+        else if(isSpeedUp)
+        {
+            v *= 1.5
+        }
+        
         movePlatforms(velocity: v)
         
         // check current collisions
@@ -277,7 +279,7 @@ class GameScene: Scene {
                     powerQuad1.setTexture("pd_swap.png")
                     break
                 case 2:
-                    // isFog = true
+                    isFog = true
                     powerQuad1.setTexture("pd_fog.png")
                     break
                 default:
