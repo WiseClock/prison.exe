@@ -55,10 +55,10 @@ void main(void) {
     lowp float y = p.y;
     
     lowp float a = makePoint(x,y,3.3,2.9,0.3,0.3,u_Time);
-    lowp float b = makePoint(x,y,1.2,1.9,0.3,0.3,u_Time);
-    lowp float c = makePoint(x,y,3.7,0.3,0.3,0.3,u_Time);
+    //lowp float b = makePoint(x,y,1.2,1.9,0.3,0.3,u_Time);
+    //lowp float c = makePoint(x,y,3.7,0.3,0.3,0.3,u_Time);
     
-    lowp vec3 d = vec3(a, b, c) / 1.0;
+    lowp vec3 d = vec3(a, a, a) / 1.0;
     
     lowp float seedx = u_Time + float(int(frag_TexCoord.x * 200.0)) / 200.0;
     lowp float seedy = u_Time + float(int(frag_TexCoord.y * 200.0)) / 200.0;
