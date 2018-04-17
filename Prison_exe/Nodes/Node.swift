@@ -100,16 +100,18 @@ class Node {
     func render(with parentModelViewMatrix: GLKMatrix4) {
         let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
         
-        for child in self.children { child.render(with: modelViewMatrix) }
-        
         self.shaderProgram.modelViewMatrix = modelViewMatrix
         self.shaderProgram.texture = self.texture
         self.shaderProgram.matColor = self.matColor
         self.shaderProgram.prepareToDraw()
         
+        // draw the object itself first so we have the blend effect
         glBindVertexArrayOES(self.vao)
         self.drawContent()
         glBindVertexArrayOES(0)
+        
+        // last in first out to blend correctly
+        for child in self.children.reversed() { child.render(with: modelViewMatrix) }
     }
     
     // override this function with the relavant drawing method (drawArrays or drawElements)

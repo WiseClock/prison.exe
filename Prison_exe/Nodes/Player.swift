@@ -387,4 +387,3 @@ class Player : PhysicsNode {
         glDrawElements(GLenum(GL_TRIANGLES), GLsizei(indices.count), GLenum(GL_UNSIGNED_INT), nil)
     }
 }
-
