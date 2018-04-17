@@ -71,6 +71,18 @@ class GameScene: Scene {
             [EObstaclePosition.Center, EObstaclePosition.Bottom, EObstaclePosition.Top],
             shaders[1]
         ],
+        [
+            "slave",
+            [EObstaclePosition.Middle],
+            [EObstaclePosition.Bottom],
+            shaders[1]
+        ],
+        [
+            "justice",
+            [EObstaclePosition.Middle],
+            [EObstaclePosition.Top],
+            shaders[1]
+        ],
     ]
     var obstacles = [ObstacleBaby]()
     var powerQuad1: QuadPowers
@@ -337,8 +349,8 @@ class GameScene: Scene {
             powerChoice = Int(arc4random_uniform(3))
             
             // print("powerTimer = " + String(powerTimer))
-            if(powerTimer <= 0) {
-                if (rand <= 10 && powersOnScreen == false) // powerup
+            if(powerTimer <= 0.1) {
+                if (rand <= 5 && powersOnScreen == false) // powerup
                 {
                     // power up
                     let powerPosition = GLKVector3Make(0, 0, 0)
@@ -375,7 +387,7 @@ class GameScene: Scene {
 					self.powersOnScreen = true
                     return platform
                 }
-                else if (rand <= 20 && powersOnScreen == false) // powerdown
+                else if (rand <= 10 && powersOnScreen == false) // powerdown
                 {
                     // power down
                     let powerPosition = GLKVector3Make(0, 0, 0)
@@ -420,6 +432,12 @@ class GameScene: Scene {
             
             // obstacle
             
+            let randObstacle: Int = Int(arc4random_uniform(100))
+            if (randObstacle < 50)
+            {
+                return platform;
+            }
+            
             let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
             let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
             let obstacle: ObjModel = obstacleBaby.instantiate()
@@ -458,11 +476,22 @@ class GameScene: Scene {
             {
             case EObstaclePosition.Top:
                 obstacle.position.y += 1 // somewhat floating height
+                if (obstacle.name.contains("justice"))
+                {
+                    obstacle.position.y += 0.2
+                    obstacle.scaleX = 1.1
+                    obstacle.scaleY = 1.1
+                }
                 break;
             case EObstaclePosition.Center:
                 obstacle.position.y += 0.5
                 break;
             case EObstaclePosition.Bottom:
+                if (obstacle.name.contains("slave"))
+                {
+                    obstacle.scaleX = 1.1
+                    obstacle.scaleY = 1.1
+                }
                 break;
             default:
                 break;

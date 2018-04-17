@@ -39,6 +39,8 @@
 		25F3FB952085B6A000CCC948 /* pu_slow.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB8F2085B69F00CCC948 /* pu_slow.png */; };
 		25F3FB962085B6A000CCC948 /* pd_fast.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB902085B6A000CCC948 /* pd_fast.png */; };
 		25F3FB982085C7B800CCC948 /* PowerObj.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB972085C7B800CCC948 /* PowerObj.fsh */; };
+		25F3FB9B2086914700CCC948 /* justice.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB992086914500CCC948 /* justice.obj */; };
+		25F3FB9C2086914700CCC948 /* slave.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F3FB9A2086914700CCC948 /* slave.obj */; };
 		940232B6203C0458007C9325 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940232B5203C0458007C9325 /* GameOverScene.swift */; };
 		9409394420362181004BF7F5 /* ShaderProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9409394320362181004BF7F5 /* ShaderProgram.swift */; };
 		940F81B8205267B60060DB4D /* PhysicsWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940F81B5205267B60060DB4D /* PhysicsWorld.cpp */; };
@@ -269,6 +271,8 @@
 		25F3FB8F2085B69F00CCC948 /* pu_slow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pu_slow.png; sourceTree = "<group>"; };
 		25F3FB902085B6A000CCC948 /* pd_fast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pd_fast.png; sourceTree = "<group>"; };
 		25F3FB972085C7B800CCC948 /* PowerObj.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = PowerObj.fsh; sourceTree = "<group>"; };
+		25F3FB992086914500CCC948 /* justice.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = justice.obj; sourceTree = "<group>"; };
+		25F3FB9A2086914700CCC948 /* slave.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = slave.obj; sourceTree = "<group>"; };
 		940232B5203C0458007C9325 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		9409394320362181004BF7F5 /* ShaderProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderProgram.swift; sourceTree = "<group>"; };
 		940F81B3205250EC0060DB4D /* PhysicsTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsTags.h; sourceTree = "<group>"; };
@@ -687,6 +691,8 @@
 		25813544204641D5008ECC4F /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
+				25F3FB992086914500CCC948 /* justice.obj */,
+				25F3FB9A2086914700CCC948 /* slave.obj */,
 				94924987206AF9160092BB10 /* FireHydrant.obj */,
 				252372D02048AEB9004B73CB /* FireHydrant.png */,
 				253D3C17206B85FD00B2E8A5 /* placeholdertexture.png */,
@@ -1523,6 +1529,8 @@
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
+				25F3FB9C2086914700CCC948 /* slave.obj in Resources */,
+				25F3FB9B2086914700CCC948 /* justice.obj in Resources */,
 				942F5C0E205089140099030F /* premake4.lua in Resources */,
 				C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */,
 				949AFE99206B4DDB00120313 /* button.mp3 in Resources */,
