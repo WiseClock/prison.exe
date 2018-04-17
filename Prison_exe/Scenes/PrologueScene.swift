@@ -200,6 +200,7 @@ class PrologueScene: Scene
             else
             {
                 currentTextIndex -= 1;
+                showGameScene()
             }
         }
     }
@@ -240,6 +241,11 @@ class PrologueScene: Scene
         //self.manager?.scene = GameScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         //self.manager?.playBtnNoise();
         
+        showGameScene()
+    }
+    
+    func showGameScene()
+    {
         self.manager?.scene = gs
     }
     
