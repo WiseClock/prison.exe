@@ -151,6 +151,7 @@ class Player : PhysicsNode {
     var totalTime: Double = 0
     var updates: Int = 0
     var crouchTimer: Double = 0
+    var timeGap: Double = 0
     
     static let playerShader: ShaderProgram = ShaderProgram.init(vertexShader: "Obstacle.vsh", fragmentShader: "Player.fsh")
     static let modelRun: ObjModel = ObjModel.init(Bundle.main.path(forResource: "player1", ofType: "obj")!, shader: Player.playerShader, texture: "player_run")
@@ -220,7 +221,7 @@ class Player : PhysicsNode {
             Player.modelRun.setupPhysicsInfo(tag: kNoCollisionTag)
         }
         Player.modelRun.rotationY = 135
-        Player.modelRun.position = GLKVector3Make(0, -0.8, 0.2)
+        Player.modelRun.position = GLKVector3Make(0, -0.8, 0.3)
         Player.modelRun.scaleY = 0.8
         Player.modelRun.scaleX = 1.2
         Player.modelRun.parent = self
@@ -230,7 +231,7 @@ class Player : PhysicsNode {
             Player.modelRun2.setupPhysicsInfo(tag: kNoCollisionTag)
         }
         Player.modelRun2.rotationY = 135
-        Player.modelRun2.position = GLKVector3Make(0, -0.8, 0.2)
+        Player.modelRun2.position = GLKVector3Make(0, -0.8, 0.3)
         Player.modelRun2.scaleY = 0.8
         Player.modelRun2.scaleX = 1.2
         Player.modelRun2.parent = self
@@ -240,7 +241,7 @@ class Player : PhysicsNode {
             Player.modelJump.setupPhysicsInfo(tag: kNoCollisionTag)
         }
         Player.modelJump.rotationY = 135
-        Player.modelJump.position = GLKVector3Make(0, -1.3, 0.2)
+        Player.modelJump.position = GLKVector3Make(0, -1.3, 0.3)
         Player.modelJump.scaleY = 0.8
         Player.modelJump.scaleX = 1.2
         Player.modelJump.parent = self
@@ -250,7 +251,7 @@ class Player : PhysicsNode {
             Player.modelCrouch.setupPhysicsInfo(tag: kNoCollisionTag)
         }
         Player.modelCrouch.rotationY = 135
-        Player.modelCrouch.position = GLKVector3Make(0, -0.3, 0.2)
+        Player.modelCrouch.position = GLKVector3Make(0, -0.3, 0.3)
         Player.modelCrouch.scaleY = 0.8
         Player.modelCrouch.scaleX = 1.2
         Player.modelCrouch.parent = self
@@ -297,7 +298,6 @@ class Player : PhysicsNode {
         glUseProgram(Player.playerShader.programHandle)
         glUniform1f(glGetUniformLocation(Player.playerShader.programHandle, "u_Time"), GLfloat(self.totalTime))
         
-        updates += 1
         if (isCrouching)
         {
             self.children.removeAll()
@@ -310,15 +310,22 @@ class Player : PhysicsNode {
         }
         else
         {
-            if (updates % 2 == 0)
+            timeGap += dt
+            if (timeGap > 0.2)
             {
-                self.children.removeAll()
-                self.children.append(Player.modelRun)
-            }
-            else
-            {
-                self.children.removeAll()
-                self.children.append(Player.modelRun2)
+                updates += 1
+                timeGap = 0
+                
+                if (updates % 2 == 0)
+                {
+                    self.children.removeAll()
+                    self.children.append(Player.modelRun)
+                }
+                else
+                {
+                    self.children.removeAll()
+                    self.children.append(Player.modelRun2)
+                }
             }
         }
         
