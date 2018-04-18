@@ -40,9 +40,10 @@ class ViewController: GLKViewController {
         //self.manager.playBackgroundMusic(file: "bgm.mp3")
         
         //score  ------not finished
-        self.manager.setupScoreLabel(label: score);
+        self.manager.setupScoreLabel(label: score)
+        self.manager.updateScore(score: 0)
         
-        if _score != nil{
+       /* if _score != nil{
             
             let _score = gamescene.score;
             self.manager.updateScore(score: _score);
@@ -50,7 +51,7 @@ class ViewController: GLKViewController {
             _score = self.gamescene.score;
             self.manager.updateScore(score: _score);
             //print("no score value")
-        }
+        }*/
         
     }
     

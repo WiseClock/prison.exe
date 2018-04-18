@@ -181,6 +181,8 @@ class GameScene: Scene {
         
         // update score based on playtime
         score += 10;
+        self.manager?.updateScore(score: score)
+        
         
         // update platform shader time
         
