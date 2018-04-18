@@ -361,7 +361,7 @@ class GameScene: Scene {
         self.scoreCounter += dt
         
         if(self.scoreCounter > 3) {
-            self.score += 10;
+            self.score += 10 * (isScoreDoubled ? 2 : 1);
             self.manager?.updateScore(score: self.score)
             self.scoreCounter = 0.0
         }
