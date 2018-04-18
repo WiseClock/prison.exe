@@ -2108,11 +2108,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Duello.Prison-exe";
-				DEVELOPMENT_TEAM = QVKQX7U2NK;
-				INFOPLIST_FILE = "$(SRCROOT)/Prison_exe/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Duello.Prisonexe.carl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Prison_exe/Prison_exe-bridging-header.h";
 				SWIFT_VERSION = 4.0;
@@ -2132,11 +2127,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Duello.Prison-exe";
-				DEVELOPMENT_TEAM = QVKQX7U2NK;
-				INFOPLIST_FILE = "$(SRCROOT)/Prison_exe/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Duello.Prisonexe.carl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Prison_exe/Prison_exe-bridging-header.h";
 				SWIFT_VERSION = 4.0;

@@ -26,6 +26,11 @@ class MainMenuScene: Scene {
 
         let ps : PrologueScene = PrologueScene.init(shaderProgram: (self.manager?.shaderProgram)!)
         // gs.lineShaderProgram = self.manager?.lineShaderProgram
+        
+        // resets score if a previously game had been played
+        self.manager?.updateScore(score: 0)
+        self.manager?.scorelabel?.isHidden = true
+        
         self.manager?.scene = ps;
         self.manager?.playBtnNoise();
         self.manager?.stopBackgroundMusic()
