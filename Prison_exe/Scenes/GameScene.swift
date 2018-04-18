@@ -21,7 +21,8 @@ class GameScene: Scene {
     var platforms: Node
     
     var totalTime: Double
-    var graceTime: Double = 2
+    var graceTime: Double = 2.5
+    var firstShown: Bool = false
     
 	// PowerUp and PowerDown
     var powerTimer: Double
@@ -47,7 +48,7 @@ class GameScene: Scene {
         ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "PowerObj.fsh"),
     ]
     
-    var obstacleAssets = [
+    static var obstacleAssets = [
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
@@ -85,7 +86,7 @@ class GameScene: Scene {
             shaders[1]
         ],
     ]
-    var obstacles = [ObstacleBaby]()
+    static var obstacles = [ObstacleBaby]()
     var lastObstaclePos:EObstaclePosition = EObstaclePosition.Middle
     var powerQuad1: QuadPowers
     
@@ -110,10 +111,13 @@ class GameScene: Scene {
         }
         
         // import obstacles
-        for asset in obstacleAssets
+        if (GameScene.obstacles.count == 0)
         {
-            let name: String = asset[0] as! String
-            obstacles.append(ObstacleBaby.init(name, shader: asset[3] as! ShaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
+            for asset in GameScene.obstacleAssets
+            {
+                let name: String = asset[0] as! String
+                GameScene.obstacles.append(ObstacleBaby.init(name, shader: asset[3] as! ShaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
+            }
         }
         
         // setup a virtual game size so we have a manageable work area
@@ -202,7 +206,7 @@ class GameScene: Scene {
     
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
-        if (graceTime >= 0)
+        if (firstShown && graceTime >= 0)
         {
             graceTime -= dt
         }
@@ -258,6 +262,30 @@ class GameScene: Scene {
                 print("Collision detected: obstacle")
                 // collision with obstacle detected, change scene to gameover scene
 				if(!isShielded) {
+                    
+                    var index = self.platforms.children.index(where: { (item) -> Bool in
+                        true
+                    })
+                    while (index != nil)
+                    {
+                        let platform = self.platforms.children.remove(at: index!)
+                        if let ppn = platform as? PhysicsNode
+                        {
+                            self.physicsWorld.removeCollisionObject(ppn.physicsInfo)
+                        }
+                        
+                        // remove node from physics world
+                        for child in platform.children {
+                            if let pn = child as? PhysicsNode {
+                                self.physicsWorld.removeCollisionObject(pn.physicsInfo)
+                            }
+                        }
+                        
+                        index = self.platforms.children.index(where: { (item) -> Bool in
+                            true
+                        })
+                    }
+                    
                     self.manager?.stopBackgroundMusic()
                     self.manager?.playBackgroundMusic(file: "game_over.mp3")
                     self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!, score: self.score)
@@ -357,6 +385,8 @@ class GameScene: Scene {
         let modelViewMatrix = GLKMatrix4Multiply(parentModelViewMatrix, self.modelMatrix)
         
         super.render(with: parentModelViewMatrix)
+        
+        firstShown = true
         
         // loads a new shader program and draws physics debug info (WARNING: FOR TESTING PURPOSES ONLY)
         // self.lineShaderProgram?.modelViewMatrix = modelViewMatrix
@@ -479,8 +509,8 @@ class GameScene: Scene {
                 return platform;
             }
             
-            let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
-            let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
+            let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(GameScene.obstacles.count)))
+            let obstacleBaby: ObstacleBaby = GameScene.obstacles[randomObstacleIndex]
             
             var tryCounter = 0
             var obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()

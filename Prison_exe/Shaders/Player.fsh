@@ -24,7 +24,7 @@ lowp float rand(lowp vec2 co)
 
 lowp float makePoint(lowp float x, lowp float y, lowp float fx, lowp float fy, lowp float sx, lowp float sy, lowp float t)
 {
-    t = t * 1000.0;
+    //t = t * 1000.0;
     lowp float xx=x+sin(t*fx)*sx;
     lowp float yy=y+cos(t*fy)*sy;
     return 1.0/sqrt(xx*xx+yy*yy);
@@ -67,7 +67,7 @@ void main(void) {
     finalColor = vec4(0.0, 0.0, 0.0, 0.0);
     
     if (r < 0.5)
-        finalColor = vec4(1.0, 0.0, 0.0, 1.0) + vec4(d.rgb, 1.0) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0);
+        finalColor = vec4(0.0, 1.0, 1.0, 1.0) + vec4(d.rgb, 1.0) * vec4((AmbientColor + DiffuseColor + SpecularColor), 1.0);
     
     gl_FragColor = finalColor;
 }
