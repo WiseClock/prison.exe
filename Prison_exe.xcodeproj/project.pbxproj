@@ -274,6 +274,16 @@
 		C90031972067105C0096EFDC /* ReadmeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90031962067105C0096EFDC /* ReadmeScene.swift */; };
 		C9003199206712830096EFDC /* ReadmeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9003198206712830096EFDC /* ReadmeView.swift */; };
 		C900319B2067135F0096EFDC /* ReadmeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C900319A2067135F0096EFDC /* ReadmeView.xib */; };
+		C9C46ED5208715C6002ED3E6 /* readme3.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ECB208715C3002ED3E6 /* readme3.png */; };
+		C9C46ED6208715C6002ED3E6 /* readme8.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ECC208715C4002ED3E6 /* readme8.png */; };
+		C9C46ED7208715C6002ED3E6 /* readme10.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ECD208715C4002ED3E6 /* readme10.png */; };
+		C9C46ED8208715C6002ED3E6 /* readme2.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ECE208715C4002ED3E6 /* readme2.png */; };
+		C9C46ED9208715C6002ED3E6 /* readme6.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ECF208715C5002ED3E6 /* readme6.png */; };
+		C9C46EDA208715C6002ED3E6 /* readme1.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ED0208715C5002ED3E6 /* readme1.png */; };
+		C9C46EDB208715C6002ED3E6 /* readme4.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ED1208715C5002ED3E6 /* readme4.png */; };
+		C9C46EDC208715C6002ED3E6 /* readme5.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ED2208715C5002ED3E6 /* readme5.png */; };
+		C9C46EDD208715C6002ED3E6 /* readme9.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ED3208715C5002ED3E6 /* readme9.png */; };
+		C9C46EDE208715C6002ED3E6 /* readme7.png in Resources */ = {isa = PBXBuildFile; fileRef = C9C46ED4208715C6002ED3E6 /* readme7.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -751,6 +761,16 @@
 		C90031962067105C0096EFDC /* ReadmeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeScene.swift; sourceTree = "<group>"; };
 		C9003198206712830096EFDC /* ReadmeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadmeView.swift; sourceTree = "<group>"; };
 		C900319A2067135F0096EFDC /* ReadmeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadmeView.xib; sourceTree = "<group>"; };
+		C9C46ECB208715C3002ED3E6 /* readme3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme3.png; sourceTree = "<group>"; };
+		C9C46ECC208715C4002ED3E6 /* readme8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme8.png; sourceTree = "<group>"; };
+		C9C46ECD208715C4002ED3E6 /* readme10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme10.png; sourceTree = "<group>"; };
+		C9C46ECE208715C4002ED3E6 /* readme2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme2.png; sourceTree = "<group>"; };
+		C9C46ECF208715C5002ED3E6 /* readme6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme6.png; sourceTree = "<group>"; };
+		C9C46ED0208715C5002ED3E6 /* readme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme1.png; sourceTree = "<group>"; };
+		C9C46ED1208715C5002ED3E6 /* readme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme4.png; sourceTree = "<group>"; };
+		C9C46ED2208715C5002ED3E6 /* readme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme5.png; sourceTree = "<group>"; };
+		C9C46ED3208715C5002ED3E6 /* readme9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme9.png; sourceTree = "<group>"; };
+		C9C46ED4208715C6002ED3E6 /* readme7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readme7.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1547,6 +1567,16 @@
 		C900319320670EC10096EFDC /* Readme Images */ = {
 			isa = PBXGroup;
 			children = (
+				C9C46ED0208715C5002ED3E6 /* readme1.png */,
+				C9C46ECE208715C4002ED3E6 /* readme2.png */,
+				C9C46ECB208715C3002ED3E6 /* readme3.png */,
+				C9C46ED1208715C5002ED3E6 /* readme4.png */,
+				C9C46ED2208715C5002ED3E6 /* readme5.png */,
+				C9C46ECF208715C5002ED3E6 /* readme6.png */,
+				C9C46ED4208715C6002ED3E6 /* readme7.png */,
+				C9C46ECC208715C4002ED3E6 /* readme8.png */,
+				C9C46ED3208715C5002ED3E6 /* readme9.png */,
+				C9C46ECD208715C4002ED3E6 /* readme10.png */,
 			);
 			path = "Readme Images";
 			sourceTree = "<group>";
@@ -1626,6 +1656,7 @@
 				25F3FB872085A3B600CCC948 /* Power.fsh in Resources */,
 				2543482B20804050002733EF /* FontShader.vsh in Resources */,
 				2529DFFB20834EFA000CBDCE /* op11_2.841s.mp3 in Resources */,
+				C9C46EDB208715C6002ED3E6 /* readme4.png in Resources */,
 				5F2B9F6B208671F800BD52EB /* power_down.wav in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				2529DFF720834EFA000CBDCE /* op14_1.909s.mp3 in Resources */,
@@ -1644,27 +1675,35 @@
 				2543482D2080405C002733EF /* FontShader.fsh in Resources */,
 				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				5F2B9F762086727F00BD52EB /* story_0.jpg in Resources */,
-				253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */,
+				C9C46ED9208715C6002ED3E6 /* readme6.png in Resources */,
+				C9C46ED6208715C6002ED3E6 /* readme8.png in Resources */,
+				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
 				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
 				5F2B9F6D208671F800BD52EB /* collision.wav in Resources */,
+				C9C46ED8208715C6002ED3E6 /* readme2.png in Resources */,
 				946F82192009ECE800367168 /* LaunchScreen.storyboard in Resources */,
 				253D3C18206B85FD00B2E8A5 /* placeholdertexture.png in Resources */,
+				C9C46ED5208715C6002ED3E6 /* readme3.png in Resources */,
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
 				25F3FB922085B6A000CCC948 /* pu_shield.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
 				5F2B9F772086727F00BD52EB /* story_1.jpg in Resources */,
+				C9C46EDD208715C6002ED3E6 /* readme9.png in Resources */,
 				941B40BE205F877000CB8B76 /* LineFragmentShader.glsl in Resources */,
 				25F3FB932085B6A000CCC948 /* pd_fog.png in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
+				C9C46EDE208715C6002ED3E6 /* readme7.png in Resources */,
 				253D3C1E206B868900B2E8A5 /* airplane2.png in Resources */,
 				25F04B9F206C206D00E1E2BB /* platform.obj in Resources */,
 				253D3C1A206B867900B2E8A5 /* star.png in Resources */,
+				C9C46ED7208715C6002ED3E6 /* readme10.png in Resources */,
 				252372D32048B2F2004B73CB /* FireHydrant.obj in Resources */,
 				946F82162009ECE800367168 /* Assets.xcassets in Resources */,
 				2529DFF320834EFA000CBDCE /* op7_5.009s.mp3 in Resources */,
+				C9C46EDC208715C6002ED3E6 /* readme5.png in Resources */,
 				253D3C0A206B773600B2E8A5 /* platform.png in Resources */,
 				5F2B9F6C208671F800BD52EB /* game_over.mp3 in Resources */,
 				5F2B9F792086727F00BD52EB /* story_3.jpg in Resources */,
@@ -1688,6 +1727,7 @@
 				5F2B9F69208671F800BD52EB /* game.mp3 in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,
 				5F2B9F782086727F00BD52EB /* story_2.png in Resources */,
+				C9C46EDA208715C6002ED3E6 /* readme1.png in Resources */,
 				94BB031520507A3700E32951 /* HelpText.png in Resources */,
 				C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */,
 				25F3FB9C2086914700CCC948 /* slave.obj in Resources */,

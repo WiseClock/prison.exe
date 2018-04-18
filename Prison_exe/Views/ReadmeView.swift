@@ -14,6 +14,7 @@ class ReadmeView: UIView {
     @IBOutlet weak var guideImage: UIImageView!
     var scene : ReadmeScene?
     var imageNumber : Int?
+    var readmeImages :Int?
     
     override init(frame: CGRect) {
         super.init(frame: frame);
@@ -31,6 +32,7 @@ class ReadmeView: UIView {
         contentView.frame = self.bounds;
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth];
         imageNumber = 0
+        readmeImages = 9
         swapImage(image: imageNumber!)
     }
     
@@ -38,12 +40,44 @@ class ReadmeView: UIView {
         //this section will switch to the appropriate storyImage
         switch image {
         case 0:
-            //first story image (placeholder)
-            guideImage.image = UIImage(named: "dungeon_01.png")
+            //first readme image
+            guideImage.image = UIImage(named: "readme1.png")
             break;
         case 1:
-            guideImage.image = UIImage(named: "title_placeholder.jpg")
-            //second story image
+            guideImage.image = UIImage(named: "readme2.png")
+            //second readme image
+            break
+        case 2:
+            guideImage.image = UIImage(named: "readme3.png")
+            //third story image
+            break
+        case 3:
+            guideImage.image = UIImage(named: "readme4.png")
+            //fourth readme image
+            break
+        case 4:
+            guideImage.image = UIImage(named: "readme5.png")
+            //fifth readme image
+            break
+        case 5:
+            guideImage.image = UIImage(named: "readme6.png")
+            //sixth readme image
+            break
+        case 6:
+            guideImage.image = UIImage(named: "readme7.png")
+            //seventh readme image
+            break
+        case 7:
+            guideImage.image = UIImage(named: "readme8.png")
+            //eigth readme image
+            break
+        case 8:
+            guideImage.image = UIImage(named: "readme9.png")
+            //ninth readme image
+            break
+        case 9:
+            guideImage.image = UIImage(named: "readme10.png")
+            //tenth readme image
             break
         default:
             //do nothing if out of bounds
@@ -53,7 +87,10 @@ class ReadmeView: UIView {
     
     @IBAction func lastButtonPressed(_ sender: Any) {
         //this will decrement the required story image and wrap around if below zero to max value for story images
-        imageNumber = imageNumber! - 1
+        imageNumber! = imageNumber! - 1
+        if (imageNumber! < 0 ) {
+            imageNumber! = readmeImages!
+        }
         //check here
         swapImage(image: imageNumber!)
         scene?.manager?.playBtnNoise();
@@ -61,7 +98,10 @@ class ReadmeView: UIView {
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         //this will increment the required story image and wrap around if below zero to max value for story images
-        imageNumber = imageNumber! + 1
+        imageNumber! = imageNumber! + 1
+        if (imageNumber! > readmeImages! ) {
+            imageNumber! = 0
+        }
         //check here
         swapImage(image: imageNumber!)
         scene?.manager?.playBtnNoise();
