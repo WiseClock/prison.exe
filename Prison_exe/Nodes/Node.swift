@@ -106,9 +106,12 @@ class Node {
         self.shaderProgram.prepareToDraw()
         
         // draw the object itself first so we have the blend effect
-        glBindVertexArrayOES(self.vao)
-        self.drawContent()
-        glBindVertexArrayOES(0)
+        if (!(self is Player))
+        {
+            glBindVertexArrayOES(self.vao)
+            self.drawContent()
+            glBindVertexArrayOES(0)
+        }
         
         // last in first out to blend correctly
         for child in self.children.reversed() { child.render(with: modelViewMatrix) }

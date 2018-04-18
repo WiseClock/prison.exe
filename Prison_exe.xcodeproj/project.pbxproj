@@ -51,6 +51,11 @@
 		2543482B20804050002733EF /* FontShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482A20804050002733EF /* FontShader.vsh */; };
 		2543482D2080405C002733EF /* FontShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2543482C2080405C002733EF /* FontShader.fsh */; };
 		2543482F208042DA002733EF /* GlyphNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2543482E208042DA002733EF /* GlyphNode.swift */; };
+		2561947B2086EB5E008869AD /* player1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 256194772086EB5C008869AD /* player1.obj */; };
+		2561947C2086EB5E008869AD /* player2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 256194782086EB5C008869AD /* player2.obj */; };
+		2561947D2086EB5E008869AD /* player3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 256194792086EB5D008869AD /* player3.obj */; };
+		2561947E2086EB5E008869AD /* player4.obj in Resources */ = {isa = PBXBuildFile; fileRef = 2561947A2086EB5E008869AD /* player4.obj */; };
+		256194802086ED07008869AD /* Player.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2561947F2086ED07008869AD /* Player.fsh */; };
 		25813584204799AD008ECC4F /* ObjModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25813583204799AD008ECC4F /* ObjModel.swift */; };
 		25F04B9F206C206D00E1E2BB /* platform.obj in Resources */ = {isa = PBXBuildFile; fileRef = 25F04B9E206C206D00E1E2BB /* platform.obj */; };
 		25F04BA1206D8CEF00E1E2BB /* Obstacle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */; };
@@ -321,6 +326,11 @@
 		2543482A20804050002733EF /* FontShader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.vsh; sourceTree = "<group>"; };
 		2543482C2080405C002733EF /* FontShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = FontShader.fsh; sourceTree = "<group>"; };
 		2543482E208042DA002733EF /* GlyphNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphNode.swift; sourceTree = "<group>"; };
+		256194772086EB5C008869AD /* player1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = player1.obj; sourceTree = "<group>"; };
+		256194782086EB5C008869AD /* player2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = player2.obj; sourceTree = "<group>"; };
+		256194792086EB5D008869AD /* player3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = player3.obj; sourceTree = "<group>"; };
+		2561947A2086EB5E008869AD /* player4.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = player4.obj; sourceTree = "<group>"; };
+		2561947F2086ED07008869AD /* Player.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Player.fsh; sourceTree = "<group>"; };
 		25813583204799AD008ECC4F /* ObjModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjModel.swift; sourceTree = "<group>"; };
 		25F04B9E206C206D00E1E2BB /* platform.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = platform.obj; sourceTree = "<group>"; };
 		25F04BA0206D8CEF00E1E2BB /* Obstacle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Obstacle.vsh; sourceTree = "<group>"; };
@@ -1380,6 +1390,10 @@
 		9447457F202CF3F900BAB97B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				256194772086EB5C008869AD /* player1.obj */,
+				256194782086EB5C008869AD /* player2.obj */,
+				256194792086EB5D008869AD /* player3.obj */,
+				2561947A2086EB5E008869AD /* player4.obj */,
 				25F3FB8A2085B65E00CCC948 /* Texture */,
 				25F04B9E206C206D00E1E2BB /* platform.obj */,
 				253D3C09206B773600B2E8A5 /* platform.png */,
@@ -1416,6 +1430,7 @@
 				25F3FB972085C7B800CCC948 /* PowerObj.fsh */,
 				2543482A20804050002733EF /* FontShader.vsh */,
 				2543482C2080405C002733EF /* FontShader.fsh */,
+				2561947F2086ED07008869AD /* Player.fsh */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -1610,6 +1625,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2561947B2086EB5E008869AD /* player1.obj in Resources */,
 				949AFE9A206B4DDB00120313 /* bgm1.mp3 in Resources */,
 				C90031812066E4F10096EFDC /* arrow.png in Resources */,
 				949AFE94206B4DCF00120313 /* pop.wav in Resources */,
@@ -1639,12 +1655,13 @@
 				C900318B2066F7ED0096EFDC /* back_arrow.png in Resources */,
 				94474593202CF3F900BAB97B /* dungeon_01.png in Resources */,
 				2529DFF120834EFA000CBDCE /* op15_7.530s.mp3 in Resources */,
+				2561947C2086EB5E008869AD /* player2.obj in Resources */,
 				253D3C26206B8AE200B2E8A5 /* airplane.obj in Resources */,
 				2529E00120834EFA000CBDCE /* op17_5.960s.mp3 in Resources */,
 				2543482D2080405C002733EF /* FontShader.fsh in Resources */,
 				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				5F2B9F762086727F00BD52EB /* story_0.jpg in Resources */,
-				253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */,
+				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
 				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
@@ -1654,6 +1671,7 @@
 				94474595202CF3F900BAB97B /* SimpleFragmentShader.glsl in Resources */,
 				C90031802066E4F10096EFDC /* credits.png in Resources */,
 				25F3FB922085B6A000CCC948 /* pu_shield.png in Resources */,
+				2561947E2086EB5E008869AD /* player4.obj in Resources */,
 				94BB031420507A3700E32951 /* title_placeholder.jpg in Resources */,
 				5F2B9F772086727F00BD52EB /* story_1.jpg in Resources */,
 				941B40BE205F877000CB8B76 /* LineFragmentShader.glsl in Resources */,
@@ -1677,6 +1695,7 @@
 				2529DFFF20834EFA000CBDCE /* op13_4.905s.mp3 in Resources */,
 				2529DFFD20834EFA000CBDCE /* op12_3.699s.mp3 in Resources */,
 				5F2B9F7A2086727F00BD52EB /* story_4.jpg in Resources */,
+				256194802086ED07008869AD /* Player.fsh in Resources */,
 				94924988206AF9160092BB10 /* FireHydrant.obj in Resources */,
 				2529E00020834EFA000CBDCE /* op6_3.415s.mp3 in Resources */,
 				2529DFFC20834EFA000CBDCE /* op10_4.642s.mp3 in Resources */,
@@ -1684,6 +1703,7 @@
 				94BB031920507A3700E32951 /* MainMenuView.xib in Resources */,
 				2543482420800AB1002733EF /* glitchFont.txt in Resources */,
 				94BB031820507A3700E32951 /* HighScoresView.xib in Resources */,
+				2561947D2086EB5E008869AD /* player3.obj in Resources */,
 				2529DFF920834EFA000CBDCE /* op4_3.168s.mp3 in Resources */,
 				5F2B9F69208671F800BD52EB /* game.mp3 in Resources */,
 				C90031892066F4C50096EFDC /* StoryView.xib in Resources */,

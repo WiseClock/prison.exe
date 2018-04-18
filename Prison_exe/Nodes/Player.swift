@@ -146,6 +146,18 @@ class Player : PhysicsNode {
     // checks if the controls are swapped
     var isControlsSwapped : Bool
     
+    let normalYOffset: Float
+    
+    var totalTime: Double = 0
+    var updates: Int = 0
+    var crouchTimer: Double = 0
+    
+    static let playerShader: ShaderProgram = ShaderProgram.init(vertexShader: "Obstacle.vsh", fragmentShader: "Player.fsh")
+    static let modelRun: ObjModel = ObjModel.init(Bundle.main.path(forResource: "player1", ofType: "obj")!, shader: Player.playerShader, texture: "player_run")
+    static let modelRun2: ObjModel = ObjModel.init(Bundle.main.path(forResource: "player2", ofType: "obj")!, shader: Player.playerShader, texture: "player_run2")
+    static let modelJump: ObjModel = ObjModel.init(Bundle.main.path(forResource: "player3", ofType: "obj")!, shader: Player.playerShader, texture: "player_jump")
+    static let modelCrouch: ObjModel = ObjModel.init(Bundle.main.path(forResource: "player4", ofType: "obj")!, shader: Player.playerShader, texture: "player_crouch")
+    
     init(shader: ShaderProgram, levelWidth: Float, initialPosition: GLKVector3) {
         self.isMoving = false
         self.maxMoveLength = 0.0
@@ -161,6 +173,7 @@ class Player : PhysicsNode {
         self.currentMoveDirection = UISwipeGestureRecognizerDirection.left
         
         self.initialPosition = initialPosition;
+        normalYOffset = initialPosition.y
         
         // initalize jumping variables
         self.isJumping = false
@@ -182,11 +195,13 @@ class Player : PhysicsNode {
         
         //super.init(shader: shader)
         
+        Player.playerShader.projectionMatrix = shader.projectionMatrix
+        
         super.init(name: "player", shaderProgram: shader, vertices: vertexList, indices: indexList)
         self.loadTexture("dungeon_01.png")
         
         // set color and size of players bounding box
-        self.matColor = GLKVector4Make(1, 0, 1, 1)
+        self.matColor = GLKVector4Make(1, 1, 1, 1)
         self.scaleY = 7.5
         self.scaleX = 4.0
         self.scaleZ = 4.0
@@ -199,6 +214,46 @@ class Player : PhysicsNode {
         
         // calculate the proper min crouch factor by multiplying with the scale
         self.minCrouchFactor *= self.scaleY
+        
+        if (Player.modelRun.physicsInfo.getTag() != kNoCollisionTag)
+        {
+            Player.modelRun.setupPhysicsInfo(tag: kNoCollisionTag)
+        }
+        Player.modelRun.rotationY = 135
+        Player.modelRun.position = GLKVector3Make(0, -0.8, 0.2)
+        Player.modelRun.scaleY = 0.8
+        Player.modelRun.scaleX = 1.2
+        Player.modelRun.parent = self
+        
+        if (Player.modelRun2.physicsInfo.getTag() != kNoCollisionTag)
+        {
+            Player.modelRun2.setupPhysicsInfo(tag: kNoCollisionTag)
+        }
+        Player.modelRun2.rotationY = 135
+        Player.modelRun2.position = GLKVector3Make(0, -0.8, 0.2)
+        Player.modelRun2.scaleY = 0.8
+        Player.modelRun2.scaleX = 1.2
+        Player.modelRun2.parent = self
+        
+        if (Player.modelJump.physicsInfo.getTag() != kNoCollisionTag)
+        {
+            Player.modelJump.setupPhysicsInfo(tag: kNoCollisionTag)
+        }
+        Player.modelJump.rotationY = 135
+        Player.modelJump.position = GLKVector3Make(0, -1.3, 0.2)
+        Player.modelJump.scaleY = 0.8
+        Player.modelJump.scaleX = 1.2
+        Player.modelJump.parent = self
+        
+        if (Player.modelCrouch.physicsInfo.getTag() != kNoCollisionTag)
+        {
+            Player.modelCrouch.setupPhysicsInfo(tag: kNoCollisionTag)
+        }
+        Player.modelCrouch.rotationY = 135
+        Player.modelCrouch.position = GLKVector3Make(0, -0.3, 0.2)
+        Player.modelCrouch.scaleY = 0.8
+        Player.modelCrouch.scaleX = 1.2
+        Player.modelCrouch.parent = self
     }
     
     // causes the player to begin moving
@@ -236,6 +291,36 @@ class Player : PhysicsNode {
     
     override func updateWithDelta(_ dt: TimeInterval) {
         super.updateWithDelta(dt)
+        
+        totalTime += dt
+        
+        glUseProgram(Player.playerShader.programHandle)
+        glUniform1f(glGetUniformLocation(Player.playerShader.programHandle, "u_Time"), GLfloat(self.totalTime))
+        
+        updates += 1
+        if (isCrouching)
+        {
+            self.children.removeAll()
+            self.children.append(Player.modelCrouch)
+        }
+        else if (isJumping)
+        {
+            self.children.removeAll()
+            self.children.append(Player.modelJump)
+        }
+        else
+        {
+            if (updates % 2 == 0)
+            {
+                self.children.removeAll()
+                self.children.append(Player.modelRun)
+            }
+            else
+            {
+                self.children.removeAll()
+                self.children.append(Player.modelRun2)
+            }
+        }
         
         if(isMoving && !isControlsSwapped) {
             switch(currentMoveDirection) {
@@ -345,7 +430,17 @@ class Player : PhysicsNode {
                 
             case UISwipeGestureRecognizerDirection.down:
                 if(isCrouching) {
+                    crouchTimer += dt
+                    if(crouchTimer < 1) {
+                        self.position.y = normalYOffset - 4
+                    } else {
+                        self.isCrouching = false;
+                        crouchTimer = 0
+                        self.position.y = normalYOffset
+                    }
+                    
                     //begin crouching
+                    /*
                     if(self.scaleY != self.minCrouchFactor) {
                         self.scaleY -= self.speed * Float(dt)
                         self.position.y -= (self.speed * 0.5) * Float(dt)
@@ -362,7 +457,11 @@ class Player : PhysicsNode {
                     if(self.scaleY < self.minCrouchFactor) {
                         self.scaleY = self.minCrouchFactor
                     }
+                     */
                 } else {
+                    self.isMoving = false
+                    self.position.y = normalYOffset
+                    /*
                     // scale back up to our inital scale
                     if(self.scaleY != self.initalScaleY) {
                         self.scaleY += self.speed * Float(dt)
@@ -375,6 +474,7 @@ class Player : PhysicsNode {
                     if(self.scaleY > self.initalScaleY) {
                         self.scaleY = self.initalScaleY
                     }
+                    */
                 }
                 
             default:
