@@ -48,7 +48,7 @@ class GameScene: Scene {
         ShaderProgram.init(vertexShader: "SimpleVertexShader.glsl", fragmentShader: "PowerObj.fsh"),
     ]
     
-    var obstacleAssets = [
+    static var obstacleAssets = [
         [
             "FireHydrant",
             [EObstaclePosition.Left, EObstaclePosition.Middle, EObstaclePosition.Right],
@@ -86,7 +86,7 @@ class GameScene: Scene {
             shaders[1]
         ],
     ]
-    var obstacles = [ObstacleBaby]()
+    static var obstacles = [ObstacleBaby]()
     var lastObstaclePos:EObstaclePosition = EObstaclePosition.Middle
     var powerQuad1: QuadPowers
     
@@ -106,10 +106,13 @@ class GameScene: Scene {
         }
         
         // import obstacles
-        for asset in obstacleAssets
+        if (GameScene.obstacles.count == 0)
         {
-            let name: String = asset[0] as! String
-            obstacles.append(ObstacleBaby.init(name, shader: asset[3] as! ShaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
+            for asset in GameScene.obstacleAssets
+            {
+                let name: String = asset[0] as! String
+                GameScene.obstacles.append(ObstacleBaby.init(name, shader: asset[3] as! ShaderProgram, horizontalPos: asset[1] as! [EObstaclePosition], verticlePos: asset[2] as! [EObstaclePosition]))
+            }
         }
         
         // setup a virtual game size so we have a manageable work area
@@ -488,8 +491,8 @@ class GameScene: Scene {
                 return platform;
             }
             
-            let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(obstacles.count)))
-            let obstacleBaby: ObstacleBaby = obstacles[randomObstacleIndex]
+            let randomObstacleIndex: Int = Int(arc4random_uniform(UInt32(GameScene.obstacles.count)))
+            let obstacleBaby: ObstacleBaby = GameScene.obstacles[randomObstacleIndex]
             
             var tryCounter = 0
             var obstacleHorizontal: EObstaclePosition = obstacleBaby.getRandomHorizontal()
