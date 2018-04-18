@@ -26,6 +26,11 @@ class GameManager {
     var powerDownNoise : AVAudioPlayer?
     var slideNoise :AVAudioPlayer?
     
+    // scoring
+    var scorelabel: UILabel?
+    var currentScore: Int
+    var highScores: HighScores
+    
     init(view: GLKView, scene: Scene, shaderProgram: ShaderProgram) {
         self.glkView = view
         self.scene = scene
@@ -37,6 +42,8 @@ class GameManager {
             GLfloat(view.bounds.size.width / view.bounds.size.height),
             1,
             300)
+        self.currentScore = 0
+        self.highScores = HighScores.init()
         self.scene.manager = self
     }
     
@@ -139,5 +146,11 @@ class GameManager {
     
     func playPowerDownNoise() {
         self.powerDownNoise?.play()
+    }
+    
+    // update on screen label with current score
+    func updateScore(score: Int){
+        self.currentScore = score
+        self.scorelabel?.text = "Score: " + String(self.currentScore)
     }
 }

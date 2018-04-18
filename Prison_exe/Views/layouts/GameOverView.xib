@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameOverView" customModule="Prison_exe" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="J3c-JR-EA4"/>
+                <outlet property="nameTextField" destination="qZD-3C-v1T" id="Bhl-8o-4cE"/>
                 <outlet property="scoreLabel" destination="uUs-Ed-ORV" id="g8i-af-Bwa"/>
             </connections>
         </placeholder>

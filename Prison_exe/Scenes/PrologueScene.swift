@@ -248,6 +248,7 @@ class PrologueScene: Scene
     {
         self.manager?.playBackgroundMusic(file: "game.mp3")
         self.manager?.scene = gs
+        self.manager?.scorelabel?.isHidden = false
     }
     
 }

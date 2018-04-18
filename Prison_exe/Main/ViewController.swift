@@ -13,6 +13,8 @@ class ViewController: GLKViewController {
     var glkUpdater : GLKUpdater!
     var manager: GameManager!
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,8 @@ class ViewController: GLKViewController {
         self.manager.setPowerDownNoise(file: "power_down.wav")
         self.manager.playBackgroundMusic(file: "bgm1.mp3")
         //self.manager.playBackgroundMusic(file: "bgm.mp3")
+        
+        self.manager.scorelabel = self.scoreLabel
     }
     
     override func didReceiveMemoryWarning() {

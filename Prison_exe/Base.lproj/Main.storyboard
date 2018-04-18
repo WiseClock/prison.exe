@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GSr-ag-k9Z">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,9 +15,25 @@
             <objects>
                 <glkViewController preferredFramesPerSecond="30" id="GSr-ag-k9Z" customClass="ViewController" customModule="Prison_exe" customModuleProvider="target" sceneMemberID="viewController">
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="rNz-fu-In7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LED-OC-BAo">
+                                <rect key="frame" x="88" y="20" width="145" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="HSX-ry-UUS"/>
+                                    <constraint firstAttribute="height" constant="21" id="VRv-N8-HX8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="LED-OC-BAo" firstAttribute="centerX" secondItem="rNz-fu-In7" secondAttribute="centerX" id="8l8-ES-puE"/>
+                            <constraint firstItem="LED-OC-BAo" firstAttribute="top" secondItem="Woi-6I-udI" secondAttribute="top" id="KSV-3P-2ZF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Woi-6I-udI"/>
                         <connections>
                             <outlet property="delegate" destination="GSr-ag-k9Z" id="vYk-ac-1Ax"/>
@@ -27,6 +43,9 @@
                             <outletCollection property="gestureRecognizers" destination="Fgp-Ok-gob" appends="YES" id="Pza-bq-x3p"/>
                         </connections>
                     </glkView>
+                    <connections>
+                        <outlet property="scoreLabel" destination="LED-OC-BAo" id="98a-ET-1Ee"/>
+                    </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN8-EN-R34" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="Fgp-Ok-gob" userLabel="Swipe Left Gesture Recognizer">
@@ -50,7 +69,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7" y="9"/>
+            <point key="canvasLocation" x="5.625" y="8.4507042253521121"/>
         </scene>
     </scenes>
 </document>

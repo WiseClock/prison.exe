@@ -96,6 +96,11 @@ class GameScene: Scene {
     
     var lineShaderProgram : LineShaderProgram?
     
+    // scoring
+    var score: Int
+    
+    var scoreCounter: Double
+    
     init(shaderProgram: ShaderProgram) {
         
         // init shaders
@@ -153,6 +158,9 @@ class GameScene: Scene {
         platforms.position = GLKVector3Make(Float(self.gameArea.width / 2), Float(self.gameArea.height * 0.2), 0)
         
         powerQuad1 = QuadPowers.init(shader: GameScene.shaders[3])
+        
+        self.score = 0
+        self.scoreCounter = 0.0
         
         super.init(name: "GameScene", shaderProgram: shaderProgram)
         
@@ -252,7 +260,7 @@ class GameScene: Scene {
 				if(!isShielded) {
                     self.manager?.stopBackgroundMusic()
                     self.manager?.playBackgroundMusic(file: "game_over.mp3")
-					self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!)
+                    self.manager?.scene = GameOverScene.init(shaderProgram: (self.manager?.shaderProgram)!, view: (self.manager?.glkView)!, score: self.score)
 				}
                 break
             case kPowerupTag:
@@ -320,6 +328,16 @@ class GameScene: Scene {
         
         self.totalTime += dt
         self.powerTimer -= dt
+        
+        // update score based on playtime
+        self.scoreCounter += dt
+        
+        if(self.scoreCounter > 3) {
+            self.score += 10;
+            self.manager?.updateScore(score: self.score)
+            self.scoreCounter = 0.0
+        }
+
         
         glUseProgram(GameScene.shaders[3].programHandle)
         glUniform1f(glGetUniformLocation(GameScene.shaders[3].programHandle, "u_PowerTime"), GLfloat(self.powerTimer / 5.0))

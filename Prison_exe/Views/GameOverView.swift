@@ -12,6 +12,8 @@ class GameOverView: UIView {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    
     var scene : GameOverScene?
     
     override init(frame: CGRect) {
@@ -33,6 +35,7 @@ class GameOverView: UIView {
     }
 
     @IBAction func saveScoreButtonPressed(_ sender: Any) {
+        scene?.saveScoreButtonPressed()
     }
     
     @IBAction func playAgainButtonPressed(_ sender: Any) {
@@ -46,5 +49,4 @@ class GameOverView: UIView {
     @IBAction func mainMenuButtonPressed(_ sender: Any) {
         scene?.mainMenuButtonPressed()
     }
-    
 }
