@@ -378,6 +378,15 @@ class GameScene: Scene {
         
         glUseProgram(GameScene.shaders[2].programHandle)
         glUniform1f(glGetUniformLocation(GameScene.shaders[2].programHandle, "u_Time"), GLfloat(self.totalTime))
+        
+        glUseProgram(GameScene.shaders[0].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[0].programHandle, "u_Fog"), GLfloat(isFog ? 1.0 : 0.0))
+        
+        glUseProgram(GameScene.shaders[1].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[1].programHandle, "u_Fog"), GLfloat(isFog ? 1.0 : 0.0))
+        
+        glUseProgram(GameScene.shaders[3].programHandle)
+        glUniform1f(glGetUniformLocation(GameScene.shaders[3].programHandle, "u_Fog"), GLfloat(isFog ? 1.0 : 0.0))
     }
     
     // renders object and all children with the loaded shader program
