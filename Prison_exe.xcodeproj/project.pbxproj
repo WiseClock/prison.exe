@@ -259,6 +259,7 @@
 		94E7B9D6203A4A6000A6A1CE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E7B9D5203A4A6000A6A1CE /* GameScene.swift */; };
 		94ED73D820522D9300A738C3 /* PhysicsInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94ED73D420522D9300A738C3 /* PhysicsInfo.cpp */; };
 		94ED73D920522D9300A738C3 /* PhysicsInfoWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 94ED73D520522D9300A738C3 /* PhysicsInfoWrapper.mm */; };
+		94F8C70920870AB3009A0F49 /* HighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F8C70820870AB3009A0F49 /* HighScores.swift */; };
 		C1162A242046744700D55DD3 /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1162A222046744700D55DD3 /* PowerUp.swift */; };
 		C1162A252046744700D55DD3 /* PowerDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1162A232046744700D55DD3 /* PowerDown.swift */; };
 		C900317B2066DF4E0096EFDC /* CreditsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C900317A2066DF4E0096EFDC /* CreditsView.xib */; };
@@ -736,6 +737,7 @@
 		94ED73D520522D9300A738C3 /* PhysicsInfoWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsInfoWrapper.mm; sourceTree = "<group>"; };
 		94ED73D620522D9300A738C3 /* PhysicsInfoWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsInfoWrapper.h; sourceTree = "<group>"; };
 		94ED73D720522D9300A738C3 /* PhysicsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsInfo.h; sourceTree = "<group>"; };
+		94F8C70820870AB3009A0F49 /* HighScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScores.swift; sourceTree = "<group>"; };
 		C1162A222046744700D55DD3 /* PowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
 		C1162A232046744700D55DD3 /* PowerDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerDown.swift; sourceTree = "<group>"; };
 		C900317A2066DF4E0096EFDC /* CreditsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreditsView.xib; sourceTree = "<group>"; };
@@ -1442,6 +1444,7 @@
 		946F820D2009ECE800367168 /* Prison_exe */ = {
 			isa = PBXGroup;
 			children = (
+				94F8C70720870AB3009A0F49 /* Scoring */,
 				2543482120800A9C002733EF /* Fonts */,
 				949AFE96206B4DDB00120313 /* Audio */,
 				942F5C9220508A850099030F /* Physics */,
@@ -1544,6 +1547,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		94F8C70720870AB3009A0F49 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				94F8C70820870AB3009A0F49 /* HighScores.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
 		C900319320670EC10096EFDC /* Readme Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -1644,7 +1655,7 @@
 				2543482D2080405C002733EF /* FontShader.fsh in Resources */,
 				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				5F2B9F762086727F00BD52EB /* story_0.jpg in Resources */,
-				253D3C2A206BF92E00B2E8A5 /* Player.fsh in Resources */,
+				253D3C2A206BF92E00B2E8A5 /* Obstacle.fsh in Resources */,
 				94BB031620507A3700E32951 /* GameOverView.xib in Resources */,
 				253D3C10206B80F700B2E8A5 /* FireHydrant.png in Resources */,
 				253D3BFC206AF5A800B2E8A5 /* Platform.fsh in Resources */,
@@ -1859,6 +1870,7 @@
 				942F5C83205089140099030F /* btBvhTriangleMeshShape.cpp in Sources */,
 				942F5C48205089140099030F /* btBox2dBox2dCollisionAlgorithm.cpp in Sources */,
 				94ED73D920522D9300A738C3 /* PhysicsInfoWrapper.mm in Sources */,
+				94F8C70920870AB3009A0F49 /* HighScores.swift in Sources */,
 				942F5C68205089140099030F /* btGImpactBvh.cpp in Sources */,
 				942F5C3D205089140099030F /* btConvexCast.cpp in Sources */,
 				942F5C87205089140099030F /* btConvexPolyhedron.cpp in Sources */,

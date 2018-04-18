@@ -11,6 +11,7 @@ import UIKit
 class GameOverView: UIView {
 
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
     var scene : GameOverScene?
     
     override init(frame: CGRect) {
@@ -31,6 +32,9 @@ class GameOverView: UIView {
         scene?.manager?.playBackgroundMusic(file: "game_over.mp3")
     }
 
+    @IBAction func saveScoreButtonPressed(_ sender: Any) {
+    }
+    
     @IBAction func playAgainButtonPressed(_ sender: Any) {
         scene?.playAgainButtonPressed()
     }

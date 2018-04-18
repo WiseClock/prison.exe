@@ -13,6 +13,17 @@ class HighScoresView: UIView {
     @IBOutlet var contentView: UIView!
     var scene : HighScoresScene?
     
+    @IBOutlet weak var nameLabel1: UILabel!
+    @IBOutlet weak var scoreLabel1: UILabel!
+    @IBOutlet weak var nameLabel2: UILabel!
+    @IBOutlet weak var scoreLabel2: UILabel!
+    @IBOutlet weak var nameLabel3: UILabel!
+    @IBOutlet weak var scoreLabel3: UILabel!
+    @IBOutlet weak var nameLabel4: UILabel!
+    @IBOutlet weak var scoreLabel4: UILabel!
+    @IBOutlet weak var nameLabel5: UILabel!
+    @IBOutlet weak var scoreLabel5: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame);
         commonInit();
